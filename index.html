@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <title>Carla Perfumaria — Perfumes árabes, importados e nacionais</title>
+
+    <meta
+      name="description"
+      content="Perfumes árabes originais, importados e a linha nacional Brand Collection. Navegue por categoria, veja as notas de cada fragrância e feche o pedido pelo WhatsApp."
+    />
+
+    <!-- Icons -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%8D%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Fontes (bunny.net, GDPR compliant) -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+
+      @theme {
+        --default-font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+      }
+    </style>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+      [x-cloak] { display: none !important; }
+      .sem-scrollbar::-webkit-scrollbar { display: none; }
+      .sem-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
+    <!-- Catálogo: gerado por gerar-catalogo.py -->
+    <script src="data/catalogo.js"></script>
+
+    <script>
+      function loja() {
+        return {
+          /* ---------------------------------------------------------- estado */
+          dados: window.CATALOGO,
+          rota: { view: "home", slug: null, id: null },
+          busca: "",
+          filtroGenero: "todos",
+          filtroTipo: "todos",
+          ordenacao: "relevancia",
+          carrinho: [],
+          carrinhoAberto: false,
+          menuAberto: false,
+          buscaAberta: false,
+          escuro: false,
+          aviso: "",
+          avisoTimer: null,
+
+          /* ------------------------------------------------------------ init */
+          init() {
+            this.montarIndice();
+            this.carrinho = this.lerArmazenado("carla:carrinho", []);
+            this.escuro = this.lerArmazenado("carla:escuro", false);
+            this.aplicarTema();
+
+            if (!location.hash) location.hash = "#/";
+            this.aplicarRota();
+            window.addEventListener("hashchange", () => this.aplicarRota());
+
+            this.$watch("carrinho", (v) => this.gravar("carla:carrinho", v));
+            this.$watch("escuro", (v) => {
+              this.gravar("carla:escuro", v);
+              this.aplicarTema();
+            });
+          },
+
+          lerArmazenado(chave, padrao) {
+            try {
+              const bruto = localStorage.getItem(chave);
+              return bruto ? JSON.parse(bruto) : padrao;
+            } catch (e) {
+              return padrao;
+            }
+          },
+          gravar(chave, valor) {
+            try {
+              localStorage.setItem(chave, JSON.stringify(valor));
+            } catch (e) {}
+          },
+          aplicarTema() {
+            document.documentElement.classList.toggle("dark", this.escuro);
+          },
+
+          /* ----------------------------------------------------------- rotas */
+          aplicarRota() {
+            const partes = location.hash.replace(/^#\/?/, "").split("/");
+            const raiz = partes[0] || "";
+
+            if (raiz === "categoria" && this.categoria(partes[1])) {
+              this.rota = { view: "categoria", slug: partes[1], id: null };
+            } else if (raiz === "produto" && this.produto(partes[1])) {
+              this.rota = { view: "produto", slug: null, id: partes[1] };
+            } else if (raiz === "produtos") {
+              this.rota = { view: "produtos", slug: null, id: null };
+            } else if (raiz === "carrinho") {
+              this.rota = { view: "carrinho", slug: null, id: null };
+            } else {
+              this.rota = { view: "home", slug: null, id: null };
+            }
+
+            this.menuAberto = false;
+            this.buscaAberta = false;
+            if (this.rota.view !== "produtos") this.limparFiltros();
+            window.scrollTo({ top: 0, behavior: "instant" });
+          },
+          ir(destino) {
+            location.hash = destino;
+          },
+          limparFiltros() {
+            this.busca = "";
+            this.filtroGenero = "todos";
+            this.filtroTipo = "todos";
+            this.ordenacao = "relevancia";
+          },
+
+          /* --------------------------------------------------------- catálogo */
+          categoria(slug) {
+            return this.dados.categorias.find((c) => c.slug === slug);
+          },
+          categoriaAtual() {
+            return this.categoria(this.rota.slug) || this.dados.categorias[0];
+          },
+          produto(id) {
+            return this.dados.produtos.find((p) => p.id === id);
+          },
+          produtoAtual() {
+            return this.produto(this.rota.id) || this.dados.produtos[0];
+          },
+          destaques() {
+            return this.dados.produtos.filter((p) => p.destaque).slice(0, 8);
+          },
+          relacionados(produto) {
+            return this.dados.produtos
+              .filter((p) => p.categoria === produto.categoria && p.id !== produto.id)
+              .slice(0, 4);
+          },
+
+          normalizar(texto) {
+            return (texto || "")
+              .toString()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .toLowerCase()
+              // apostrofos somem (J'adore -> jadore); o resto vira espaco
+              .replace(/[\u0027\u0060\u00b4\u2018\u2019\u0022]/g, "")
+              .replace(/[^a-z0-9]+/g, " ")
+              .trim();
+          },
+
+          // texto de busca ja normalizado, montado uma vez no init
+          indiceBusca: {},
+          montarIndice() {
+            this.dados.produtos.forEach((produto) => {
+              this.indiceBusca[produto.id] = this.normalizar(
+                [produto.nome, produto.marca, produto.tipo, produto.volume, produto.descricao].join(" ")
+              );
+            });
+          },
+
+          escopo() {
+            if (this.rota.view === "categoria") {
+              return this.dados.produtos.filter((p) => p.categoria === this.rota.slug);
+            }
+            return this.dados.produtos;
+          },
+
+          tiposDisponiveis() {
+            return [...new Set(this.escopo().map((p) => p.tipo))].sort();
+          },
+
+          lista() {
+            let itens = this.escopo();
+
+            const termos = this.normalizar(this.busca).split(" ").filter(Boolean);
+            if (termos.length) {
+              itens = itens.filter((p) => {
+                const alvo = this.indiceBusca[p.id] || "";
+                return termos.every((t) => alvo.includes(t));
+              });
+            }
+            if (this.filtroGenero !== "todos") {
+              itens = itens.filter((p) => p.genero === this.filtroGenero);
+            }
+            if (this.filtroTipo !== "todos") {
+              itens = itens.filter((p) => p.tipo === this.filtroTipo);
+            }
+
+            const semPreco = (p) => (p.preco === null ? Infinity : p.preco);
+            if (this.ordenacao === "menor") {
+              itens = [...itens].sort((a, b) => semPreco(a) - semPreco(b));
+            } else if (this.ordenacao === "maior") {
+              itens = [...itens].sort((a, b) => (b.preco || 0) - (a.preco || 0));
+            } else if (this.ordenacao === "az") {
+              itens = [...itens].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+            }
+            return itens;
+          },
+
+          /* --------------------------------------------------------- carrinho */
+          adicionar(produto, quantidade = 1) {
+            const existente = this.carrinho.find((i) => i.id === produto.id);
+            if (existente) {
+              existente.qtd += quantidade;
+            } else {
+              this.carrinho.push({ id: produto.id, qtd: quantidade });
+            }
+            this.carrinho = [...this.carrinho];
+            this.mostrarAviso(produto.nome + " no carrinho");
+          },
+          alterarQtd(id, delta) {
+            const item = this.carrinho.find((i) => i.id === id);
+            if (!item) return;
+            item.qtd += delta;
+            if (item.qtd < 1) return this.remover(id);
+            this.carrinho = [...this.carrinho];
+          },
+          remover(id) {
+            this.carrinho = this.carrinho.filter((i) => i.id !== id);
+          },
+          itensCarrinho() {
+            return this.carrinho
+              .map((i) => ({ ...i, produto: this.produto(i.id) }))
+              .filter((i) => i.produto);
+          },
+          totalItens() {
+            return this.carrinho.reduce((soma, i) => soma + i.qtd, 0);
+          },
+          subtotal() {
+            return this.itensCarrinho().reduce(
+              (soma, i) => soma + (i.produto.preco || 0) * i.qtd,
+              0
+            );
+          },
+          temSobConsulta() {
+            return this.itensCarrinho().some((i) => i.produto.preco === null);
+          },
+
+          mostrarAviso(texto) {
+            this.aviso = texto;
+            clearTimeout(this.avisoTimer);
+            this.avisoTimer = setTimeout(() => (this.aviso = ""), 2600);
+          },
+
+          /* -------------------------------------------------------- WhatsApp */
+          moeda(valor) {
+            if (valor === null || valor === undefined) return "Sob consulta";
+            return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+          },
+          whatsappConfigurado() {
+            const n = this.dados.loja.whatsapp || "";
+            return n.length >= 12 && !/^5500000/.test(n);
+          },
+          linkWhatsapp(texto) {
+            return "https://wa.me/" + this.dados.loja.whatsapp + "?text=" + encodeURIComponent(texto);
+          },
+          pedidoDoProduto(produto) {
+            return (
+              "Olá! Tenho interesse neste produto da " + this.dados.loja.nome + ":\n\n" +
+              "• " + produto.nome + " (" + produto.volume + ") — " + this.moeda(produto.preco) +
+              "\n\nEle está disponível?"
+            );
+          },
+          pedidoDoCarrinho() {
+            const linhas = this.itensCarrinho().map(
+              (i) =>
+                "• " + i.qtd + "x " + i.produto.nome + " (" + i.produto.volume + ") — " +
+                (i.produto.preco === null
+                  ? "valor a combinar"
+                  : this.moeda(i.produto.preco * i.qtd))
+            );
+            let texto =
+              "Olá! Quero fazer um pedido na " + this.dados.loja.nome + ":\n\n" +
+              linhas.join("\n") + "\n\nSubtotal: " + this.moeda(this.subtotal());
+            if (this.temSobConsulta()) {
+              texto += "\n(há itens sob consulta — preciso do valor)";
+            }
+            return texto;
+          },
+
+          /* ---------------------------------------------------------- rótulos */
+          rotuloGenero(genero) {
+            return { feminino: "Feminino", masculino: "Masculino", unissex: "Unissex" }[genero] || genero;
+          },
+          corGenero(genero) {
+            return {
+              feminino: "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-200",
+              masculino: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200",
+              unissex: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
+            }[genero];
+          },
+        };
+      }
+    </script>
+  </head>
+
+  <body class="antialiased">
+    <div
+      x-data="loja()"
+      x-init="init()"
+      class="min-h-dvh min-w-80 bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200"
+    >
+      <!-- ================================================== CABEÇALHO ===== -->
+      <header
+        class="sticky top-0 z-40 border-b border-stone-200/80 bg-stone-50/90 backdrop-blur-md dark:border-stone-800 dark:bg-stone-950/90"
+      >
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 lg:px-8">
+          <!-- Marca -->
+          <a
+            href="#/"
+            class="group flex shrink-0 items-baseline gap-2"
+            x-on:click="limparFiltros()"
+          >
+            <span
+              class="font-display text-2xl leading-none font-medium tracking-wide text-stone-900 group-hover:text-amber-700 dark:text-stone-50 dark:group-hover:text-amber-400"
+              x-text="dados.loja.nome"
+            ></span>
+          </a>
+
+          <!-- Navegação desktop -->
+          <nav class="hidden items-center gap-6 xl:flex">
+            <template x-for="categoria in dados.categorias" :key="categoria.slug">
+              <a
+                :href="'#/categoria/' + categoria.slug"
+                class="text-sm font-medium text-stone-600 decoration-amber-600 decoration-2 underline-offset-8 hover:text-stone-950 hover:underline dark:text-stone-400 dark:hover:text-white"
+                x-text="categoria.nome"
+              ></a>
+            </template>
+          </nav>
+
+          <!-- Ações -->
+          <div class="flex items-center gap-1">
+            <button
+              type="button"
+              x-on:click="buscaAberta = !buscaAberta; $nextTick(() => buscaAberta && $refs.campoBusca.focus())"
+              class="inline-flex size-10 items-center justify-center rounded-lg text-stone-600 hover:bg-stone-200/70 dark:text-stone-400 dark:hover:bg-stone-800"
+              aria-label="Buscar perfumes"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              x-on:click="escuro = !escuro"
+              class="inline-flex size-10 items-center justify-center rounded-lg text-stone-600 hover:bg-stone-200/70 dark:text-stone-400 dark:hover:bg-stone-800"
+              :aria-label="escuro ? 'Ativar modo claro' : 'Ativar modo escuro'"
+            >
+              <svg x-show="!escuro" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              <svg x-show="escuro" x-cloak xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+              </svg>
+            </button>
+
+            <a
+              href="#/carrinho"
+              class="relative inline-flex size-10 items-center justify-center rounded-lg text-stone-600 hover:bg-stone-200/70 dark:text-stone-400 dark:hover:bg-stone-800"
+              aria-label="Abrir carrinho"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+              </svg>
+              <span
+                x-show="totalItens() > 0"
+                x-cloak
+                class="absolute -top-0.5 -right-0.5 inline-flex min-w-5 items-center justify-center rounded-full bg-amber-600 px-1.5 py-0.5 text-[11px] font-bold text-white"
+                x-text="totalItens()"
+              ></span>
+            </a>
+
+            <button
+              type="button"
+              x-on:click="menuAberto = !menuAberto"
+              class="inline-flex size-10 items-center justify-center rounded-lg text-stone-600 hover:bg-stone-200/70 xl:hidden dark:text-stone-400 dark:hover:bg-stone-800"
+              aria-label="Abrir menu"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Campo de busca -->
+        <div x-show="buscaAberta" x-cloak x-transition class="border-t border-stone-200 px-4 py-3 lg:px-8 dark:border-stone-800">
+          <div class="mx-auto flex max-w-7xl items-center gap-3">
+            <input
+              x-ref="campoBusca"
+              type="search"
+              x-model="busca"
+              x-on:input="if (rota.view !== 'produtos' && rota.view !== 'categoria') ir('#/produtos')"
+              x-on:keydown.enter="ir('#/produtos')"
+              placeholder="Buscar por nome, marca ou nota olfativa…"
+              class="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm outline-none placeholder:text-stone-400 focus:border-amber-600 dark:border-stone-700 dark:bg-stone-900"
+            />
+            <button
+              type="button"
+              x-on:click="buscaAberta = false"
+              class="shrink-0 text-sm font-medium text-stone-500 hover:text-stone-900 dark:hover:text-white"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <div x-show="menuAberto" x-cloak x-transition class="border-t border-stone-200 xl:hidden dark:border-stone-800">
+          <nav class="mx-auto max-w-7xl px-4 py-3">
+            <a href="#/produtos" class="block rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-stone-200/70 dark:hover:bg-stone-800">
+              Todos os produtos
+            </a>
+            <template x-for="categoria in dados.categorias" :key="categoria.slug">
+              <a
+                :href="'#/categoria/' + categoria.slug"
+                class="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-stone-200/70 dark:hover:bg-stone-800"
+              >
+                <span x-text="categoria.nome"></span>
+                <span class="text-xs text-stone-400" x-text="categoria.total"></span>
+              </a>
+            </template>
+          </nav>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-7xl px-4 pb-16 lg:px-8">
+        <!-- ================================================== HOME ======== -->
+        <section x-show="rota.view === 'home'" x-cloak>
+          <!-- Hero -->
+          <div class="grid grid-cols-1 gap-6 py-8 md:grid-cols-12 md:py-12">
+            <div class="md:col-span-7">
+              <div class="overflow-hidden rounded-2xl bg-stone-200 dark:bg-stone-900">
+                <img
+                  src="assets/marca/5.jpg"
+                  alt="Aplicação de perfume no pescoço"
+                  class="h-full max-h-[34rem] w-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col justify-center md:col-span-5">
+              <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                Perfumaria
+              </p>
+              <h1 class="font-display mt-4 text-5xl leading-[1.05] font-medium text-stone-900 lg:text-6xl dark:text-white">
+                A fragrância certa muda o dia inteiro.
+              </h1>
+              <p class="mt-5 leading-relaxed text-stone-600 dark:text-stone-400">
+                Árabes originais de alta fixação, importados lacrados e a linha nacional Brand Collection.
+                <span x-text="dados.produtos.length"></span> produtos com notas olfativas descritas,
+                organizados por categoria.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#/produtos"
+                  class="inline-flex items-center gap-2 rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-stone-700 dark:bg-amber-600 dark:hover:bg-amber-500"
+                >
+                  Ver todos os produtos
+                </a>
+                <a
+                  href="#categorias"
+                  class="inline-flex items-center gap-2 rounded-lg border border-stone-300 px-6 py-3.5 text-sm font-semibold text-stone-800 hover:bg-stone-200/70 dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800"
+                >
+                  Navegar por categoria
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selos -->
+          <div class="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-stone-200 sm:grid-cols-3 dark:bg-stone-800">
+            <div class="bg-stone-50 p-6 dark:bg-stone-950">
+              <p class="font-display text-xl text-stone-900 dark:text-white">Originais e lacrados</p>
+              <p class="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
+                Árabes e importados originais, com procedência.
+              </p>
+            </div>
+            <div class="bg-stone-50 p-6 dark:bg-stone-950">
+              <p class="font-display text-xl text-stone-900 dark:text-white">Entrega combinada</p>
+              <p class="mt-1.5 text-sm text-stone-600 dark:text-stone-400" x-text="dados.loja.entrega"></p>
+            </div>
+            <div class="bg-stone-50 p-6 dark:bg-stone-950">
+              <p class="font-display text-xl text-stone-900 dark:text-white">Pagamento fácil</p>
+              <p class="mt-1.5 text-sm text-stone-600 dark:text-stone-400" x-text="dados.loja.pagamento"></p>
+            </div>
+          </div>
+
+          <!-- Categorias -->
+          <div id="categorias" class="scroll-mt-24 pt-16">
+            <div class="flex items-end justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                  Categorias
+                </p>
+                <h2 class="font-display mt-3 text-4xl font-medium text-stone-900 dark:text-white">
+                  Escolha por onde começar
+                </h2>
+              </div>
+              <a href="#/produtos" class="hidden shrink-0 text-sm font-medium text-stone-600 underline-offset-4 hover:underline sm:block dark:text-stone-400">
+                Ver tudo
+              </a>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <template x-for="categoria in dados.categorias" :key="categoria.slug">
+                <a
+                  :href="'#/categoria/' + categoria.slug"
+                  class="group relative overflow-hidden rounded-2xl bg-stone-900"
+                >
+                  <img
+                    :src="categoria.capa"
+                    :alt="categoria.nome"
+                    loading="lazy"
+                    class="h-72 w-full object-cover opacity-80 transition duration-500 ease-out group-hover:scale-105 group-hover:opacity-60"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/25 to-transparent"></div>
+                  <div class="absolute inset-x-0 bottom-0 p-6">
+                    <p class="text-[11px] font-semibold tracking-[0.2em] text-amber-300 uppercase">
+                      <span x-text="categoria.total"></span> produtos
+                    </p>
+                    <h3 class="font-display mt-1.5 text-3xl font-medium text-white" x-text="categoria.nome"></h3>
+                    <p class="mt-1 text-sm text-stone-300" x-text="categoria.chamada"></p>
+                  </div>
+                </a>
+              </template>
+            </div>
+          </div>
+
+          <!-- Destaques -->
+          <div class="pt-16">
+            <div class="flex items-end justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                  Seleção
+                </p>
+                <h2 class="font-display mt-3 text-4xl font-medium text-stone-900 dark:text-white">
+                  Os mais pedidos
+                </h2>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
+              <template x-for="p in destaques()" :key="p.id">
+                <a :href="'#/produto/' + p.id" class="group block">
+                  <div class="overflow-hidden rounded-2xl bg-white dark:bg-stone-900">
+                    <img
+                      :src="p.imagem"
+                      :alt="p.nome"
+                      loading="lazy"
+                      class="aspect-square w-full object-contain p-4 transition duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <p class="mt-3 text-[11px] font-semibold tracking-wider text-stone-500 uppercase" x-text="p.marca"></p>
+                  <h3 class="mt-0.5 font-medium text-stone-900 dark:text-stone-100" x-text="p.nome"></h3>
+                  <p class="mt-1 text-sm font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(p.preco)"></p>
+                </a>
+              </template>
+            </div>
+          </div>
+
+          <!-- Sobre -->
+          <div class="mt-20 grid grid-cols-1 gap-8 overflow-hidden rounded-2xl bg-white md:grid-cols-2 dark:bg-stone-900">
+            <img
+              src="assets/marca/20.jpg"
+              alt="Atendimento personalizado da perfumaria"
+              loading="lazy"
+              class="h-full max-h-[28rem] w-full object-cover"
+            />
+            <div class="flex flex-col justify-center p-8 lg:p-12">
+              <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                Sobre
+              </p>
+              <h2 class="font-display mt-4 text-4xl font-medium text-stone-900 dark:text-white">
+                Atendimento de perto, escolha sem pressa
+              </h2>
+              <p class="mt-5 leading-relaxed text-stone-600 dark:text-stone-400">
+                Cada fragrância do catálogo vem com as notas de topo, coração e fundo descritas — assim
+                você escolhe pelo perfil olfativo, não só pelo nome. Ficou em dúvida entre duas?
+                Chame no WhatsApp que a gente ajuda a decidir, e o decante de 5 ml existe justamente
+                para experimentar antes.
+              </p>
+              <div class="mt-8">
+                <a
+                  :href="linkWhatsapp('Olá! Vim pelo site e gostaria de uma recomendação de perfume.')"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-emerald-700"
+                >
+                  Falar no WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================== CATEGORIA / PRODUTOS ==== -->
+        <section x-show="rota.view === 'categoria' || rota.view === 'produtos'" x-cloak class="pt-8">
+          <!-- Capa da categoria -->
+          <template x-for="c in (rota.view === 'categoria' ? [categoriaAtual()] : [])" :key="c.slug">
+            <div class="relative overflow-hidden rounded-2xl bg-stone-900">
+              <img :src="c.capa" :alt="c.nome" class="h-64 w-full object-cover opacity-55 md:h-80" />
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 p-6 md:p-10">
+                <nav class="mb-3 flex items-center gap-2 text-xs text-stone-300">
+                  <a href="#/" class="hover:text-white">Início</a>
+                  <span>/</span>
+                  <span class="text-white" x-text="c.nome"></span>
+                </nav>
+                <h1 class="font-display text-4xl font-medium text-white md:text-5xl" x-text="c.nome"></h1>
+                <p class="mt-3 max-w-2xl text-sm leading-relaxed text-stone-300" x-text="c.descricao"></p>
+                <a
+                  :href="c.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur hover:bg-white/20"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  Baixar catálogo em PDF
+                </a>
+              </div>
+            </div>
+          </template>
+
+          <template x-if="rota.view === 'produtos'">
+            <div>
+              <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                Catálogo completo
+              </p>
+              <h1 class="font-display mt-3 text-4xl font-medium text-stone-900 md:text-5xl dark:text-white">
+                Todos os produtos
+              </h1>
+            </div>
+          </template>
+
+          <!-- Filtros -->
+          <div class="mt-8 flex flex-col gap-4 border-b border-stone-200 pb-5 lg:flex-row lg:items-center lg:justify-between dark:border-stone-800">
+            <div class="flex flex-wrap items-center gap-2">
+              <template x-for="opcao in [['todos','Todos'],['feminino','Feminino'],['masculino','Masculino'],['unissex','Unissex']]" :key="opcao[0]">
+                <button
+                  type="button"
+                  x-on:click="filtroGenero = opcao[0]"
+                  :class="filtroGenero === opcao[0]
+                    ? 'bg-stone-900 text-white dark:bg-amber-600'
+                    : 'bg-stone-200/70 text-stone-700 hover:bg-stone-300/70 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700'"
+                  class="rounded-full px-4 py-2 text-sm font-medium"
+                  x-text="opcao[1]"
+                ></button>
+              </template>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <input
+                type="search"
+                x-model="busca"
+                placeholder="Buscar nesta lista…"
+                class="w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none placeholder:text-stone-400 focus:border-amber-600 sm:w-56 dark:border-stone-700 dark:bg-stone-900"
+              />
+              <select
+                x-model="filtroTipo"
+                class="rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-amber-600 dark:border-stone-700 dark:bg-stone-900"
+              >
+                <option value="todos">Todos os tipos</option>
+                <template x-for="tipo in tiposDisponiveis()" :key="tipo">
+                  <option :value="tipo" x-text="tipo"></option>
+                </template>
+              </select>
+              <select
+                x-model="ordenacao"
+                class="rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-amber-600 dark:border-stone-700 dark:bg-stone-900"
+              >
+                <option value="relevancia">Ordenar</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
+                <option value="az">Nome (A–Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="mt-5 text-sm text-stone-500 dark:text-stone-400">
+            <span x-text="lista().length"></span>
+            <span x-text="lista().length === 1 ? ' produto' : ' produtos'"></span>
+          </p>
+
+          <!-- Grade -->
+          <div class="mt-5 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            <template x-for="p in lista()" :key="p.id">
+              <article class="group flex flex-col">
+                <a :href="'#/produto/' + p.id" class="block">
+                  <div class="relative overflow-hidden rounded-2xl bg-white dark:bg-stone-900">
+                    <img
+                      :src="p.imagem"
+                      :alt="p.nome"
+                      loading="lazy"
+                      class="aspect-square w-full object-contain p-4 transition duration-300 group-hover:scale-105"
+                    />
+                    <span
+                      class="absolute top-3 left-3 rounded-full px-2.5 py-1 text-[11px] font-semibold"
+                      :class="corGenero(p.genero)"
+                      x-text="rotuloGenero(p.genero)"
+                    ></span>
+                  </div>
+                  <p class="mt-3 text-[11px] font-semibold tracking-wider text-stone-500 uppercase" x-text="p.marca"></p>
+                  <h3 class="mt-0.5 leading-snug font-medium text-stone-900 dark:text-stone-100" x-text="p.nome"></h3>
+                  <p class="mt-0.5 text-xs text-stone-500 dark:text-stone-400" x-text="p.volume"></p>
+                </a>
+                <div class="mt-auto flex items-center justify-between gap-2 pt-3">
+                  <span class="text-sm font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(p.preco)"></span>
+                  <button
+                    type="button"
+                    x-on:click="adicionar(p)"
+                    class="rounded-lg bg-stone-900 px-3 py-2 text-xs font-semibold text-white hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-white"
+                  >
+                    Adicionar
+                  </button>
+                </div>
+              </article>
+            </template>
+          </div>
+
+          <!-- Vazio -->
+          <div x-show="lista().length === 0" class="rounded-2xl border border-dashed border-stone-300 py-20 text-center dark:border-stone-700">
+            <p class="font-display text-2xl text-stone-900 dark:text-white">Nenhum produto encontrado</p>
+            <p class="mt-2 text-sm text-stone-500">Tente outro termo ou limpe os filtros.</p>
+            <button
+              type="button"
+              x-on:click="limparFiltros()"
+              class="mt-6 rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-semibold hover:bg-stone-200/70 dark:border-stone-700 dark:hover:bg-stone-800"
+            >
+              Limpar filtros
+            </button>
+          </div>
+        </section>
+
+        <!-- ================================================= PRODUTO ====== -->
+        <section x-show="rota.view === 'produto'" x-cloak class="pt-8">
+          <template x-for="p in (rota.view === 'produto' ? [produtoAtual()] : [])" :key="p.id">
+            <div x-data="{ qtd: 1 }">
+              <nav class="flex flex-wrap items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
+                <a href="#/" class="hover:text-stone-900 dark:hover:text-white">Início</a>
+                <span>/</span>
+                <a :href="'#/categoria/' + p.categoria" class="hover:text-stone-900 dark:hover:text-white" x-text="categoria(p.categoria).nome"></a>
+                <span>/</span>
+                <span class="text-stone-900 dark:text-white" x-text="p.nome"></span>
+              </nav>
+
+              <div class="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2">
+                <div class="overflow-hidden rounded-2xl bg-white dark:bg-stone-900">
+                  <img :src="p.imagem" :alt="p.nome" class="aspect-square w-full object-contain p-8" />
+                </div>
+
+                <div class="flex flex-col">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="rounded-full px-2.5 py-1 text-[11px] font-semibold" :class="corGenero(p.genero)" x-text="rotuloGenero(p.genero)"></span>
+                    <span class="rounded-full bg-stone-200 px-2.5 py-1 text-[11px] font-semibold text-stone-700 dark:bg-stone-800 dark:text-stone-300" x-text="p.tipo"></span>
+                  </div>
+
+                  <p class="mt-5 text-xs font-semibold tracking-[0.2em] text-stone-500 uppercase" x-text="p.marca"></p>
+                  <h1 class="font-display mt-2 text-4xl leading-tight font-medium text-stone-900 lg:text-5xl dark:text-white" x-text="p.nome"></h1>
+                  <p class="mt-2 text-sm text-stone-500 dark:text-stone-400" x-text="p.volume"></p>
+
+                  <p class="mt-6 text-3xl font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(p.preco)"></p>
+                  <p x-show="p.preco === null" class="mt-1 text-sm text-stone-500">
+                    Consulte o valor no WhatsApp — respondemos rápido.
+                  </p>
+
+                  <p class="mt-6 leading-relaxed text-stone-600 dark:text-stone-400" x-text="p.descricao"></p>
+
+                  <!-- Quantidade + ações -->
+                  <div class="mt-8 flex flex-wrap items-center gap-3">
+                    <div class="flex items-center rounded-lg border border-stone-300 dark:border-stone-700">
+                      <button type="button" x-on:click="qtd = Math.max(1, qtd - 1)" class="size-11 text-lg font-medium text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white" aria-label="Diminuir">−</button>
+                      <span class="w-8 text-center text-sm font-semibold" x-text="qtd"></span>
+                      <button type="button" x-on:click="qtd = qtd + 1" class="size-11 text-lg font-medium text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white" aria-label="Aumentar">+</button>
+                    </div>
+                    <button
+                      type="button"
+                      x-on:click="adicionar(p, qtd)"
+                      class="flex-1 rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-stone-700 sm:flex-none dark:bg-amber-600 dark:hover:bg-amber-500"
+                    >
+                      Adicionar ao carrinho
+                    </button>
+                    <a
+                      :href="linkWhatsapp(pedidoDoProduto(p))"
+                      target="_blank"
+                      rel="noopener"
+                      class="rounded-lg border border-emerald-600 px-6 py-3.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-950"
+                    >
+                      Pedir no WhatsApp
+                    </a>
+                  </div>
+
+                  <dl class="mt-10 divide-y divide-stone-200 border-t border-stone-200 text-sm dark:divide-stone-800 dark:border-stone-800">
+                    <div class="flex justify-between gap-4 py-3">
+                      <dt class="text-stone-500">Marca</dt>
+                      <dd class="font-medium" x-text="p.marca"></dd>
+                    </div>
+                    <div class="flex justify-between gap-4 py-3">
+                      <dt class="text-stone-500">Volume</dt>
+                      <dd class="font-medium" x-text="p.volume"></dd>
+                    </div>
+                    <div class="flex justify-between gap-4 py-3">
+                      <dt class="text-stone-500">Categoria</dt>
+                      <dd class="font-medium" x-text="categoria(p.categoria).nome"></dd>
+                    </div>
+                    <div class="flex justify-between gap-4 py-3">
+                      <dt class="text-stone-500">Entrega</dt>
+                      <dd class="text-right font-medium" x-text="dados.loja.entrega"></dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <!-- Relacionados -->
+              <div x-show="relacionados(p).length > 0" class="pt-20">
+                <h2 class="font-display text-3xl font-medium text-stone-900 dark:text-white">
+                  Você também pode gostar
+                </h2>
+                <div class="mt-6 grid grid-cols-2 gap-5 lg:grid-cols-4">
+                  <template x-for="rel in relacionados(p)" :key="rel.id">
+                    <a :href="'#/produto/' + rel.id" class="group block">
+                      <div class="overflow-hidden rounded-2xl bg-white dark:bg-stone-900">
+                        <img :src="rel.imagem" :alt="rel.nome" loading="lazy" class="aspect-square w-full object-contain p-4 transition duration-300 group-hover:scale-105" />
+                      </div>
+                      <h3 class="mt-3 leading-snug font-medium text-stone-900 dark:text-stone-100" x-text="rel.nome"></h3>
+                      <p class="mt-1 text-sm font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(rel.preco)"></p>
+                    </a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
+        </section>
+
+        <!-- ================================================ CARRINHO ====== -->
+        <section x-show="rota.view === 'carrinho'" x-cloak class="pt-8">
+          <h1 class="font-display text-4xl font-medium text-stone-900 md:text-5xl dark:text-white">
+            Seu carrinho
+          </h1>
+
+          <div x-show="itensCarrinho().length === 0" class="mt-10 rounded-2xl border border-dashed border-stone-300 py-20 text-center dark:border-stone-700">
+            <p class="font-display text-2xl text-stone-900 dark:text-white">Ainda está vazio</p>
+            <p class="mt-2 text-sm text-stone-500">Escolha uma categoria e monte seu pedido.</p>
+            <a href="#/produtos" class="mt-6 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-semibold text-white hover:bg-stone-700 dark:bg-amber-600 dark:hover:bg-amber-500">
+              Ver produtos
+            </a>
+          </div>
+
+          <div x-show="itensCarrinho().length > 0" x-cloak class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div class="lg:col-span-2">
+              <ul class="divide-y divide-stone-200 dark:divide-stone-800">
+                <template x-for="item in itensCarrinho()" :key="item.id">
+                  <li class="flex gap-4 py-5">
+                    <a :href="'#/produto/' + item.id" class="shrink-0">
+                      <img :src="item.produto.imagem" :alt="item.produto.nome" class="size-24 rounded-xl bg-white object-contain p-2 dark:bg-stone-900" />
+                    </a>
+                    <div class="flex min-w-0 flex-1 flex-col">
+                      <a :href="'#/produto/' + item.id" class="leading-snug font-medium text-stone-900 hover:underline dark:text-stone-100" x-text="item.produto.nome"></a>
+                      <p class="mt-0.5 text-xs text-stone-500" x-text="item.produto.marca + ' • ' + item.produto.volume"></p>
+                      <div class="mt-auto flex items-center gap-3 pt-3">
+                        <div class="flex items-center rounded-lg border border-stone-300 dark:border-stone-700">
+                          <button type="button" x-on:click="alterarQtd(item.id, -1)" class="size-8 text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white" aria-label="Diminuir">−</button>
+                          <span class="w-7 text-center text-sm font-semibold" x-text="item.qtd"></span>
+                          <button type="button" x-on:click="alterarQtd(item.id, 1)" class="size-8 text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white" aria-label="Aumentar">+</button>
+                        </div>
+                        <button type="button" x-on:click="remover(item.id)" class="text-xs font-medium text-stone-500 hover:text-red-600">
+                          Remover
+                        </button>
+                      </div>
+                    </div>
+                    <div class="shrink-0 text-right">
+                      <p class="font-semibold" x-text="item.produto.preco === null ? 'Sob consulta' : moeda(item.produto.preco * item.qtd)"></p>
+                    </div>
+                  </li>
+                </template>
+              </ul>
+            </div>
+
+            <!-- Resumo -->
+            <aside class="h-fit rounded-2xl bg-white p-6 lg:sticky lg:top-28 dark:bg-stone-900">
+              <h2 class="font-display text-2xl font-medium text-stone-900 dark:text-white">Resumo</h2>
+              <dl class="mt-5 space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <dt class="text-stone-500">Itens</dt>
+                  <dd class="font-medium" x-text="totalItens()"></dd>
+                </div>
+                <div class="flex justify-between border-t border-stone-200 pt-3 dark:border-stone-800">
+                  <dt class="text-stone-500">Subtotal</dt>
+                  <dd class="text-lg font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(subtotal())"></dd>
+                </div>
+              </dl>
+
+              <p x-show="temSobConsulta()" class="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900 dark:bg-amber-950 dark:text-amber-200">
+                Há itens sob consulta no carrinho. O valor deles será informado no WhatsApp.
+              </p>
+
+              <a
+                :href="linkWhatsapp(pedidoDoCarrinho())"
+                target="_blank"
+                rel="noopener"
+                class="mt-6 block rounded-lg bg-emerald-600 px-6 py-3.5 text-center text-sm font-semibold text-white hover:bg-emerald-700"
+              >
+                Finalizar pedido no WhatsApp
+              </a>
+
+              <p x-show="!whatsappConfigurado()" class="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-800 dark:bg-red-950 dark:text-red-200">
+                ⚠️ Falta cadastrar o número de WhatsApp da loja em <code>gerar-catalogo.py</code>.
+              </p>
+
+              <p class="mt-4 text-xs leading-relaxed text-stone-500">
+                O pedido é enviado como mensagem — o frete e a forma de pagamento são combinados no atendimento.
+              </p>
+
+              <button type="button" x-on:click="carrinho = []" class="mt-4 w-full text-xs font-medium text-stone-500 hover:text-red-600">
+                Esvaziar carrinho
+              </button>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <!-- ==================================================== RODAPÉ ====== -->
+      <footer class="border-t border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+          <div class="sm:col-span-2">
+            <p class="font-display text-2xl font-medium text-stone-900 dark:text-white" x-text="dados.loja.nome"></p>
+            <p class="mt-3 max-w-sm text-sm leading-relaxed text-stone-600 dark:text-stone-400" x-text="dados.loja.assinatura"></p>
+            <a
+              :href="linkWhatsapp('Olá! Vim pelo site da ' + dados.loja.nome + '.')"
+              target="_blank"
+              rel="noopener"
+              class="mt-6 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold tracking-[0.2em] text-stone-500 uppercase">Categorias</p>
+            <ul class="mt-4 space-y-2.5">
+              <template x-for="categoria in dados.categorias" :key="categoria.slug">
+                <li>
+                  <a :href="'#/categoria/' + categoria.slug" class="text-sm text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white" x-text="categoria.nome"></a>
+                </li>
+              </template>
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold tracking-[0.2em] text-stone-500 uppercase">Catálogos em PDF</p>
+            <ul class="mt-4 space-y-2.5">
+              <template x-for="categoria in dados.categorias" :key="categoria.slug">
+                <li>
+                  <a :href="categoria.pdf" target="_blank" rel="noopener" class="text-sm text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white" x-text="categoria.nome"></a>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-stone-200 dark:border-stone-800">
+          <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+            <p>
+              <span x-text="new Date().getFullYear()"></span> ·
+              <span x-text="dados.loja.nome"></span> · Todos os direitos reservados
+            </p>
+            <p x-text="dados.produtos.length + ' produtos no catálogo'"></p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- =============================================== BOTÃO FLUTUANTE == -->
+      <a
+        :href="linkWhatsapp('Olá! Vim pelo site da ' + dados.loja.nome + '.')"
+        target="_blank"
+        rel="noopener"
+        class="fixed right-5 bottom-5 z-40 inline-flex size-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 hover:bg-emerald-700"
+        aria-label="Falar no WhatsApp"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z" />
+        </svg>
+      </a>
+
+      <!-- ==================================================== AVISO ======= -->
+      <div
+        x-show="aviso"
+        x-cloak
+        x-transition
+        class="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-white shadow-lg dark:bg-stone-100 dark:text-stone-900"
+      >
+        <span x-text="aviso"></span>
+        <a href="#/carrinho" class="ml-2 font-semibold text-amber-400 underline underline-offset-2 dark:text-amber-700">
+          Ver carrinho
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

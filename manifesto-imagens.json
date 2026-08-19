@@ -1,0 +1,1021 @@
+{
+  "produtos": {
+    "arabes-originais": [
+      {
+        "arquivo": "AL NOBLE SAFEER ORIGINAL.jpg",
+        "nome": "AL NOBLE SAFEER ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/al-noble-safeer-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "ASAD BOURBON ORIGINAL.jpg",
+        "nome": "ASAD BOURBON ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/asad-bourbon-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "ASAD ELIXIR ORIGINAL.jpg",
+        "nome": "ASAD ELIXIR ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/asad-elixir-original.jpg",
+        "tamanho": [
+          900,
+          849
+        ]
+      },
+      {
+        "arquivo": "ASAD TRADICIONAL ORIGINAL.jpg",
+        "nome": "ASAD TRADICIONAL ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/asad-tradicional-original.jpg",
+        "tamanho": [
+          900,
+          870
+        ]
+      },
+      {
+        "arquivo": "BADEE AL OUD GLORY BLACK ORIGINAL.jpg",
+        "nome": "BADEE AL OUD GLORY BLACK ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/badee-al-oud-glory-black-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "CLUB DE NUIT INTENSE ORIGINAL.jpg",
+        "nome": "CLUB DE NUIT INTENSE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/club-de-nuit-intense-original.jpg",
+        "tamanho": [
+          900,
+          774
+        ]
+      },
+      {
+        "arquivo": "DREAM OF HAZE ORIGINAL.jpg",
+        "nome": "DREAM OF HAZE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/dream-of-haze-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "DURRAT ORIGINAL.jpg",
+        "nome": "DURRAT ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/durrat-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "ETERNAL VANILLE ORIGINAL.jpg",
+        "nome": "ETERNAL VANILLE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/eternal-vanille-original.jpg",
+        "tamanho": [
+          750,
+          900
+        ]
+      },
+      {
+        "arquivo": "FAKHAR BLACK ORIGINAL.jpg",
+        "nome": "FAKHAR BLACK ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/fakhar-black-original.jpg",
+        "tamanho": [
+          768,
+          900
+        ]
+      },
+      {
+        "arquivo": "FAKHAR ROSE ORIGINAL.jpg",
+        "nome": "FAKHAR ROSE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/fakhar-rose-original.jpg",
+        "tamanho": [
+          867,
+          900
+        ]
+      },
+      {
+        "arquivo": "HER CONFESSION ORIGINAL.jpg",
+        "nome": "HER CONFESSION ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/her-confession-original.jpg",
+        "tamanho": [
+          745,
+          900
+        ]
+      },
+      {
+        "arquivo": "HIS CONFESSION ORIGINAL.jpg",
+        "nome": "HIS CONFESSION ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/his-confession-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "KIT ASAD 25 MIL.jpg",
+        "nome": "KIT ASAD 25 MIL",
+        "imagem": "assets/produtos/arabes-originais/kit-asad-25-mil.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "KIT ASAD COMPLETO.jpg",
+        "nome": "KIT ASAD COMPLETO",
+        "imagem": "assets/produtos/arabes-originais/kit-asad-completo.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "KIT BADE 25ML.jpg",
+        "nome": "KIT BADE 25ML",
+        "imagem": "assets/produtos/arabes-originais/kit-bade-25ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "KIT MASA 3 ITENS.jpg",
+        "nome": "KIT MASA 3 ITENS",
+        "imagem": "assets/produtos/arabes-originais/kit-masa-3-itens.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "KIT YARA 25 MIL.jpg",
+        "nome": "KIT YARA 25 MIL",
+        "imagem": "assets/produtos/arabes-originais/kit-yara-25-mil.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "KIT YARA 5 ML.jpg",
+        "nome": "KIT YARA 5 ML",
+        "imagem": "assets/produtos/arabes-originais/kit-yara-5-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "MUSAMMAN BLACK INTENSE ORIGINAL.jpg",
+        "nome": "MUSAMMAN BLACK INTENSE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/musamman-black-intense-original.jpg",
+        "tamanho": [
+          684,
+          900
+        ]
+      },
+      {
+        "arquivo": "NICHE EMIRATI KHANJAR ORIGINAL.jpg",
+        "nome": "NICHE EMIRATI KHANJAR ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/niche-emirati-khanjar-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "NOBLE BLUSH ORIGINAL.jpg",
+        "nome": "NOBLE BLUSH ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/noble-blush-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "PHILOS OPUS NOIR  ORIGINAL.jpg",
+        "nome": "PHILOS OPUS NOIR  ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/philos-opus-noir-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "SABAH SUGAR ORIGINAL.jpg",
+        "nome": "SABAH SUGAR ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/sabah-sugar-original.jpg",
+        "tamanho": [
+          843,
+          900
+        ]
+      },
+      {
+        "arquivo": "SABAH VALENTINE ORIGINAL.jpg",
+        "nome": "SABAH VALENTINE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/sabah-valentine-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "SALVO EDP ORIGINAL.jpg",
+        "nome": "SALVO EDP ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/salvo-edp-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "SPECIAL OUD ORIGINAL.jpg",
+        "nome": "SPECIAL OUD ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/special-oud-original.jpg",
+        "tamanho": [
+          884,
+          900
+        ]
+      },
+      {
+        "arquivo": "SPECTRE AMAZONITE ORIGINAL.jpg",
+        "nome": "SPECTRE AMAZONITE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/spectre-amazonite-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "VENENO BIANCO ORIGINAL.jpg",
+        "nome": "VENENO BIANCO ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/veneno-bianco-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "YARA CANDY.jpg",
+        "nome": "YARA CANDY",
+        "imagem": "assets/produtos/arabes-originais/yara-candy.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "YARA MOI ORIGINAL.jpg",
+        "nome": "YARA MOI ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/yara-moi-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "YARA ROSE ORIGINAL.jpg",
+        "nome": "YARA ROSE ORIGINAL",
+        "imagem": "assets/produtos/arabes-originais/yara-rose-original.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      }
+    ],
+    "miniaturas-arabes": [
+      {
+        "arquivo": "AL NOBLE WAZEER 25 ML.png",
+        "nome": "AL NOBLE WAZEER 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/al-noble-wazeer-25-ml.jpg",
+        "tamanho": [
+          900,
+          820
+        ]
+      },
+      {
+        "arquivo": "AMBER ROUGE 25 ML.jpg",
+        "nome": "AMBER ROUGE 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/amber-rouge-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "ASAD 25 ML.jpg",
+        "nome": "ASAD 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/asad-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "ASAD BOURBON 25 ML.jpg",
+        "nome": "ASAD BOURBON 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/asad-bourbon-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "FAKHAR BLACK 25 ML.jpg",
+        "nome": "FAKHAR BLACK 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/fakhar-black-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "FAKHAR ROSE 25 ML.jpg",
+        "nome": "FAKHAR ROSE 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/fakhar-rose-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "ROYAL AMBER 25 ML.png",
+        "nome": "ROYAL AMBER 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/royal-amber-25-ml.jpg",
+        "tamanho": [
+          900,
+          858
+        ]
+      },
+      {
+        "arquivo": "YARA 25 ML.png",
+        "nome": "YARA 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/yara-25-ml.jpg",
+        "tamanho": [
+          742,
+          900
+        ]
+      },
+      {
+        "arquivo": "YARA MOI 25 ML.png",
+        "nome": "YARA MOI 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/yara-moi-25-ml.jpg",
+        "tamanho": [
+          717,
+          900
+        ]
+      },
+      {
+        "arquivo": "YARA TOUS 25 ML.png",
+        "nome": "YARA TOUS 25 ML",
+        "imagem": "assets/produtos/miniaturas-arabes/yara-tous-25-ml.jpg",
+        "tamanho": [
+          849,
+          900
+        ]
+      }
+    ],
+    "brand-nacionais": [
+      {
+        "arquivo": "001 - ALLURE 100 ML.jpg",
+        "nome": "001 - ALLURE 100 ML",
+        "imagem": "assets/produtos/brand-nacionais/001-allure-100-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "005 - ONE MILLION 25ML.jpg",
+        "nome": "005 - ONE MILLION 25ML",
+        "imagem": "assets/produtos/brand-nacionais/005-one-million-25ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "005 - ONE MILLION HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "005 - ONE MILLION HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/005-one-million-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "008 - VIP MEN 25 ML.jpg",
+        "nome": "008 - VIP MEN 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/008-vip-men-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "009-  212 VIP BRANCO 25 ML.jpg",
+        "nome": "009-  212 VIP BRANCO 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/009-212-vip-branco-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "012 - LA VIE 25 ML.jpg",
+        "nome": "012 - LA VIE 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/012-la-vie-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "012 - LA VIE EST BELLE HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "012 - LA VIE EST BELLE HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/012-la-vie-est-belle-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          674,
+          900
+        ]
+      },
+      {
+        "arquivo": "015 - MISS DIOR 25 MIL.jpg",
+        "nome": "015 - MISS DIOR 25 MIL",
+        "imagem": "assets/produtos/brand-nacionais/015-miss-dior-25-mil.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "015 - MISS DIOR HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "015 - MISS DIOR HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/015-miss-dior-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          675,
+          900
+        ]
+      },
+      {
+        "arquivo": "021 - COCO CHANEL 25 ML.jpg",
+        "nome": "021 - COCO CHANEL 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/021-coco-chanel-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "021 - COCO CHANEL 80 ML.jpg",
+        "nome": "021 - COCO CHANEL 80 ML",
+        "imagem": "assets/produtos/brand-nacionais/021-coco-chanel-80-ml.jpg",
+        "tamanho": [
+          900,
+          709
+        ]
+      },
+      {
+        "arquivo": "028 - HUGO BOSS MAN25 ML.jpg",
+        "nome": "028 - HUGO BOSS MAN25 ML",
+        "imagem": "assets/produtos/brand-nacionais/028-hugo-boss-man25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "034 - 212 VIP ROSE 80ML.jpg",
+        "nome": "034 - 212 VIP ROSE 80ML",
+        "imagem": "assets/produtos/brand-nacionais/034-212-vip-rose-80ml.jpg",
+        "tamanho": [
+          900,
+          695
+        ]
+      },
+      {
+        "arquivo": "034 - 212 VIP ROSÉ 25 ML.jpg",
+        "nome": "034 - 212 VIP ROSÉ 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/034-212-vip-rose-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "034 - VIP ROSÉ HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "034 - VIP ROSÉ HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/034-vip-rose-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          898
+        ]
+      },
+      {
+        "arquivo": "060 - NARCISO RODRIGUEZ 25 ML.jpg",
+        "nome": "060 - NARCISO RODRIGUEZ 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/060-narciso-rodriguez-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "063 - SÍ 25 ML.jpg",
+        "nome": "063 - SÍ 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/063-si-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "070 - BLEU DE CHANEL 100 ML.jpg",
+        "nome": "070 - BLEU DE CHANEL 100 ML",
+        "imagem": "assets/produtos/brand-nacionais/070-bleu-de-chanel-100-ml.jpg",
+        "tamanho": [
+          675,
+          900
+        ]
+      },
+      {
+        "arquivo": "084 - MONT BLANC LEGEND 25 ML.jpg",
+        "nome": "084 - MONT BLANC LEGEND 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/084-mont-blanc-legend-25-ml.jpg",
+        "tamanho": [
+          675,
+          900
+        ]
+      },
+      {
+        "arquivo": "087 - OLYMPIA 25 ML.jpg",
+        "nome": "087 - OLYMPIA 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/087-olympia-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "087 - OLYMPIA 80 ML.jpg",
+        "nome": "087 - OLYMPIA 80 ML",
+        "imagem": "assets/produtos/brand-nacionais/087-olympia-80-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "116 - INVICTUS 25 ML.jpg",
+        "nome": "116 - INVICTUS 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/116-invictus-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "116 - INVICTUS HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "116 - INVICTUS HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/116-invictus-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "12 - LA VIE EST BELLE 80 ML.jpg",
+        "nome": "12 - LA VIE EST BELLE 80 ML",
+        "imagem": "assets/produtos/brand-nacionais/12-la-vie-est-belle-80-ml.jpg",
+        "tamanho": [
+          900,
+          782
+        ]
+      },
+      {
+        "arquivo": "126 - GOOD GIRL 80 ML.jpg",
+        "nome": "126 - GOOD GIRL 80 ML",
+        "imagem": "assets/produtos/brand-nacionais/126-good-girl-80-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "126 - GOOD GIRL HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "126 - GOOD GIRL HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/126-good-girl-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "136 - SCANDAL 25 ML.jpg",
+        "nome": "136 - SCANDAL 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/136-scandal-25-ml.jpg",
+        "tamanho": [
+          751,
+          900
+        ]
+      },
+      {
+        "arquivo": "136 - SCANDAL HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "136 - SCANDAL HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/136-scandal-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "154 - 212 VIP BLACK 100ML.jpg",
+        "nome": "154 - 212 VIP BLACK 100ML",
+        "imagem": "assets/produtos/brand-nacionais/154-212-vip-black-100ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "155 - ACQUA DI GIO 25 ML.jpg",
+        "nome": "155 - ACQUA DI GIO 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/155-acqua-di-gio-25-ml.jpg",
+        "tamanho": [
+          900,
+          810
+        ]
+      },
+      {
+        "arquivo": "159 - LIBRE 25 ML.jpg",
+        "nome": "159 - LIBRE 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/159-libre-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "159 - LIBRE HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "159 - LIBRE HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/159-libre-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "164 - ARMANI CODE  HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "164 - ARMANI CODE  HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/164-armani-code-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "174 - POLO BLUE HIDRATANTES BRAND COLLECTION.jpg",
+        "nome": "174 - POLO BLUE HIDRATANTES BRAND COLLECTION",
+        "imagem": "assets/produtos/brand-nacionais/174-polo-blue-hidratantes-brand-collection.jpg",
+        "tamanho": [
+          465,
+          900
+        ]
+      },
+      {
+        "arquivo": "181 - BAD BOY 25 ML.jpg",
+        "nome": "181 - BAD BOY 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/181-bad-boy-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "235 - BVLGARI ROSE 25 ml.jpg",
+        "nome": "235 - BVLGARI ROSE 25 ml",
+        "imagem": "assets/produtos/brand-nacionais/235-bvlgari-rose-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "238 - IDOLE 25 ML.jpg",
+        "nome": "238 - IDOLE 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/238-idole-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "246 - BURBERRY FOR HER 25 ML.jpg",
+        "nome": "246 - BURBERRY FOR HER 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/246-burberry-for-her-25-ml.jpg",
+        "tamanho": [
+          675,
+          900
+        ]
+      },
+      {
+        "arquivo": "250 - AZZARO WANTED 25 ML.jpg",
+        "nome": "250 - AZZARO WANTED 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/250-azzaro-wanted-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "297 - GOOD GIRL VERY 25 ML.jpg",
+        "nome": "297 - GOOD GIRL VERY 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/297-good-girl-very-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "323 - LÊ MALE ELIXIR 25 ML.jpg",
+        "nome": "323 - LÊ MALE ELIXIR 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/323-le-male-elixir-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "332 - GOOD GIRL GLAM 25 ML.jpg",
+        "nome": "332 - GOOD GIRL GLAM 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/332-good-girl-glam-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "341 - NÔMADE CHLOÉ 25 ML.jpg",
+        "nome": "341 - NÔMADE CHLOÉ 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/341-nomade-chloe-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "378 - FAME FEMININO BLOOMING PINK.jpg",
+        "nome": "378 - FAME FEMININO BLOOMING PINK",
+        "imagem": "assets/produtos/brand-nacionais/378-fame-feminino-blooming-pink.jpg",
+        "tamanho": [
+          900,
+          851
+        ]
+      },
+      {
+        "arquivo": "380 - BACCARAT ROUGE EXTRAIT 100ML.jpg",
+        "nome": "380 - BACCARAT ROUGE EXTRAIT 100ML",
+        "imagem": "assets/produtos/brand-nacionais/380-baccarat-rouge-extrait-100ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "382 - L’INTERDIT 25 ML.jpg",
+        "nome": "382 - L’INTERDIT 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/382-linterdit-25-ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "391 - VALENTINO BORN IN ROMA.jpg",
+        "nome": "391 - VALENTINO BORN IN ROMA",
+        "imagem": "assets/produtos/brand-nacionais/391-valentino-born-in-roma.jpg",
+        "tamanho": [
+          900,
+          786
+        ]
+      },
+      {
+        "arquivo": "433 - MYSELF 25 ML.jpg",
+        "nome": "433 - MYSELF 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/433-myself-25-ml.jpg",
+        "tamanho": [
+          862,
+          900
+        ]
+      },
+      {
+        "arquivo": "435 - BURBERRY GOODNESS 25 ML.jpg",
+        "nome": "435 - BURBERRY GOODNESS 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/435-burberry-goodness-25-ml.jpg",
+        "tamanho": [
+          900,
+          775
+        ]
+      },
+      {
+        "arquivo": "443 - BAD BOY ELIXIR 25 ML.jpg",
+        "nome": "443 - BAD BOY ELIXIR 25 ML",
+        "imagem": "assets/produtos/brand-nacionais/443-bad-boy-elixir-25-ml.jpg",
+        "tamanho": [
+          900,
+          858
+        ]
+      }
+    ],
+    "importados": [
+      {
+        "arquivo": "212 VIP BLACK 200ML.jpg",
+        "nome": "212 VIP BLACK 200ML",
+        "imagem": "assets/produtos/importados/212-vip-black-200ml.jpg",
+        "tamanho": [
+          813,
+          900
+        ]
+      },
+      {
+        "arquivo": "212 VIP MEN 200ML.jpg",
+        "nome": "212 VIP MEN 200ML",
+        "imagem": "assets/produtos/importados/212-vip-men-200ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "BLEU DE CHANEL 150ML.jpg",
+        "nome": "BLEU DE CHANEL 150ML",
+        "imagem": "assets/produtos/importados/bleu-de-chanel-150ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "CH MEN 200ML.jpg",
+        "nome": "CH MEN 200ML",
+        "imagem": "assets/produtos/importados/ch-men-200ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "FANTASY BRITNEY SPEARS.png",
+        "nome": "FANTASY BRITNEY SPEARS",
+        "imagem": "assets/produtos/importados/fantasy-britney-spears.jpg",
+        "tamanho": [
+          800,
+          800
+        ]
+      },
+      {
+        "arquivo": "INVICTUS 200ML.jpg",
+        "nome": "INVICTUS 200ML",
+        "imagem": "assets/produtos/importados/invictus-200ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "JADORE 100ML.jpg",
+        "nome": "JADORE 100ML",
+        "imagem": "assets/produtos/importados/jadore-100ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "LA VIE EST BELLE 100ML.jpg",
+        "nome": "LA VIE EST BELLE 100ML",
+        "imagem": "assets/produtos/importados/la-vie-est-belle-100ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "NVICTUS VICTORY 200ML.jpg",
+        "nome": "NVICTUS VICTORY 200ML",
+        "imagem": "assets/produtos/importados/nvictus-victory-200ml.jpg",
+        "tamanho": [
+          900,
+          689
+        ]
+      },
+      {
+        "arquivo": "ONE MILLION PARFUM 200ML.jpg",
+        "nome": "ONE MILLION PARFUM 200ML",
+        "imagem": "assets/produtos/importados/one-million-parfum-200ml.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "SILVER SCENT.jpg",
+        "nome": "SILVER SCENT",
+        "imagem": "assets/produtos/importados/silver-scent.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      }
+    ],
+    "isabelle-la-belle": [
+      {
+        "arquivo": "ASAD BOURBON BODY + HIDRANTANTE.jpg",
+        "nome": "ASAD BOURBON BODY + HIDRANTANTE",
+        "imagem": "assets/produtos/isabelle-la-belle/asad-bourbon-body-hidrantante.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "FAKHAR BLACK BODY SPLASH + HIDRATANTE.jpg",
+        "nome": "FAKHAR BLACK BODY SPLASH + HIDRATANTE",
+        "imagem": "assets/produtos/isabelle-la-belle/fakhar-black-body-splash-hidratante.jpg",
+        "tamanho": [
+          900,
+          900
+        ]
+      },
+      {
+        "arquivo": "FAKHAR ROSE BODY SPLASH  + HIDRATANTE.jpg",
+        "nome": "FAKHAR ROSE BODY SPLASH  + HIDRATANTE",
+        "imagem": "assets/produtos/isabelle-la-belle/fakhar-rose-body-splash-hidratante.jpg",
+        "tamanho": [
+          699,
+          900
+        ]
+      },
+      {
+        "arquivo": "SABAH AL WARD BODY SPLASH + HIDRATANTE.jpg",
+        "nome": "SABAH AL WARD BODY SPLASH + HIDRATANTE",
+        "imagem": "assets/produtos/isabelle-la-belle/sabah-al-ward-body-splash-hidratante.jpg",
+        "tamanho": [
+          737,
+          900
+        ]
+      },
+      {
+        "arquivo": "YARA BODY SPLASH  + HIDRATANTE.jpg",
+        "nome": "YARA BODY SPLASH  + HIDRATANTE",
+        "imagem": "assets/produtos/isabelle-la-belle/yara-body-splash-hidratante.jpg",
+        "tamanho": [
+          797,
+          900
+        ]
+      }
+    ]
+  },
+  "marca": [
+    "assets/marca/1.jpg",
+    "assets/marca/2.jpg",
+    "assets/marca/3.jpg",
+    "assets/marca/4.jpg",
+    "assets/marca/5.jpg",
+    "assets/marca/6.jpg",
+    "assets/marca/7.jpg",
+    "assets/marca/8.jpg",
+    "assets/marca/9.jpg",
+    "assets/marca/10.jpg",
+    "assets/marca/11.jpg",
+    "assets/marca/12.jpg",
+    "assets/marca/13.jpg",
+    "assets/marca/14.jpg",
+    "assets/marca/15.jpg",
+    "assets/marca/16.jpg",
+    "assets/marca/17.jpg",
+    "assets/marca/18.jpg",
+    "assets/marca/19.jpg",
+    "assets/marca/20.jpg",
+    "assets/marca/21.jpg",
+    "assets/marca/22.jpg",
+    "assets/marca/23.jpg",
+    "assets/marca/24.jpg",
+    "assets/marca/25.jpg",
+    "assets/marca/27.jpg",
+    "assets/marca/28.jpg",
+    "assets/marca/29.jpg",
+    "assets/marca/30.jpg",
+    "assets/marca/31.jpg",
+    "assets/marca/32.jpg",
+    "assets/marca/34.jpg",
+    "assets/marca/35.jpg"
+  ]
+}
