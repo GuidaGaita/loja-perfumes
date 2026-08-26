@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <title>Carla Perfumaria — Perfumes árabes, importados e nacionais</title>
+    <title>CRPARFUM — Perfumes árabes, importados e nacionais</title>
 
     <meta
       name="description"
@@ -33,6 +33,17 @@
       @theme {
         --default-font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
         --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+        /* Acento da marca - dourado champanhe, usado nos dois modos.
+           Os tons claros (200-400) aparecem sobre fundo escuro e os
+           fechados (600-700) sobre fundo claro. Para trocar o tema
+           inteiro, mude so estes seis valores. */
+        --color-acento-200: #f2e4c0;
+        --color-acento-300: #e6d09a;
+        --color-acento-400: #d9bb72;
+        --color-acento-500: #c9a44e;
+        --color-acento-600: #a8843a;
+        --color-acento-700: #8a6a2c;
       }
     </style>
 
@@ -41,6 +52,14 @@
 
     <style>
       [x-cloak] { display: none !important; }
+
+      /* Zoom da capa nos cards da home - o valor vem de capaZoom/capaOrigem em gerar-catalogo.py */
+      .capa-zoom {
+        scale: var(--capa-zoom, 1);
+        transform-origin: var(--capa-origem, 50% 50%);
+        transition: scale 0.5s ease-out, opacity 0.5s ease-out;
+      }
+      .group:hover .capa-zoom { scale: calc(var(--capa-zoom, 1) * 1.05); }
       .sem-scrollbar::-webkit-scrollbar { display: none; }
       .sem-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -69,17 +88,17 @@
           /* ------------------------------------------------------------ init */
           init() {
             this.montarIndice();
-            this.carrinho = this.lerArmazenado("carla:carrinho", []);
-            this.escuro = this.lerArmazenado("carla:escuro", false);
+            this.carrinho = this.lerArmazenado("crparfum:carrinho", []);
+            this.escuro = this.lerArmazenado("crparfum:escuro", false);
             this.aplicarTema();
 
             if (!location.hash) location.hash = "#/";
             this.aplicarRota();
             window.addEventListener("hashchange", () => this.aplicarRota());
 
-            this.$watch("carrinho", (v) => this.gravar("carla:carrinho", v));
+            this.$watch("carrinho", (v) => this.gravar("crparfum:carrinho", v));
             this.$watch("escuro", (v) => {
-              this.gravar("carla:escuro", v);
+              this.gravar("crparfum:escuro", v);
               this.aplicarTema();
             });
           },
@@ -273,26 +292,48 @@
           linkWhatsapp(texto) {
             return "https://wa.me/" + this.dados.loja.whatsapp + "?text=" + encodeURIComponent(texto);
           },
+          /* Nome do item na mensagem: só acrescenta marca e volume quando
+             eles ainda não aparecem no próprio nome do produto. */
+          rotuloItem(produto) {
+            let t = produto.nome;
+            const marca = produto.marca || "";
+            if (marca && marca !== "Acessórios" && !t.includes(marca)) t += " · " + marca;
+            if (produto.volume && !t.includes(produto.volume)) t += " (" + produto.volume + ")";
+            return t;
+          },
           pedidoDoProduto(produto) {
+            const semPreco = produto.preco === null;
             return (
-              "Olá! Tenho interesse neste produto da " + this.dados.loja.nome + ":\n\n" +
-              "• " + produto.nome + " (" + produto.volume + ") — " + this.moeda(produto.preco) +
-              "\n\nEle está disponível?"
+              "Olá! Tenho interesse neste produto da *" + this.dados.loja.nome + "*:\n\n" +
+              "• " + this.rotuloItem(produto) +
+              (semPreco ? "" : " — " + this.moeda(produto.preco)) +
+              (semPreco
+                ? "\n\nEle está disponível? Qual o valor?"
+                : "\n\nEle está disponível?")
             );
           },
           pedidoDoCarrinho() {
-            const linhas = this.itensCarrinho().map(
-              (i) =>
-                "• " + i.qtd + "x " + i.produto.nome + " (" + i.produto.volume + ") — " +
-                (i.produto.preco === null
-                  ? "valor a combinar"
-                  : this.moeda(i.produto.preco * i.qtd))
-            );
+            const itens = this.itensCarrinho();
+            const linhas = itens.map((i) => {
+              const inicio = "• " + i.qtd + "x " + this.rotuloItem(i.produto);
+              if (i.produto.preco === null) return inicio + " — valor a combinar";
+              if (i.qtd > 1) {
+                return inicio + " — " + this.moeda(i.produto.preco) + " cada · " +
+                  this.moeda(i.produto.preco * i.qtd);
+              }
+              return inicio + " — " + this.moeda(i.produto.preco);
+            });
+            const pecas = itens.reduce((total, i) => total + i.qtd, 0);
             let texto =
-              "Olá! Quero fazer um pedido na " + this.dados.loja.nome + ":\n\n" +
-              linhas.join("\n") + "\n\nSubtotal: " + this.moeda(this.subtotal());
-            if (this.temSobConsulta()) {
-              texto += "\n(há itens sob consulta — preciso do valor)";
+              "Olá! Quero fazer um pedido na *" + this.dados.loja.nome + "*:\n\n" +
+              linhas.join("\n") +
+              "\n\n*Subtotal: " + this.moeda(this.subtotal()) + "* · " +
+              pecas + (pecas === 1 ? " item" : " itens");
+            const semPreco = itens
+              .filter((i) => i.produto.preco === null)
+              .map((i) => this.rotuloItem(i.produto));
+            if (semPreco.length) {
+              texto += "\n\nPreciso do valor de: " + semPreco.join(", ");
             }
             return texto;
           },
@@ -331,7 +372,7 @@
             x-on:click="limparFiltros()"
           >
             <span
-              class="font-display text-2xl leading-none font-medium tracking-wide text-stone-900 group-hover:text-amber-700 dark:text-stone-50 dark:group-hover:text-amber-400"
+              class="font-display text-2xl leading-none font-medium tracking-wide text-stone-900 group-hover:text-acento-700 dark:text-stone-50 dark:group-hover:text-acento-200"
               x-text="dados.loja.nome"
             ></span>
           </a>
@@ -341,7 +382,7 @@
             <template x-for="categoria in dados.categorias" :key="categoria.slug">
               <a
                 :href="'#/categoria/' + categoria.slug"
-                class="text-sm font-medium text-stone-600 decoration-amber-600 decoration-2 underline-offset-8 hover:text-stone-950 hover:underline dark:text-stone-400 dark:hover:text-white"
+                class="text-sm font-medium text-stone-600 decoration-acento-600 decoration-2 dark:decoration-acento-500 underline-offset-8 hover:text-stone-950 hover:underline dark:text-stone-400 dark:hover:text-white"
                 x-text="categoria.nome"
               ></a>
             </template>
@@ -385,7 +426,7 @@
               <span
                 x-show="totalItens() > 0"
                 x-cloak
-                class="absolute -top-0.5 -right-0.5 inline-flex min-w-5 items-center justify-center rounded-full bg-amber-600 px-1.5 py-0.5 text-[11px] font-bold text-white"
+                class="absolute -top-0.5 -right-0.5 inline-flex min-w-5 items-center justify-center rounded-full bg-acento-700 px-1.5 py-0.5 text-[11px] font-bold text-white dark:bg-acento-500 dark:text-stone-950"
                 x-text="totalItens()"
               ></span>
             </a>
@@ -413,7 +454,7 @@
               x-on:input="if (rota.view !== 'produtos' && rota.view !== 'categoria') ir('#/produtos')"
               x-on:keydown.enter="ir('#/produtos')"
               placeholder="Buscar por nome, marca ou nota olfativa…"
-              class="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm outline-none placeholder:text-stone-400 focus:border-amber-600 dark:border-stone-700 dark:bg-stone-900"
+              class="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm outline-none placeholder:text-stone-400 focus:border-acento-600 dark:focus:border-acento-500 dark:border-stone-700 dark:bg-stone-900"
             />
             <button
               type="button"
@@ -450,30 +491,100 @@
           <!-- Hero -->
           <div class="grid grid-cols-1 gap-6 py-8 md:grid-cols-12 md:py-12">
             <div class="md:col-span-7">
-              <div class="overflow-hidden rounded-2xl bg-stone-200 dark:bg-stone-900">
-                <img
-                  src="assets/marca/5.jpg"
-                  alt="Aplicação de perfume no pescoço"
-                  class="h-full max-h-[34rem] w-full object-cover"
-                />
+              <!-- Carrossel do topo: troca sozinho a cada 5s, para no hover e aceita swipe -->
+              <div
+                x-data="{
+                  fotos: [
+                    { src: 'assets/marca/11.jpg', pos: 'center 33%', alt: 'Kit de miniaturas Lattafa Yara Collection nas mãos' },
+                    { src: 'assets/marca/22.jpg', pos: 'center 20%', alt: 'Frasco de perfume em formato de salto apresentado na palma da mão' },
+                    { src: 'assets/marca/28.jpg', pos: 'left center', alt: 'Perfumes, body splash e caixas espalhados lado a lado' },
+                  ],
+                  atual: 0,
+                  timer: null,
+                  toqueX: null,
+                  iniciar() { if (!this.timer) this.timer = setInterval(() => this.avancar(), 5000); },
+                  parar() { clearInterval(this.timer); this.timer = null; },
+                  avancar() { this.atual = (this.atual + 1) % this.fotos.length; },
+                  voltar() { this.atual = (this.atual - 1 + this.fotos.length) % this.fotos.length; },
+                  ir(i) { this.atual = i; this.parar(); this.iniciar(); },
+                  fimDoToque(e) {
+                    if (this.toqueX === null) return;
+                    const dx = e.changedTouches[0].clientX - this.toqueX;
+                    if (Math.abs(dx) > 40) dx < 0 ? this.avancar() : this.voltar();
+                    this.toqueX = null;
+                  }
+                }"
+                x-init="iniciar()"
+                x-on:mouseenter="parar()"
+                x-on:mouseleave="iniciar()"
+                x-on:touchstart="parar(); toqueX = $event.changedTouches[0].clientX"
+                x-on:touchend="fimDoToque($event); iniciar()"
+                class="relative h-[26rem] overflow-hidden rounded-2xl bg-stone-200 md:h-[34rem] dark:bg-stone-900"
+              >
+                <template x-for="(foto, i) in fotos" :key="foto.src">
+                  <img
+                    :src="foto.src"
+                    :alt="foto.alt"
+                    :loading="i === 0 ? 'eager' : 'lazy'"
+                    class="absolute inset-0 size-full object-cover transition-opacity duration-700 ease-out"
+                    :style="'object-position: ' + foto.pos"
+                    :class="atual === i ? 'opacity-100' : 'opacity-0'"
+                  />
+                </template>
+
+                <!-- Setas -->
+                <button
+                  type="button"
+                  x-on:click="voltar(); parar(); iniciar()"
+                  aria-label="Foto anterior"
+                  class="absolute top-1/2 left-3 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-stone-950/35 text-white ring-1 ring-white/25 backdrop-blur transition hover:bg-stone-950/60"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  x-on:click="avancar(); parar(); iniciar()"
+                  aria-label="Próxima foto"
+                  class="absolute top-1/2 right-3 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-stone-950/35 text-white ring-1 ring-white/25 backdrop-blur transition hover:bg-stone-950/60"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+
+                <!-- Indicadores -->
+                <div class="absolute inset-x-0 bottom-4 flex justify-center gap-2">
+                  <template x-for="(foto, i) in fotos" :key="'ponto-' + foto.src">
+                    <button
+                      type="button"
+                      x-on:click="ir(i)"
+                      :aria-label="'Ir para a foto ' + (i + 1)"
+                      :aria-current="atual === i"
+                      class="h-1.5 rounded-full ring-1 ring-stone-950/10 transition-all"
+                      :class="atual === i ? 'w-7 bg-white' : 'w-2.5 bg-white/55 hover:bg-white/80'"
+                    ></button>
+                  </template>
+                </div>
               </div>
             </div>
             <div class="flex flex-col justify-center md:col-span-5">
-              <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
-                Perfumaria
+              <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300">
+                Cosméticos
               </p>
               <h1 class="font-display mt-4 text-5xl leading-[1.05] font-medium text-stone-900 lg:text-6xl dark:text-white">
-                A fragrância certa muda o dia inteiro.
+                A melhor memória está no cheiro que você deixa no ar.
               </h1>
               <p class="mt-5 leading-relaxed text-stone-600 dark:text-stone-400">
-                Árabes originais de alta fixação, importados lacrados e a linha nacional Brand Collection.
-                <span x-text="dados.produtos.length"></span> produtos com notas olfativas descritas,
-                organizados por categoria.
+                Árabes originais de alta fixação, importados lacrados e a linha nacional Brand Collection,
+                além de miniaturas, decantes e acessórios para armazenar fragrâncias.
+                Produtos organizados por categoria, com notas olfativas descritas para facilitar sua escolha.
               </p>
               <div class="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#/produtos"
-                  class="inline-flex items-center gap-2 rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-stone-700 dark:bg-amber-600 dark:hover:bg-amber-500"
+                  class="inline-flex items-center gap-2 rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-stone-700 dark:bg-acento-500 dark:text-stone-950 dark:hover:bg-acento-400"
                 >
                   Ver todos os produtos
                 </a>
@@ -509,7 +620,7 @@
           <div id="categorias" class="scroll-mt-24 pt-16">
             <div class="flex items-end justify-between gap-4">
               <div>
-                <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300">
                   Categorias
                 </p>
                 <h2 class="font-display mt-3 text-4xl font-medium text-stone-900 dark:text-white">
@@ -530,12 +641,17 @@
                   <img
                     :src="categoria.capa"
                     :alt="categoria.nome"
+                    :style="
+                      'object-position: ' + (categoria.capaCardPos || categoria.capaPos || 'center') +
+                      '; --capa-zoom: ' + (categoria.capaZoom || 1) +
+                      '; --capa-origem: ' + (categoria.capaOrigem || '50% 50%')
+                    "
                     loading="lazy"
-                    class="h-72 w-full object-cover opacity-80 transition duration-500 ease-out group-hover:scale-105 group-hover:opacity-60"
+                    class="capa-zoom h-72 w-full object-cover opacity-80 group-hover:opacity-60"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/25 to-transparent"></div>
                   <div class="absolute inset-x-0 bottom-0 p-6">
-                    <p class="text-[11px] font-semibold tracking-[0.2em] text-amber-300 uppercase">
+                    <p class="text-[11px] font-semibold tracking-[0.2em] text-acento-300 uppercase">
                       <span x-text="categoria.total"></span> produtos
                     </p>
                     <h3 class="font-display mt-1.5 text-3xl font-medium text-white" x-text="categoria.nome"></h3>
@@ -550,7 +666,7 @@
           <div class="pt-16">
             <div class="flex items-end justify-between gap-4">
               <div>
-                <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+                <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300">
                   Seleção
                 </p>
                 <h2 class="font-display mt-3 text-4xl font-medium text-stone-900 dark:text-white">
@@ -572,7 +688,7 @@
                   </div>
                   <p class="mt-3 text-[11px] font-semibold tracking-wider text-stone-500 uppercase" x-text="p.marca"></p>
                   <h3 class="mt-0.5 font-medium text-stone-900 dark:text-stone-100" x-text="p.nome"></h3>
-                  <p class="mt-1 text-sm font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(p.preco)"></p>
+                  <p class="mt-1 text-sm font-semibold text-acento-700 dark:text-acento-300" x-text="moeda(p.preco)"></p>
                 </a>
               </template>
             </div>
@@ -587,17 +703,17 @@
               class="h-full max-h-[28rem] w-full object-cover"
             />
             <div class="flex flex-col justify-center p-8 lg:p-12">
-              <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+              <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300">
                 Sobre
               </p>
               <h2 class="font-display mt-4 text-4xl font-medium text-stone-900 dark:text-white">
-                Atendimento de perto, escolha sem pressa
+                Atendimento humanizado, escolha personalizada
               </h2>
               <p class="mt-5 leading-relaxed text-stone-600 dark:text-stone-400">
-                Cada fragrância do catálogo vem com as notas de topo, coração e fundo descritas — assim
-                você escolhe pelo perfil olfativo, não só pelo nome. Ficou em dúvida entre duas?
-                Chame no WhatsApp que a gente ajuda a decidir, e o decante de 5 ml existe justamente
-                para experimentar antes.
+                Nosso atendimento é humanizado e pensado para ajudar você a encontrar a essência ideal
+                para tornar sua fragrância uma verdadeira marca registrada. Em cada descrição, você
+                encontra as notas olfativas de topo, coração e fundo, para conhecer melhor cada perfume.
+                E, se ainda ficar em dúvida, estarei aqui para te auxiliar durante sua escolha.
               </p>
               <div class="mt-8">
                 <a
@@ -618,7 +734,12 @@
           <!-- Capa da categoria -->
           <template x-for="c in (rota.view === 'categoria' ? [categoriaAtual()] : [])" :key="c.slug">
             <div class="relative overflow-hidden rounded-2xl bg-stone-900">
-              <img :src="c.capa" :alt="c.nome" class="h-64 w-full object-cover opacity-55 md:h-80" />
+              <img
+                :src="c.capa"
+                :alt="c.nome"
+                :style="'object-position: ' + (c.capaPos || 'center')"
+                class="h-64 w-full object-cover opacity-55 md:h-80"
+              />
               <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent"></div>
               <div class="absolute inset-x-0 bottom-0 p-6 md:p-10">
                 <nav class="mb-3 flex items-center gap-2 text-xs text-stone-300">
@@ -628,24 +749,13 @@
                 </nav>
                 <h1 class="font-display text-4xl font-medium text-white md:text-5xl" x-text="c.nome"></h1>
                 <p class="mt-3 max-w-2xl text-sm leading-relaxed text-stone-300" x-text="c.descricao"></p>
-                <a
-                  :href="c.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur hover:bg-white/20"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                  Baixar catálogo em PDF
-                </a>
               </div>
             </div>
           </template>
 
           <template x-if="rota.view === 'produtos'">
             <div>
-              <p class="text-xs font-semibold tracking-[0.3em] text-amber-700 uppercase dark:text-amber-500">
+              <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300">
                 Catálogo completo
               </p>
               <h1 class="font-display mt-3 text-4xl font-medium text-stone-900 md:text-5xl dark:text-white">
@@ -662,7 +772,7 @@
                   type="button"
                   x-on:click="filtroGenero = opcao[0]"
                   :class="filtroGenero === opcao[0]
-                    ? 'bg-stone-900 text-white dark:bg-amber-600'
+                    ? 'bg-stone-900 text-white dark:bg-acento-500 dark:text-stone-950'
                     : 'bg-stone-200/70 text-stone-700 hover:bg-stone-300/70 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700'"
                   class="rounded-full px-4 py-2 text-sm font-medium"
                   x-text="opcao[1]"
@@ -675,11 +785,11 @@
                 type="search"
                 x-model="busca"
                 placeholder="Buscar nesta lista…"
-                class="w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none placeholder:text-stone-400 focus:border-amber-600 sm:w-56 dark:border-stone-700 dark:bg-stone-900"
+                class="w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none placeholder:text-stone-400 focus:border-acento-600 dark:focus:border-acento-500 sm:w-56 dark:border-stone-700 dark:bg-stone-900"
               />
               <select
                 x-model="filtroTipo"
-                class="rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-amber-600 dark:border-stone-700 dark:bg-stone-900"
+                class="rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-acento-600 dark:focus:border-acento-500 dark:border-stone-700 dark:bg-stone-900"
               >
                 <option value="todos">Todos os tipos</option>
                 <template x-for="tipo in tiposDisponiveis()" :key="tipo">
@@ -688,7 +798,7 @@
               </select>
               <select
                 x-model="ordenacao"
-                class="rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-amber-600 dark:border-stone-700 dark:bg-stone-900"
+                class="rounded-lg border border-stone-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-acento-600 dark:focus:border-acento-500 dark:border-stone-700 dark:bg-stone-900"
               >
                 <option value="relevancia">Ordenar</option>
                 <option value="menor">Menor preço</option>
@@ -726,7 +836,7 @@
                   <p class="mt-0.5 text-xs text-stone-500 dark:text-stone-400" x-text="p.volume"></p>
                 </a>
                 <div class="mt-auto flex items-center justify-between gap-2 pt-3">
-                  <span class="text-sm font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(p.preco)"></span>
+                  <span class="text-sm font-semibold text-acento-700 dark:text-acento-300" x-text="moeda(p.preco)"></span>
                   <button
                     type="button"
                     x-on:click="adicionar(p)"
@@ -780,12 +890,35 @@
                   <h1 class="font-display mt-2 text-4xl leading-tight font-medium text-stone-900 lg:text-5xl dark:text-white" x-text="p.nome"></h1>
                   <p class="mt-2 text-sm text-stone-500 dark:text-stone-400" x-text="p.volume"></p>
 
-                  <p class="mt-6 text-3xl font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(p.preco)"></p>
+                  <p class="mt-6 text-3xl font-semibold text-acento-700 dark:text-acento-300" x-text="moeda(p.preco)"></p>
                   <p x-show="p.preco === null" class="mt-1 text-sm text-stone-500">
                     Consulte o valor no WhatsApp — respondemos rápido.
                   </p>
 
-                  <p class="mt-6 leading-relaxed text-stone-600 dark:text-stone-400" x-text="p.descricao"></p>
+                  <p class="mt-6 leading-relaxed text-stone-600 dark:text-stone-400" x-text="p.resumo || p.descricao"></p>
+
+                  <!-- Piramide olfativa, um topico por linha -->
+                  <template x-if="p.notas">
+                    <div class="mt-6 rounded-xl border border-stone-200 p-5 dark:border-stone-800">
+                      <p class="text-xs font-semibold tracking-[0.2em] text-stone-500 uppercase">
+                        Composição da fragrância
+                      </p>
+                      <dl class="mt-4 space-y-3.5 text-sm">
+                        <div x-show="p.notas.topo">
+                          <dt class="font-semibold text-stone-900 dark:text-white">Notas de topo</dt>
+                          <dd class="mt-1 leading-relaxed text-stone-600 dark:text-stone-400" x-text="p.notas.topo"></dd>
+                        </div>
+                        <div x-show="p.notas.coracao">
+                          <dt class="font-semibold text-stone-900 dark:text-white">Notas de coração</dt>
+                          <dd class="mt-1 leading-relaxed text-stone-600 dark:text-stone-400" x-text="p.notas.coracao"></dd>
+                        </div>
+                        <div x-show="p.notas.fundo">
+                          <dt class="font-semibold text-stone-900 dark:text-white">Notas de fundo</dt>
+                          <dd class="mt-1 leading-relaxed text-stone-600 dark:text-stone-400" x-text="p.notas.fundo"></dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </template>
 
                   <!-- Quantidade + ações -->
                   <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -797,7 +930,7 @@
                     <button
                       type="button"
                       x-on:click="adicionar(p, qtd)"
-                      class="flex-1 rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-stone-700 sm:flex-none dark:bg-amber-600 dark:hover:bg-amber-500"
+                      class="flex-1 rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-stone-700 sm:flex-none dark:bg-acento-500 dark:text-stone-950 dark:hover:bg-acento-400"
                     >
                       Adicionar ao carrinho
                     </button>
@@ -844,7 +977,7 @@
                         <img :src="rel.imagem" :alt="rel.nome" loading="lazy" class="aspect-square w-full object-contain p-4 transition duration-300 group-hover:scale-105" />
                       </div>
                       <h3 class="mt-3 leading-snug font-medium text-stone-900 dark:text-stone-100" x-text="rel.nome"></h3>
-                      <p class="mt-1 text-sm font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(rel.preco)"></p>
+                      <p class="mt-1 text-sm font-semibold text-acento-700 dark:text-acento-300" x-text="moeda(rel.preco)"></p>
                     </a>
                   </template>
                 </div>
@@ -862,7 +995,7 @@
           <div x-show="itensCarrinho().length === 0" class="mt-10 rounded-2xl border border-dashed border-stone-300 py-20 text-center dark:border-stone-700">
             <p class="font-display text-2xl text-stone-900 dark:text-white">Ainda está vazio</p>
             <p class="mt-2 text-sm text-stone-500">Escolha uma categoria e monte seu pedido.</p>
-            <a href="#/produtos" class="mt-6 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-semibold text-white hover:bg-stone-700 dark:bg-amber-600 dark:hover:bg-amber-500">
+            <a href="#/produtos" class="mt-6 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-semibold text-white hover:bg-stone-700 dark:bg-acento-500 dark:text-stone-950 dark:hover:bg-acento-400">
               Ver produtos
             </a>
           </div>
@@ -907,7 +1040,7 @@
                 </div>
                 <div class="flex justify-between border-t border-stone-200 pt-3 dark:border-stone-800">
                   <dt class="text-stone-500">Subtotal</dt>
-                  <dd class="text-lg font-semibold text-amber-700 dark:text-amber-500" x-text="moeda(subtotal())"></dd>
+                  <dd class="text-lg font-semibold text-acento-700 dark:text-acento-300" x-text="moeda(subtotal())"></dd>
                 </div>
               </dl>
 
@@ -942,45 +1075,36 @@
 
       <!-- ==================================================== RODAPÉ ====== -->
       <footer class="border-t border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-          <div class="sm:col-span-2">
-            <p class="font-display text-2xl font-medium text-stone-900 dark:text-white" x-text="dados.loja.nome"></p>
-            <p class="mt-3 max-w-sm text-sm leading-relaxed text-stone-600 dark:text-stone-400" x-text="dados.loja.assinatura"></p>
+        <div class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="font-display text-2xl font-medium text-stone-900 dark:text-white" x-text="dados.loja.nome"></p>
+              <p class="mt-1 text-sm leading-relaxed text-stone-600 dark:text-stone-400" x-text="dados.loja.assinatura"></p>
+            </div>
             <a
               :href="linkWhatsapp('Olá! Vim pelo site da ' + dados.loja.nome + '.')"
               target="_blank"
               rel="noopener"
-              class="mt-6 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+              class="inline-flex shrink-0 items-center gap-2 self-start rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700 sm:self-auto"
             >
               Falar no WhatsApp
             </a>
           </div>
 
-          <div>
-            <p class="text-xs font-semibold tracking-[0.2em] text-stone-500 uppercase">Categorias</p>
-            <ul class="mt-4 space-y-2.5">
-              <template x-for="categoria in dados.categorias" :key="categoria.slug">
-                <li>
-                  <a :href="'#/categoria/' + categoria.slug" class="text-sm text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white" x-text="categoria.nome"></a>
-                </li>
-              </template>
-            </ul>
-          </div>
-
-          <div>
-            <p class="text-xs font-semibold tracking-[0.2em] text-stone-500 uppercase">Catálogos em PDF</p>
-            <ul class="mt-4 space-y-2.5">
-              <template x-for="categoria in dados.categorias" :key="categoria.slug">
-                <li>
-                  <a :href="categoria.pdf" target="_blank" rel="noopener" class="text-sm text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white" x-text="categoria.nome"></a>
-                </li>
-              </template>
-            </ul>
-          </div>
+          <!-- Categorias em linha, para o rodapé ficar baixo -->
+          <nav class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-stone-200 pt-5 dark:border-stone-800">
+            <template x-for="categoria in dados.categorias" :key="categoria.slug">
+              <a
+                :href="'#/categoria/' + categoria.slug"
+                class="text-sm text-stone-600 hover:text-stone-950 dark:text-stone-400 dark:hover:text-white"
+                x-text="categoria.nome"
+              ></a>
+            </template>
+          </nav>
         </div>
 
         <div class="border-t border-stone-200 dark:border-stone-800">
-          <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
             <p>
               <span x-text="new Date().getFullYear()"></span> ·
               <span x-text="dados.loja.nome"></span> · Todos os direitos reservados
@@ -1011,7 +1135,7 @@
         class="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-white shadow-lg dark:bg-stone-100 dark:text-stone-900"
       >
         <span x-text="aviso"></span>
-        <a href="#/carrinho" class="ml-2 font-semibold text-amber-400 underline underline-offset-2 dark:text-amber-700">
+        <a href="#/carrinho" class="ml-2 font-semibold text-acento-300 underline underline-offset-2 dark:text-acento-700">
           Ver carrinho
         </a>
       </div>

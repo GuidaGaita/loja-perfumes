@@ -1,4 +1,4 @@
-# Carla Perfumaria — loja online
+# CRPARFUM — loja online
 
 Loja estática de perfumes com navegação por categoria, busca, carrinho e fechamento
 de pedido pelo WhatsApp. Não precisa de servidor, banco de dados nem build: é só abrir
@@ -26,7 +26,7 @@ Abra `gerar-catalogo.py`, edite o bloco `LOJA` no topo e rode `python gerar-cata
 | Campo | Situação |
 |---|---|
 | `whatsapp` | **Pendente.** Está `5500000000000` (placeholder). Formato: `55` + DDD + número, só dígitos — ex.: `5511987654321`. Enquanto não for trocado, aparece um aviso vermelho no carrinho. |
-| `nome` | `Carla Perfumaria` |
+| `nome` | `CRPARFUM` |
 | `instagram` | Vazio (opcional) |
 | `entrega`, `pagamento` | Textos que aparecem na home e na página do produto |
 

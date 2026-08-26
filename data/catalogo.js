@@ -2,7 +2,7 @@
    Edite gerar-catalogo.py e rode: python gerar-catalogo.py */
 window.CATALOGO = {
   "loja": {
-    "nome": "Carla Perfumaria",
+    "nome": "CRPARFUM",
     "assinatura": "Árabes originais, importados e nacionais",
     "whatsapp": "5561981131320",
     "instagram": "",
@@ -15,8 +15,11 @@ window.CATALOGO = {
       "nome": "Árabes Originais",
       "chamada": "Lattafa, Maison Alhambra, Al Wataniah e Armaf — 100 ml",
       "descricao": "Fragrâncias árabes originais de 100 ml, com alta fixação e projeção. Perfis orientais, amadeirados e gourmand para quem quer marcar presença.",
-      "capa": "assets/marca/18.jpg",
-      "pdf": "assets/catalogos/arabes-originais.pdf",
+      "capa": "assets/marca/23.jpg",
+      "capaPos": "center 78%",
+      "capaCardPos": "center bottom",
+      "capaZoom": 1.4,
+      "capaOrigem": "30% 50%",
       "total": 32
     },
     {
@@ -24,8 +27,11 @@ window.CATALOGO = {
       "nome": "Miniaturas Árabes",
       "chamada": "As fragrâncias árabes em 25 ml",
       "descricao": "Versões de 25 ml das fragrâncias árabes mais procuradas. Cabem na bolsa, são ideais para experimentar antes do tamanho grande e para presentear.",
-      "capa": "assets/marca/31.jpg",
-      "pdf": "assets/catalogos/miniaturas-arabes.pdf",
+      "capa": "assets/marca/13.jpg",
+      "capaPos": "center 35%",
+      "capaCardPos": "center",
+      "capaZoom": 1.6,
+      "capaOrigem": "50% 60%",
       "total": 10
     },
     {
@@ -34,7 +40,7 @@ window.CATALOGO = {
       "chamada": "Perfumes e hidratantes nacionais",
       "descricao": "Linha nacional Brand Collection: miniaturas de 25 ml, tamanhos grandes de 80/100 ml e hidratantes perfumados que repetem a inspiração olfativa de cada fragrância.",
       "capa": "assets/marca/29.jpg",
-      "pdf": "assets/catalogos/brand-nacionais.pdf",
+      "capaPos": "center",
       "total": 50
     },
     {
@@ -42,8 +48,8 @@ window.CATALOGO = {
       "nome": "Importados Originais",
       "chamada": "Chanel, Dior, Carolina Herrera, Lancôme e Rabanne",
       "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. Os clássicos de perfumaria que todo mundo reconhece.",
-      "capa": "assets/marca/19.jpg",
-      "pdf": "assets/catalogos/importados.pdf",
+      "capa": "assets/marca/9.jpg",
+      "capaPos": "center 18%",
       "total": 11
     },
     {
@@ -51,8 +57,8 @@ window.CATALOGO = {
       "nome": "Isabelle La Belle",
       "chamada": "Body splash 300 ml + hidratante 200 g",
       "descricao": "Kits de body splash de 300 ml acompanhados do hidratante de 200 g na mesma fragrância. Perfume leve para o dia a dia e pele macia no mesmo ritual.",
-      "capa": "assets/marca/8.jpg",
-      "pdf": "assets/catalogos/isabelle-la-belle.pdf",
+      "capa": "assets/produtos/isabellelabelle.jpeg",
+      "capaPos": "center 58%",
       "total": 5
     },
     {
@@ -60,8 +66,8 @@ window.CATALOGO = {
       "nome": "Acessórios",
       "chamada": "Decantes e frascos para levar seu perfume",
       "descricao": "Decantes e frascos atomizadores recarregáveis para transportar sua fragrância favorita na bolsa, na mochila ou na viagem.",
-      "capa": "assets/marca/32.jpg",
-      "pdf": "assets/catalogos/acessorios.pdf",
+      "capa": "assets/marca/27.jpg",
+      "capaPos": "center 71%",
       "total": 3
     }
   ],
@@ -78,7 +84,13 @@ window.CATALOGO = {
       "id": "al-noble-safeer-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/al-noble-safeer-original.jpg",
-      "arquivoOriginal": "AL NOBLE SAFEER ORIGINAL.jpg"
+      "arquivoOriginal": "AL NOBLE SAFEER ORIGINAL.jpg",
+      "resumo": "Compartilhável fresco, cítrico e amadeirado.",
+      "notas": {
+        "topo": "toranja, bergamota, gengibre e pimenta preta",
+        "coracao": "caramelo, jasmim e heliotrópio",
+        "fundo": "madeira guaiac, almíscar, nagarmota, âmbar cinzento e cashmeran"
+      }
     },
     {
       "nome": "Asad Bourbon",
@@ -92,7 +104,13 @@ window.CATALOGO = {
       "id": "asad-bourbon-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/asad-bourbon-original.jpg",
-      "arquivoOriginal": "ASAD BOURBON ORIGINAL.jpg"
+      "arquivoOriginal": "ASAD BOURBON ORIGINAL.jpg",
+      "resumo": "Oriental especiado com forte apelo adocicado e gourmand.",
+      "notas": {
+        "topo": "lavanda, ameixa mirabelle e pimenta rosa",
+        "coracao": "cacau, noz-moscada e davana",
+        "fundo": "baunilha bourbon, âmbar e vetiver"
+      }
     },
     {
       "nome": "Asad Elixir",
@@ -106,7 +124,13 @@ window.CATALOGO = {
       "id": "asad-elixir-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/asad-elixir-original.jpg",
-      "arquivoOriginal": "ASAD ELIXIR ORIGINAL.jpg"
+      "arquivoOriginal": "ASAD ELIXIR ORIGINAL.jpg",
+      "resumo": "Oriental masculino intenso e sofisticado.",
+      "notas": {
+        "topo": "pimenta rosa, açafrão e toranja",
+        "coracao": "tabaco, baunilha e cedro",
+        "fundo": "âmbar claro, olíbano, patchouli e cashmeran"
+      }
     },
     {
       "nome": "Asad Tradicional",
@@ -120,7 +144,13 @@ window.CATALOGO = {
       "id": "asad-tradicional-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/asad-tradicional-original.jpg",
-      "arquivoOriginal": "ASAD TRADICIONAL ORIGINAL.jpg"
+      "arquivoOriginal": "ASAD TRADICIONAL ORIGINAL.jpg",
+      "resumo": "Oriental masculino intenso, quente, especiado e marcante.",
+      "notas": {
+        "topo": "pimenta preta, tabaco e abacaxi",
+        "coracao": "patchouli, café e íris",
+        "fundo": "baunilha, âmbar, madeira seca, benjoim e ládano"
+      }
     },
     {
       "nome": "Bade'e Al Oud Honor & Glory",
@@ -134,7 +164,13 @@ window.CATALOGO = {
       "id": "badee-al-oud-glory-black-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/badee-al-oud-glory-black-original.jpg",
-      "arquivoOriginal": "BADEE AL OUD GLORY BLACK ORIGINAL.jpg"
+      "arquivoOriginal": "BADEE AL OUD GLORY BLACK ORIGINAL.jpg",
+      "resumo": "Oriental amadeirada, intensa e sofisticada.",
+      "notas": {
+        "topo": "abacaxi e crème brûlée",
+        "coracao": "canela, cúrcuma, pimenta preta e benjoim",
+        "fundo": "baunilha, sândalo, cashmeran e musgo"
+      }
     },
     {
       "nome": "Club de Nuit Intense Man",
@@ -148,7 +184,13 @@ window.CATALOGO = {
       "id": "club-de-nuit-intense-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/club-de-nuit-intense-original.jpg",
-      "arquivoOriginal": "CLUB DE NUIT INTENSE ORIGINAL.jpg"
+      "arquivoOriginal": "CLUB DE NUIT INTENSE ORIGINAL.jpg",
+      "resumo": "Amadeirado especiado masculino.",
+      "notas": {
+        "topo": "limão, abacaxi, bergamota, groselha preta e maçã",
+        "coracao": "bétula, jasmim e rosa",
+        "fundo": "almíscar, âmbar cinzento, patchouli e baunilha"
+      }
     },
     {
       "nome": "Dream of Haze",
@@ -162,7 +204,13 @@ window.CATALOGO = {
       "id": "dream-of-haze-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/dream-of-haze-original.jpg",
-      "arquivoOriginal": "DREAM OF HAZE ORIGINAL.jpg"
+      "arquivoOriginal": "DREAM OF HAZE ORIGINAL.jpg",
+      "resumo": "Oriental fougère compartilhável, fresco e envolvente com toque adocicado e especiado.",
+      "notas": {
+        "topo": "hortelã e narguilé de maçã",
+        "coracao": "canela, lavanda e artemísia",
+        "fundo": "fava tonka, âmbar e patchouli"
+      }
     },
     {
       "nome": "Durrat Al Aroos",
@@ -176,7 +224,13 @@ window.CATALOGO = {
       "id": "durrat-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/durrat-original.jpg",
-      "arquivoOriginal": "DURRAT ORIGINAL.jpg"
+      "arquivoOriginal": "DURRAT ORIGINAL.jpg",
+      "resumo": "Oriental feminino cremoso, quente e levemente adocicado, com fundo amadeirado envolvente.",
+      "notas": {
+        "topo": "almíscar branco e nagarmota",
+        "coracao": "baunilha, cardamomo e açafrão",
+        "fundo": "madeira guaiac e cumarina"
+      }
     },
     {
       "nome": "Eternal Vanille",
@@ -190,7 +244,13 @@ window.CATALOGO = {
       "id": "eternal-vanille-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/eternal-vanille-original.jpg",
-      "arquivoOriginal": "ETERNAL VANILLE ORIGINAL.jpg"
+      "arquivoOriginal": "ETERNAL VANILLE ORIGINAL.jpg",
+      "resumo": "Compartilhável cremoso, doce e envolvente.",
+      "notas": {
+        "topo": "amora",
+        "coracao": "cocoapulse, caviar de baunilha e cacau",
+        "fundo": "akigalawood, fava tonka, ambrofix, benjoim, cedro e almíscar"
+      }
     },
     {
       "nome": "Fakhar Black",
@@ -204,7 +264,13 @@ window.CATALOGO = {
       "id": "fakhar-black-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/fakhar-black-original.jpg",
-      "arquivoOriginal": "FAKHAR BLACK ORIGINAL.jpg"
+      "arquivoOriginal": "FAKHAR BLACK ORIGINAL.jpg",
+      "resumo": "Oriental masculino fresco, aromático e amadeirado.",
+      "notas": {
+        "topo": "maçã, bergamota e gengibre",
+        "coracao": "lavanda, sálvia, bagas de zimbro e gerânio",
+        "fundo": "fava tonka, cedro, madeira de âmbar e vetiver"
+      }
     },
     {
       "nome": "Fakhar Rose",
@@ -218,7 +284,13 @@ window.CATALOGO = {
       "id": "fakhar-rose-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/fakhar-rose-original.jpg",
-      "arquivoOriginal": "FAKHAR ROSE ORIGINAL.jpg"
+      "arquivoOriginal": "FAKHAR ROSE ORIGINAL.jpg",
+      "resumo": "Floral feminino.",
+      "notas": {
+        "topo": "frutas, lírio, romã e aldeídos",
+        "coracao": "tuberosa, jasmim, gardênia, ylang ylang, madressilva, rosa e peônia",
+        "fundo": "baunilha, almíscar branco, sândalo e ambroxan"
+      }
     },
     {
       "nome": "Her Confession",
@@ -232,7 +304,13 @@ window.CATALOGO = {
       "id": "her-confession-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/her-confession-original.jpg",
-      "arquivoOriginal": "HER CONFESSION ORIGINAL.jpg"
+      "arquivoOriginal": "HER CONFESSION ORIGINAL.jpg",
+      "resumo": "Feminino floral, quente e envolvente.",
+      "notas": {
+        "topo": "canela e mystikal",
+        "coracao": "tuberosa, jasmim, incenso e mahonial",
+        "fundo": "baunilha, almíscar e fava tonka"
+      }
     },
     {
       "nome": "His Confession",
@@ -246,7 +324,13 @@ window.CATALOGO = {
       "id": "his-confession-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/his-confession-original.jpg",
-      "arquivoOriginal": "HIS CONFESSION ORIGINAL.jpg"
+      "arquivoOriginal": "HIS CONFESSION ORIGINAL.jpg",
+      "resumo": "Oriental amadeirado masculino.",
+      "notas": {
+        "topo": "canela, lavanda e mandarina",
+        "coracao": "íris, benjoim, cipreste e mahonial",
+        "fundo": "baunilha, fava tonka, âmbar, incenso, cedro e patchouli"
+      }
     },
     {
       "nome": "Kit Asad Collection 25 ml",
@@ -260,7 +344,8 @@ window.CATALOGO = {
       "id": "kit-asad-25-mil",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/kit-asad-25-mil.jpg",
-      "arquivoOriginal": "KIT ASAD 25 MIL.jpg"
+      "arquivoOriginal": "KIT ASAD 25 MIL.jpg",
+      "resumo": "Conjunto com 4 fragrâncias masculinas de 25 ml: Asad, Asad Elixir, Asad Zanzibar e Asad Bourbon. Coleção oriental que vai do especiado e amadeirado ao fresco e adocicado."
     },
     {
       "nome": "Kit Asad Completo",
@@ -274,7 +359,8 @@ window.CATALOGO = {
       "id": "kit-asad-completo",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/kit-asad-completo.jpg",
-      "arquivoOriginal": "KIT ASAD COMPLETO.jpg"
+      "arquivoOriginal": "KIT ASAD COMPLETO.jpg",
+      "resumo": "Kit de 3 peças da linha Asad: perfume 100 ml, desodorante perfumado em spray 200 ml e home spray 50 ml."
     },
     {
       "nome": "Kit Bade'e Al Oud 25 ml",
@@ -288,7 +374,8 @@ window.CATALOGO = {
       "id": "kit-bade-25ml",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/kit-bade-25ml.jpg",
-      "arquivoOriginal": "KIT BADE 25ML.jpg"
+      "arquivoOriginal": "KIT BADE 25ML.jpg",
+      "resumo": "Coleção com 4 mini perfumes de 25 ml: Oud for Glory, Honor & Glory, Sublime e Noble Blush. Orientais intensos e sofisticados, entre oud, amadeirado, especiado, frutado e adocicado."
     },
     {
       "nome": "Kit Masa 3 Itens",
@@ -302,7 +389,8 @@ window.CATALOGO = {
       "id": "kit-masa-3-itens",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/kit-masa-3-itens.jpg",
-      "arquivoOriginal": "KIT MASA 3 ITENS.jpg"
+      "arquivoOriginal": "KIT MASA 3 ITENS.jpg",
+      "resumo": "Kit compartilhável com perfume Masa 100 ml, body spray 200 ml e mini perfume 20 ml."
     },
     {
       "nome": "Kit Yara 25 ml",
@@ -316,7 +404,8 @@ window.CATALOGO = {
       "id": "kit-yara-25-mil",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/kit-yara-25-mil.jpg",
-      "arquivoOriginal": "KIT YARA 25 MIL.jpg"
+      "arquivoOriginal": "KIT YARA 25 MIL.jpg",
+      "resumo": "Coleção com 4 perfumes de 25 ml: Yara, Yara Moi, Yara Tous e Yara Candy. Feminina, doce, cremosa, floral e frutada, do gourmand delicado ao tropical marcante."
     },
     {
       "nome": "Kit Yara 5 ml",
@@ -330,7 +419,8 @@ window.CATALOGO = {
       "id": "kit-yara-5-ml",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/kit-yara-5-ml.jpg",
-      "arquivoOriginal": "KIT YARA 5 ML.jpg"
+      "arquivoOriginal": "KIT YARA 5 ML.jpg",
+      "resumo": "Coleção com 4 miniaturas de 5 ml: Yara, Yara Moi, Yara Tous e Yara Candy. Fragrâncias doces, florais, frutadas e gourmand — perfeitas para experimentar, levar na bolsa ou viajar."
     },
     {
       "nome": "Musamman Black Intense",
@@ -344,7 +434,13 @@ window.CATALOGO = {
       "id": "musamman-black-intense-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/musamman-black-intense-original.jpg",
-      "arquivoOriginal": "MUSAMMAN BLACK INTENSE ORIGINAL.jpg"
+      "arquivoOriginal": "MUSAMMAN BLACK INTENSE ORIGINAL.jpg",
+      "resumo": "Amadeirado aromático compartilhável.",
+      "notas": {
+        "topo": "lavanda, noz-moscada, sálvia e bergamota",
+        "coracao": "cedro, gerânio, rosyfolia e mahonial",
+        "fundo": "cocoapulse, fava tonka, bordo, ambrofix e patchouli"
+      }
     },
     {
       "nome": "Niche Emirati Khanjar",
@@ -358,7 +454,13 @@ window.CATALOGO = {
       "id": "niche-emirati-khanjar-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/niche-emirati-khanjar-original.jpg",
-      "arquivoOriginal": "NICHE EMIRATI KHANJAR ORIGINAL.jpg"
+      "arquivoOriginal": "NICHE EMIRATI KHANJAR ORIGINAL.jpg",
+      "resumo": "Compartilhável com aroma especiado, amadeirado e sofisticado.",
+      "notas": {
+        "topo": "noz-moscada, pimenta e gengibre",
+        "coracao": "violeta, patchouli e cashmeran",
+        "fundo": "couro, incenso, almíscar e vetiver"
+      }
     },
     {
       "nome": "Noble Blush",
@@ -372,7 +474,13 @@ window.CATALOGO = {
       "id": "noble-blush-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/noble-blush-original.jpg",
-      "arquivoOriginal": "NOBLE BLUSH ORIGINAL.jpg"
+      "arquivoOriginal": "NOBLE BLUSH ORIGINAL.jpg",
+      "resumo": "Floral frutado gourmand feminino.",
+      "notas": {
+        "topo": "leite de rosas",
+        "coracao": "merengue e amêndoa",
+        "fundo": "baunilha, almíscar e sândalo"
+      }
     },
     {
       "nome": "Philos Opus Noir",
@@ -386,7 +494,13 @@ window.CATALOGO = {
       "id": "philos-opus-noir-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/philos-opus-noir-original.jpg",
-      "arquivoOriginal": "PHILOS OPUS NOIR  ORIGINAL.jpg"
+      "arquivoOriginal": "PHILOS OPUS NOIR  ORIGINAL.jpg",
+      "resumo": "Amadeirado aromático compartilhável.",
+      "notas": {
+        "topo": "frutas e rosa turca",
+        "coracao": "ylang ylang, couro, noz-moscada e âmbar",
+        "fundo": "patchouli, baunilha, vetiver, almíscar e cedro"
+      }
     },
     {
       "nome": "Sabah Al Ward Sugar",
@@ -400,7 +514,13 @@ window.CATALOGO = {
       "id": "sabah-sugar-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/sabah-sugar-original.jpg",
-      "arquivoOriginal": "SABAH SUGAR ORIGINAL.jpg"
+      "arquivoOriginal": "SABAH SUGAR ORIGINAL.jpg",
+      "resumo": "Oriental floral feminino.",
+      "notas": {
+        "topo": "morango, framboesa, groselha preta, mirtilo e cereja",
+        "coracao": "violeta e jasmim",
+        "fundo": "baunilha, âmbar, almíscar, pétalas de rosa, musgo de carvalho, cashmeran e patchouli"
+      }
     },
     {
       "nome": "Sabah Al Ward Valentine",
@@ -414,7 +534,13 @@ window.CATALOGO = {
       "id": "sabah-valentine-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/sabah-valentine-original.jpg",
-      "arquivoOriginal": "SABAH VALENTINE ORIGINAL.jpg"
+      "arquivoOriginal": "SABAH VALENTINE ORIGINAL.jpg",
+      "resumo": "Oriental baunilha feminino.",
+      "notas": {
+        "topo": "cereja, notas doces, baunilha e creme",
+        "coracao": "café, cítricos, flor de laranjeira e flores brancas",
+        "fundo": "almíscar, patchouli e âmbar"
+      }
     },
     {
       "nome": "Salvo Elixir EDP",
@@ -428,7 +554,13 @@ window.CATALOGO = {
       "id": "salvo-edp-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/salvo-edp-original.jpg",
-      "arquivoOriginal": "SALVO EDP ORIGINAL.jpg"
+      "arquivoOriginal": "SALVO EDP ORIGINAL.jpg",
+      "resumo": "Oriental fougère masculino, quente e amadeirado com toque adocicado.",
+      "notas": {
+        "topo": "pimenta preta, tabaco e abacaxi",
+        "coracao": "patchouli, íris e café",
+        "fundo": "notas amadeiradas, âmbar, baunilha, benjoim e ládano"
+      }
     },
     {
       "nome": "Special Oud",
@@ -442,7 +574,13 @@ window.CATALOGO = {
       "id": "special-oud-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/special-oud-original.jpg",
-      "arquivoOriginal": "SPECIAL OUD ORIGINAL.jpg"
+      "arquivoOriginal": "SPECIAL OUD ORIGINAL.jpg",
+      "resumo": "Compartilhável quente, doce e intenso com toque amadeirado.",
+      "notas": {
+        "topo": "couro, pêssego, açafrão, caramelo e bagas vermelhas",
+        "coracao": "notas amadeiradas, pimenta rosa, nagarmota, ládano e gengibre",
+        "fundo": "agarwood (oud), patchouli, baunilha, benjoim, bálsamo do peru e almíscar"
+      }
     },
     {
       "nome": "Sceptre Amazonite",
@@ -456,7 +594,13 @@ window.CATALOGO = {
       "id": "spectre-amazonite-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/spectre-amazonite-original.jpg",
-      "arquivoOriginal": "SPECTRE AMAZONITE ORIGINAL.jpg"
+      "arquivoOriginal": "SPECTRE AMAZONITE ORIGINAL.jpg",
+      "resumo": "Amadeirado especiado compartilhável.",
+      "notas": {
+        "topo": "noz-moscada e canela",
+        "coracao": "nagarmota e olíbano",
+        "fundo": "agarwood (oud), almíscar negro e açafrão"
+      }
     },
     {
       "nome": "Veneno Bianco",
@@ -470,7 +614,13 @@ window.CATALOGO = {
       "id": "veneno-bianco-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/veneno-bianco-original.jpg",
-      "arquivoOriginal": "VENENO BIANCO ORIGINAL.jpg"
+      "arquivoOriginal": "VENENO BIANCO ORIGINAL.jpg",
+      "resumo": "Floral compartilhável, cremoso e sofisticado.",
+      "notas": {
+        "topo": "néroli, leite e bergamota",
+        "coracao": "flores brancas, tiaré e ylang ylang",
+        "fundo": "coco, baunilha, ládano e madeira guaiac"
+      }
     },
     {
       "nome": "Yara Candy",
@@ -484,7 +634,13 @@ window.CATALOGO = {
       "id": "yara-candy",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/yara-candy.jpg",
-      "arquivoOriginal": "YARA CANDY.jpg"
+      "arquivoOriginal": "YARA CANDY.jpg",
+      "resumo": "Floral frutado gourmand feminino.",
+      "notas": {
+        "topo": "groselha preta e tangerina verde",
+        "coracao": "bala de morango efervescente e gardênia",
+        "fundo": "baunilha, almíscar, âmbar e sândalo"
+      }
     },
     {
       "nome": "Yara Moi",
@@ -498,7 +654,13 @@ window.CATALOGO = {
       "id": "yara-moi-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/yara-moi-original.jpg",
-      "arquivoOriginal": "YARA MOI ORIGINAL.jpg"
+      "arquivoOriginal": "YARA MOI ORIGINAL.jpg",
+      "resumo": "Feminino oriental âmbar floral.",
+      "notas": {
+        "topo": "jasmim e pêssego",
+        "coracao": "caramelo e âmbar",
+        "fundo": "patchouli e sândalo"
+      }
     },
     {
       "nome": "Yara Rose",
@@ -512,7 +674,13 @@ window.CATALOGO = {
       "id": "yara-rose-original",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/yara-rose-original.jpg",
-      "arquivoOriginal": "YARA ROSE ORIGINAL.jpg"
+      "arquivoOriginal": "YARA ROSE ORIGINAL.jpg",
+      "resumo": "Oriental baunilha feminino.",
+      "notas": {
+        "topo": "orquídea, heliotrópio e tangerina",
+        "coracao": "acorde gourmand e frutas tropicais",
+        "fundo": "baunilha, almíscar e sândalo"
+      }
     },
     {
       "nome": "Al Noble Wazeer 25 ml",
@@ -526,7 +694,13 @@ window.CATALOGO = {
       "id": "al-noble-wazeer-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/al-noble-wazeer-25-ml.jpg",
-      "arquivoOriginal": "AL NOBLE WAZEER 25 ML.png"
+      "arquivoOriginal": "AL NOBLE WAZEER 25 ML.png",
+      "resumo": "Compartilhável.",
+      "notas": {
+        "topo": "conhaque, açafrão, noz-moscada e maçã",
+        "coracao": "cedro, sândalo, whiskey e carvalho",
+        "fundo": "mirra, ambroxan, baunilha e almíscar"
+      }
     },
     {
       "nome": "Amber Rouge 25 ml",
@@ -540,7 +714,13 @@ window.CATALOGO = {
       "id": "amber-rouge-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/amber-rouge-25-ml.jpg",
-      "arquivoOriginal": "AMBER ROUGE 25 ML.jpg"
+      "arquivoOriginal": "AMBER ROUGE 25 ML.jpg",
+      "resumo": "Amadeirado especiado compartilhável.",
+      "notas": {
+        "topo": "açafrão e jasmim",
+        "coracao": "madeira de âmbar e âmbar cinzento",
+        "fundo": "cedro e resina de abeto"
+      }
     },
     {
       "nome": "Asad 25 ml",
@@ -554,7 +734,13 @@ window.CATALOGO = {
       "id": "asad-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/asad-25-ml.jpg",
-      "arquivoOriginal": "ASAD 25 ML.jpg"
+      "arquivoOriginal": "ASAD 25 ML.jpg",
+      "resumo": "Oriental masculino intenso, quente, especiado e marcante.",
+      "notas": {
+        "topo": "pimenta preta, tabaco e abacaxi",
+        "coracao": "patchouli, café e íris",
+        "fundo": "baunilha, âmbar, madeira seca, benjoim e ládano"
+      }
     },
     {
       "nome": "Asad Bourbon 25 ml",
@@ -568,7 +754,13 @@ window.CATALOGO = {
       "id": "asad-bourbon-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/asad-bourbon-25-ml.jpg",
-      "arquivoOriginal": "ASAD BOURBON 25 ML.jpg"
+      "arquivoOriginal": "ASAD BOURBON 25 ML.jpg",
+      "resumo": "Oriental especiado com apelo adocicado e gourmand.",
+      "notas": {
+        "topo": "lavanda, ameixa mirabelle e pimenta rosa",
+        "coracao": "cacau, noz-moscada e davana",
+        "fundo": "baunilha bourbon, âmbar e vetiver"
+      }
     },
     {
       "nome": "Fakhar Black 25 ml",
@@ -582,7 +774,13 @@ window.CATALOGO = {
       "id": "fakhar-black-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/fakhar-black-25-ml.jpg",
-      "arquivoOriginal": "FAKHAR BLACK 25 ML.jpg"
+      "arquivoOriginal": "FAKHAR BLACK 25 ML.jpg",
+      "resumo": "Oriental masculino.",
+      "notas": {
+        "topo": "maçã, bergamota e gengibre",
+        "coracao": "lavanda, sálvia, bagas de zimbro e gerânio",
+        "fundo": "fava tonka, cedro, madeira de âmbar e vetiver"
+      }
     },
     {
       "nome": "Fakhar Rose 25 ml",
@@ -596,7 +794,13 @@ window.CATALOGO = {
       "id": "fakhar-rose-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/fakhar-rose-25-ml.jpg",
-      "arquivoOriginal": "FAKHAR ROSE 25 ML.jpg"
+      "arquivoOriginal": "FAKHAR ROSE 25 ML.jpg",
+      "resumo": "Floral feminino.",
+      "notas": {
+        "topo": "frutas, lírio, romã e aldeídos",
+        "coracao": "tuberosa, jasmim, gardênia, ylang ylang, madressilva, rosa e peônia",
+        "fundo": "baunilha, almíscar branco, sândalo e ambroxan"
+      }
     },
     {
       "nome": "Royal Amber 25 ml",
@@ -610,7 +814,13 @@ window.CATALOGO = {
       "id": "royal-amber-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/royal-amber-25-ml.jpg",
-      "arquivoOriginal": "ROYAL AMBER 25 ML.png"
+      "arquivoOriginal": "ROYAL AMBER 25 ML.png",
+      "resumo": "Oriental baunilha compartilhável.",
+      "notas": {
+        "topo": "bergamota e notas verdes",
+        "coracao": "notas doces, melão, abacaxi e âmbar",
+        "fundo": "almíscar, notas amadeiradas e baunilha"
+      }
     },
     {
       "nome": "Yara 25 ml",
@@ -624,7 +834,13 @@ window.CATALOGO = {
       "id": "yara-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/yara-25-ml.jpg",
-      "arquivoOriginal": "YARA 25 ML.png"
+      "arquivoOriginal": "YARA 25 ML.png",
+      "resumo": "Oriental baunilha feminino.",
+      "notas": {
+        "topo": "orquídea, heliotrópio e tangerina",
+        "coracao": "acorde gourmand e frutas tropicais",
+        "fundo": "baunilha, almíscar e sândalo"
+      }
     },
     {
       "nome": "Yara Moi 25 ml",
@@ -638,7 +854,13 @@ window.CATALOGO = {
       "id": "yara-moi-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/yara-moi-25-ml.jpg",
-      "arquivoOriginal": "YARA MOI 25 ML.png"
+      "arquivoOriginal": "YARA MOI 25 ML.png",
+      "resumo": "Feminino oriental âmbar floral.",
+      "notas": {
+        "topo": "jasmim e pêssego",
+        "coracao": "caramelo e âmbar",
+        "fundo": "patchouli e sândalo"
+      }
     },
     {
       "nome": "Yara Tous 25 ml",
@@ -652,7 +874,13 @@ window.CATALOGO = {
       "id": "yara-tous-25-ml",
       "categoria": "miniaturas-arabes",
       "imagem": "assets/produtos/miniaturas-arabes/yara-tous-25-ml.jpg",
-      "arquivoOriginal": "YARA TOUS 25 ML.png"
+      "arquivoOriginal": "YARA TOUS 25 ML.png",
+      "resumo": "Feminino tropical e cremoso.",
+      "notas": {
+        "topo": "manga, coco e maracujá",
+        "coracao": "jasmim, flor de laranjeira e heliotrópio",
+        "fundo": "baunilha, almíscar e cashmeran"
+      }
     },
     {
       "nome": "Allure Homme Sport 100 ml",
@@ -666,7 +894,13 @@ window.CATALOGO = {
       "id": "001-allure-100-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/001-allure-100-ml.jpg",
-      "arquivoOriginal": "001 - ALLURE 100 ML.jpg"
+      "arquivoOriginal": "001 - ALLURE 100 ML.jpg",
+      "resumo": "Inspirado em Allure Homme Sport de Chanel — amadeirado especiado masculino.",
+      "notas": {
+        "topo": "laranja, notas oceânicas, aldeídos e mandarina sanguínea",
+        "coracao": "pimenta, néroli e cedro",
+        "fundo": "baunilha, fava tonka, almíscar branco, âmbar, vetiver e resina de elemi"
+      }
     },
     {
       "nome": "One Million 25 ml",
@@ -680,7 +914,13 @@ window.CATALOGO = {
       "id": "005-one-million-25ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/005-one-million-25ml.jpg",
-      "arquivoOriginal": "005 - ONE MILLION 25ML.jpg"
+      "arquivoOriginal": "005 - ONE MILLION 25ML.jpg",
+      "resumo": "Inspirado em 1 Million de Rabanne — amadeirado especiado masculino.",
+      "notas": {
+        "topo": "mandarina sanguínea, toranja e hortelã",
+        "coracao": "canela, notas especiadas e rosa",
+        "fundo": "âmbar, couro, notas amadeiradas e patchouli indiano"
+      }
     },
     {
       "nome": "Hidratante One Million",
@@ -694,7 +934,13 @@ window.CATALOGO = {
       "id": "005-one-million-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/005-one-million-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "005 - ONE MILLION HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "005 - ONE MILLION HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de 1 Million — amadeirado especiado masculino.",
+      "notas": {
+        "topo": "mandarina sanguínea, toranja e hortelã",
+        "coracao": "canela, notas especiadas e rosa",
+        "fundo": "âmbar, couro, notas amadeiradas e patchouli indiano"
+      }
     },
     {
       "nome": "212 VIP Men 25 ml",
@@ -708,7 +954,13 @@ window.CATALOGO = {
       "id": "008-vip-men-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/008-vip-men-25-ml.jpg",
-      "arquivoOriginal": "008 - VIP MEN 25 ML.jpg"
+      "arquivoOriginal": "008 - VIP MEN 25 ML.jpg",
+      "resumo": "Inspirado em 212 VIP Men de Carolina Herrera — oriental amadeirado masculino.",
+      "notas": {
+        "topo": "maracujá, lima, pimenta, gengibre e limão caviar",
+        "coracao": "vodka, gin, hortelã e especiarias",
+        "fundo": "âmbar, couro e notas amadeiradas"
+      }
     },
     {
       "nome": "212 VIP Branco 25 ml",
@@ -722,7 +974,13 @@ window.CATALOGO = {
       "id": "009-212-vip-branco-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/009-212-vip-branco-25-ml.jpg",
-      "arquivoOriginal": "009-  212 VIP BRANCO 25 ML.jpg"
+      "arquivoOriginal": "009-  212 VIP BRANCO 25 ML.jpg",
+      "resumo": "Inspirado em 212 VIP de Carolina Herrera — oriental baunilha feminino.",
+      "notas": {
+        "topo": "rum e maracujá",
+        "coracao": "gardênia e almíscar",
+        "fundo": "baunilha e fava tonka"
+      }
     },
     {
       "nome": "La Vie Est Belle 25 ml",
@@ -736,7 +994,13 @@ window.CATALOGO = {
       "id": "012-la-vie-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/012-la-vie-25-ml.jpg",
-      "arquivoOriginal": "012 - LA VIE 25 ML.jpg"
+      "arquivoOriginal": "012 - LA VIE 25 ML.jpg",
+      "resumo": "Inspirado em La Vie Est Belle de Lancôme — floral frutado gourmet.",
+      "notas": {
+        "topo": "groselha preta e pêra",
+        "coracao": "íris, jasmim e flor de laranjeira",
+        "fundo": "pralinê, baunilha, patchouli e fava tonka"
+      }
     },
     {
       "nome": "Hidratante La Vie Est Belle",
@@ -750,7 +1014,13 @@ window.CATALOGO = {
       "id": "012-la-vie-est-belle-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/012-la-vie-est-belle-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "012 - LA VIE EST BELLE HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "012 - LA VIE EST BELLE HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de La Vie Est Belle — floral frutado gourmet.",
+      "notas": {
+        "topo": "groselha preta e pêra",
+        "coracao": "íris, jasmim e flor de laranjeira",
+        "fundo": "pralinê, baunilha, patchouli e fava tonka"
+      }
     },
     {
       "nome": "Miss Dior 25 ml",
@@ -764,7 +1034,13 @@ window.CATALOGO = {
       "id": "015-miss-dior-25-mil",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/015-miss-dior-25-mil.jpg",
-      "arquivoOriginal": "015 - MISS DIOR 25 MIL.jpg"
+      "arquivoOriginal": "015 - MISS DIOR 25 MIL.jpg",
+      "resumo": "Inspirado em Miss Dior EDP — oriental floral feminino.",
+      "notas": {
+        "topo": "íris, peônia e lírio-do-vale",
+        "coracao": "rosa, damasco e pêssego",
+        "fundo": "baunilha, almíscar, fava tonka, sândalo e benjoim"
+      }
     },
     {
       "nome": "Hidratante Miss Dior",
@@ -778,7 +1054,13 @@ window.CATALOGO = {
       "id": "015-miss-dior-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/015-miss-dior-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "015 - MISS DIOR HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "015 - MISS DIOR HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Miss Dior — oriental floral feminino.",
+      "notas": {
+        "topo": "íris, peônia e lírio-do-vale",
+        "coracao": "rosa, damasco e pêssego",
+        "fundo": "baunilha, almíscar, fava tonka, sândalo e benjoim"
+      }
     },
     {
       "nome": "Coco Chanel 25 ml",
@@ -792,7 +1074,13 @@ window.CATALOGO = {
       "id": "021-coco-chanel-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/021-coco-chanel-25-ml.jpg",
-      "arquivoOriginal": "021 - COCO CHANEL 25 ML.jpg"
+      "arquivoOriginal": "021 - COCO CHANEL 25 ML.jpg",
+      "resumo": "Inspirado em Chanel Nº 5 — floral aldeídico feminino.",
+      "notas": {
+        "topo": "aldeídos, ylang ylang, néroli, bergamota e pêssego",
+        "coracao": "íris, jasmim, rosa e lírio-do-vale",
+        "fundo": "sândalo, musgo de carvalho, baunilha, patchouli e vetiver"
+      }
     },
     {
       "nome": "Coco Chanel 80 ml",
@@ -806,7 +1094,13 @@ window.CATALOGO = {
       "id": "021-coco-chanel-80-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/021-coco-chanel-80-ml.jpg",
-      "arquivoOriginal": "021 - COCO CHANEL 80 ML.jpg"
+      "arquivoOriginal": "021 - COCO CHANEL 80 ML.jpg",
+      "resumo": "Inspirado em Chanel Nº 5 EDP — floral aldeídico feminino.",
+      "notas": {
+        "topo": "aldeídos, ylang ylang, néroli, bergamota e pêssego",
+        "coracao": "íris, jasmim, rosa e lírio-do-vale",
+        "fundo": "sândalo, musgo de carvalho, baunilha, patchouli e vetiver"
+      }
     },
     {
       "nome": "Hugo Boss Man 25 ml",
@@ -820,7 +1114,13 @@ window.CATALOGO = {
       "id": "028-hugo-boss-man25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/028-hugo-boss-man25-ml.jpg",
-      "arquivoOriginal": "028 - HUGO BOSS MAN25 ML.jpg"
+      "arquivoOriginal": "028 - HUGO BOSS MAN25 ML.jpg",
+      "resumo": "Inspirado em Hugo Man de Hugo Boss — amadeirado aromático masculino.",
+      "notas": {
+        "topo": "maçã verde",
+        "coracao": "lavanda",
+        "fundo": "pinheiro, notas amadeiradas e bálsamo de abeto"
+      }
     },
     {
       "nome": "212 VIP Rosé 80 ml",
@@ -834,7 +1134,13 @@ window.CATALOGO = {
       "id": "034-212-vip-rose-80ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/034-212-vip-rose-80ml.jpg",
-      "arquivoOriginal": "034 - 212 VIP ROSE 80ML.jpg"
+      "arquivoOriginal": "034 - 212 VIP ROSE 80ML.jpg",
+      "resumo": "Inspirado em 212 VIP Rosé de Carolina Herrera — floral frutado feminino.",
+      "notas": {
+        "topo": "champanhe rosé e pimenta rosa",
+        "coracao": "flor de pêssego e rosa",
+        "fundo": "almíscar branco e notas amadeiradas"
+      }
     },
     {
       "nome": "212 VIP Rosé 25 ml",
@@ -848,7 +1154,13 @@ window.CATALOGO = {
       "id": "034-212-vip-rose-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/034-212-vip-rose-25-ml.jpg",
-      "arquivoOriginal": "034 - 212 VIP ROSÉ 25 ML.jpg"
+      "arquivoOriginal": "034 - 212 VIP ROSÉ 25 ML.jpg",
+      "resumo": "Inspirado em 212 VIP Rosé de Carolina Herrera — floral frutado feminino.",
+      "notas": {
+        "topo": "champanhe rosé e pimenta rosa",
+        "coracao": "flor de pêssego e rosa",
+        "fundo": "almíscar branco e notas amadeiradas"
+      }
     },
     {
       "nome": "Hidratante VIP Rosé",
@@ -862,7 +1174,13 @@ window.CATALOGO = {
       "id": "034-vip-rose-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/034-vip-rose-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "034 - VIP ROSÉ HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "034 - VIP ROSÉ HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de 212 VIP Rosé — floral frutado feminino.",
+      "notas": {
+        "topo": "champanhe rosé e pimenta rosa",
+        "coracao": "flor de pêssego e rosa",
+        "fundo": "almíscar branco e notas amadeiradas"
+      }
     },
     {
       "nome": "Narciso Rodriguez For Her 25 ml",
@@ -876,7 +1194,13 @@ window.CATALOGO = {
       "id": "060-narciso-rodriguez-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/060-narciso-rodriguez-25-ml.jpg",
-      "arquivoOriginal": "060 - NARCISO RODRIGUEZ 25 ML.jpg"
+      "arquivoOriginal": "060 - NARCISO RODRIGUEZ 25 ML.jpg",
+      "resumo": "Inspirado em Narciso Rodriguez For Her EDP — floral amadeirado almiscarado.",
+      "notas": {
+        "topo": "rosa e pêssego",
+        "coracao": "almíscar e âmbar",
+        "fundo": "patchouli e sândalo"
+      }
     },
     {
       "nome": "Sí 25 ml",
@@ -890,7 +1214,8 @@ window.CATALOGO = {
       "id": "063-si-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/063-si-25-ml.jpg",
-      "arquivoOriginal": "063 - SÍ 25 ML.jpg"
+      "arquivoOriginal": "063 - SÍ 25 ML.jpg",
+      "resumo": "Inspirado em Sí de Giorgio Armani — chipre frutado feminino, elegante e envolvente."
     },
     {
       "nome": "Bleu de Chanel 100 ml",
@@ -904,7 +1229,13 @@ window.CATALOGO = {
       "id": "070-bleu-de-chanel-100-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/070-bleu-de-chanel-100-ml.jpg",
-      "arquivoOriginal": "070 - BLEU DE CHANEL 100 ML.jpg"
+      "arquivoOriginal": "070 - BLEU DE CHANEL 100 ML.jpg",
+      "resumo": "Inspirado em Bleu de Chanel EDP — amadeirado aromático masculino.",
+      "notas": {
+        "topo": "toranja, limão, hortelã, bergamota, pimenta rosa, aldeídos e coentro",
+        "coracao": "gengibre, jasmim, noz-moscada e melão",
+        "fundo": "incenso, âmbar, cedro, sândalo, madeira de âmbar, patchouli e ládano"
+      }
     },
     {
       "nome": "Mont Blanc Legend 25 ml",
@@ -918,7 +1249,13 @@ window.CATALOGO = {
       "id": "084-mont-blanc-legend-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/084-mont-blanc-legend-25-ml.jpg",
-      "arquivoOriginal": "084 - MONT BLANC LEGEND 25 ML.jpg"
+      "arquivoOriginal": "084 - MONT BLANC LEGEND 25 ML.jpg",
+      "resumo": "Inspirado em Legend de Montblanc — aromático fougère masculino.",
+      "notas": {
+        "topo": "lavanda, abacaxi, bergamota e lúcia-lima",
+        "coracao": "maçã vermelha, frutas secas, musgo de carvalho, gerânio, cumarina e rosa",
+        "fundo": "fava tonka e sândalo"
+      }
     },
     {
       "nome": "Olympéa 25 ml",
@@ -932,7 +1269,13 @@ window.CATALOGO = {
       "id": "087-olympia-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/087-olympia-25-ml.jpg",
-      "arquivoOriginal": "087 - OLYMPIA 25 ML.jpg"
+      "arquivoOriginal": "087 - OLYMPIA 25 ML.jpg",
+      "resumo": "Inspirado em Olympéa de Rabanne — oriental floral feminino.",
+      "notas": {
+        "topo": "jasmim aquático, mandarina verde e flor de gengibre",
+        "coracao": "baunilha e sal",
+        "fundo": "madeira de cashmere, âmbar cinzento e sândalo"
+      }
     },
     {
       "nome": "Olympéa 80 ml",
@@ -946,7 +1289,13 @@ window.CATALOGO = {
       "id": "087-olympia-80-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/087-olympia-80-ml.jpg",
-      "arquivoOriginal": "087 - OLYMPIA 80 ML.jpg"
+      "arquivoOriginal": "087 - OLYMPIA 80 ML.jpg",
+      "resumo": "Inspirado em Olympéa de Rabanne — oriental floral feminino.",
+      "notas": {
+        "topo": "jasmim aquático, mandarina verde e flor de gengibre",
+        "coracao": "baunilha e sal",
+        "fundo": "madeira de cashmere, âmbar cinzento e sândalo"
+      }
     },
     {
       "nome": "Invictus 25 ml",
@@ -960,7 +1309,13 @@ window.CATALOGO = {
       "id": "116-invictus-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/116-invictus-25-ml.jpg",
-      "arquivoOriginal": "116 - INVICTUS 25 ML.jpg"
+      "arquivoOriginal": "116 - INVICTUS 25 ML.jpg",
+      "resumo": "Inspirado em Invictus de Rabanne — amadeirado aquático masculino.",
+      "notas": {
+        "topo": "notas oceânicas, toranja e mandarina",
+        "coracao": "folha de louro e jasmim",
+        "fundo": "âmbar cinzento, madeira guaiac, musgo de carvalho e patchouli"
+      }
     },
     {
       "nome": "Hidratante Invictus",
@@ -974,7 +1329,13 @@ window.CATALOGO = {
       "id": "116-invictus-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/116-invictus-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "116 - INVICTUS HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "116 - INVICTUS HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Invictus — amadeirado aquático masculino.",
+      "notas": {
+        "topo": "notas oceânicas, toranja e mandarina",
+        "coracao": "folha de louro e jasmim",
+        "fundo": "âmbar cinzento, madeira guaiac, musgo de carvalho e patchouli"
+      }
     },
     {
       "nome": "La Vie Est Belle 80 ml",
@@ -988,7 +1349,13 @@ window.CATALOGO = {
       "id": "12-la-vie-est-belle-80-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/12-la-vie-est-belle-80-ml.jpg",
-      "arquivoOriginal": "12 - LA VIE EST BELLE 80 ML.jpg"
+      "arquivoOriginal": "12 - LA VIE EST BELLE 80 ML.jpg",
+      "resumo": "Inspirado em La Vie Est Belle de Lancôme — floral frutado gourmet.",
+      "notas": {
+        "topo": "groselha preta e pêra",
+        "coracao": "íris, jasmim e flor de laranjeira",
+        "fundo": "pralinê, baunilha, patchouli e fava tonka"
+      }
     },
     {
       "nome": "Good Girl 80 ml",
@@ -1002,7 +1369,13 @@ window.CATALOGO = {
       "id": "126-good-girl-80-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/126-good-girl-80-ml.jpg",
-      "arquivoOriginal": "126 - GOOD GIRL 80 ML.jpg"
+      "arquivoOriginal": "126 - GOOD GIRL 80 ML.jpg",
+      "resumo": "Inspirado em Good Girl de Carolina Herrera — oriental floral feminino.",
+      "notas": {
+        "topo": "amêndoa, café, bergamota e limão",
+        "coracao": "tuberosa, jasmim sambac, flor de laranjeira, rosa búlgara e raiz de orris",
+        "fundo": "fava tonka, cacau, baunilha, pralinê, sândalo, almíscar, âmbar, madeira de cashmere, patchouli, canela e cedro"
+      }
     },
     {
       "nome": "Hidratante Good Girl",
@@ -1016,7 +1389,13 @@ window.CATALOGO = {
       "id": "126-good-girl-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/126-good-girl-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "126 - GOOD GIRL HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "126 - GOOD GIRL HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Good Girl — oriental floral feminino.",
+      "notas": {
+        "topo": "amêndoa, café, bergamota e limão",
+        "coracao": "tuberosa, jasmim sambac, flor de laranjeira e rosa búlgara",
+        "fundo": "fava tonka, cacau, baunilha, pralinê, sândalo, almíscar e âmbar"
+      }
     },
     {
       "nome": "Scandal 25 ml",
@@ -1030,7 +1409,13 @@ window.CATALOGO = {
       "id": "136-scandal-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/136-scandal-25-ml.jpg",
-      "arquivoOriginal": "136 - SCANDAL 25 ML.jpg"
+      "arquivoOriginal": "136 - SCANDAL 25 ML.jpg",
+      "resumo": "Inspirado em Scandal de Jean Paul Gaultier — chipre floral feminino.",
+      "notas": {
+        "topo": "laranja sanguínea e mandarina",
+        "coracao": "mel, gardênia, flor de laranjeira, jasmim e pêssego",
+        "fundo": "cera de abelha, caramelo, patchouli e alcaçuz"
+      }
     },
     {
       "nome": "Hidratante Scandal",
@@ -1044,7 +1429,13 @@ window.CATALOGO = {
       "id": "136-scandal-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/136-scandal-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "136 - SCANDAL HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "136 - SCANDAL HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Scandal — chipre floral feminino.",
+      "notas": {
+        "topo": "laranja sanguínea e mandarina",
+        "coracao": "mel, gardênia, flor de laranjeira, jasmim e pêssego",
+        "fundo": "cera de abelha, caramelo, patchouli e alcaçuz"
+      }
     },
     {
       "nome": "212 VIP Black 100 ml",
@@ -1058,7 +1449,13 @@ window.CATALOGO = {
       "id": "154-212-vip-black-100ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/154-212-vip-black-100ml.jpg",
-      "arquivoOriginal": "154 - 212 VIP BLACK 100ML.jpg"
+      "arquivoOriginal": "154 - 212 VIP BLACK 100ML.jpg",
+      "resumo": "Inspirado em 212 VIP Black de Carolina Herrera — aromático fougère masculino.",
+      "notas": {
+        "topo": "absinto, anis e erva-doce",
+        "coracao": "lavanda",
+        "fundo": "casca de baunilha negra e almíscar"
+      }
     },
     {
       "nome": "Acqua di Giò 25 ml",
@@ -1072,7 +1469,13 @@ window.CATALOGO = {
       "id": "155-acqua-di-gio-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/155-acqua-di-gio-25-ml.jpg",
-      "arquivoOriginal": "155 - ACQUA DI GIO 25 ML.jpg"
+      "arquivoOriginal": "155 - ACQUA DI GIO 25 ML.jpg",
+      "resumo": "Inspirado em Acqua di Giò de Giorgio Armani — aromático aquático masculino.",
+      "notas": {
+        "topo": "lima, limão, bergamota, jasmim, laranja, mandarina e néroli",
+        "coracao": "notas oceânicas, jasmim, calone, alecrim, pêssego, frésia, jacinto e violeta",
+        "fundo": "almíscar branco, cedro, musgo de carvalho, patchouli e âmbar"
+      }
     },
     {
       "nome": "Libre 25 ml",
@@ -1086,7 +1489,13 @@ window.CATALOGO = {
       "id": "159-libre-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/159-libre-25-ml.jpg",
-      "arquivoOriginal": "159 - LIBRE 25 ML.jpg"
+      "arquivoOriginal": "159 - LIBRE 25 ML.jpg",
+      "resumo": "Inspirado em Libre de Yves Saint Laurent — oriental fougère feminino.",
+      "notas": {
+        "topo": "lavanda, mandarina, groselha preta e petitgrain",
+        "coracao": "lavanda, flor de laranjeira e jasmim",
+        "fundo": "baunilha de madagascar, almíscar, cedro e âmbar cinzento"
+      }
     },
     {
       "nome": "Hidratante Libre",
@@ -1100,7 +1509,13 @@ window.CATALOGO = {
       "id": "159-libre-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/159-libre-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "159 - LIBRE HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "159 - LIBRE HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Libre — oriental fougère feminino.",
+      "notas": {
+        "topo": "lavanda, mandarina, groselha preta e petitgrain",
+        "coracao": "lavanda, flor de laranjeira e jasmim",
+        "fundo": "baunilha de madagascar, almíscar, cedro e âmbar cinzento"
+      }
     },
     {
       "nome": "Hidratante Armani Code",
@@ -1114,7 +1529,8 @@ window.CATALOGO = {
       "id": "164-armani-code-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/164-armani-code-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "164 - ARMANI CODE  HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "164 - ARMANI CODE  HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Armani Code — oriental amadeirado masculino, com notas de limão, flor de laranjeira, gergelim, fava tonka e couro."
     },
     {
       "nome": "Hidratante Polo Blue",
@@ -1128,7 +1544,8 @@ window.CATALOGO = {
       "id": "174-polo-blue-hidratantes-brand-collection",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/174-polo-blue-hidratantes-brand-collection.jpg",
-      "arquivoOriginal": "174 - POLO BLUE HIDRATANTES BRAND COLLECTION.jpg"
+      "arquivoOriginal": "174 - POLO BLUE HIDRATANTES BRAND COLLECTION.jpg",
+      "resumo": "Hidratante perfumado com a inspiração olfativa de Polo Blue — aromático aquático masculino, com notas de melão, manjericão, sálvia, musgo de carvalho e almíscar."
     },
     {
       "nome": "Bad Boy 25 ml",
@@ -1142,7 +1559,13 @@ window.CATALOGO = {
       "id": "181-bad-boy-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/181-bad-boy-25-ml.jpg",
-      "arquivoOriginal": "181 - BAD BOY 25 ML.jpg"
+      "arquivoOriginal": "181 - BAD BOY 25 ML.jpg",
+      "resumo": "Inspirado em Bad Boy de Carolina Herrera — oriental especiado masculino.",
+      "notas": {
+        "topo": "pimenta branca, bergamota e pimenta rosa",
+        "coracao": "cedro e sálvia esclareia",
+        "fundo": "fava tonka e cacau"
+      }
     },
     {
       "nome": "Bvlgari Rose Goldea 25 ml",
@@ -1156,7 +1579,13 @@ window.CATALOGO = {
       "id": "235-bvlgari-rose-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/235-bvlgari-rose-25-ml.jpg",
-      "arquivoOriginal": "235 - BVLGARI ROSE 25 ml.jpg"
+      "arquivoOriginal": "235 - BVLGARI ROSE 25 ml.jpg",
+      "resumo": "Inspirado em Rose Goldea de Bvlgari — floral amadeirado almiscarado.",
+      "notas": {
+        "topo": "rosa, almíscar, romã e bergamota",
+        "coracao": "rosa damascena, peônia, jasmim e pêssego",
+        "fundo": "almíscar, sândalo, olíbano e baunilha"
+      }
     },
     {
       "nome": "Idôle 25 ml",
@@ -1170,7 +1599,13 @@ window.CATALOGO = {
       "id": "238-idole-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/238-idole-25-ml.jpg",
-      "arquivoOriginal": "238 - IDOLE 25 ML.jpg"
+      "arquivoOriginal": "238 - IDOLE 25 ML.jpg",
+      "resumo": "Inspirado em Idôle de Lancôme — chipre floral feminino.",
+      "notas": {
+        "topo": "pêra, bergamota e pimenta rosa",
+        "coracao": "rosa e jasmim",
+        "fundo": "almíscar branco, baunilha, patchouli e cedro"
+      }
     },
     {
       "nome": "Burberry Her 25 ml",
@@ -1184,7 +1619,13 @@ window.CATALOGO = {
       "id": "246-burberry-for-her-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/246-burberry-for-her-25-ml.jpg",
-      "arquivoOriginal": "246 - BURBERRY FOR HER 25 ML.jpg"
+      "arquivoOriginal": "246 - BURBERRY FOR HER 25 ML.jpg",
+      "resumo": "Inspirado em Burberry Her — floral frutado gourmand.",
+      "notas": {
+        "topo": "morango, framboesa, amora, cereja amarga, groselha preta, mandarina e limão",
+        "coracao": "violeta e jasmim",
+        "fundo": "almíscar, baunilha, cashmeran, notas amadeiradas, âmbar, musgo de carvalho e patchouli"
+      }
     },
     {
       "nome": "Azzaro Wanted 25 ml",
@@ -1198,7 +1639,13 @@ window.CATALOGO = {
       "id": "250-azzaro-wanted-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/250-azzaro-wanted-25-ml.jpg",
-      "arquivoOriginal": "250 - AZZARO WANTED 25 ML.jpg"
+      "arquivoOriginal": "250 - AZZARO WANTED 25 ML.jpg",
+      "resumo": "Inspirado em Wanted de Azzaro — amadeirado especiado masculino.",
+      "notas": {
+        "topo": "limão, gengibre, lavanda e hortelã",
+        "coracao": "maçã, cardamomo da guatemala, zimbro e gerânio",
+        "fundo": "fava tonka, madeira de âmbar e vetiver do haiti"
+      }
     },
     {
       "nome": "Very Good Girl 25 ml",
@@ -1212,7 +1659,13 @@ window.CATALOGO = {
       "id": "297-good-girl-very-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/297-good-girl-very-25-ml.jpg",
-      "arquivoOriginal": "297 - GOOD GIRL VERY 25 ML.jpg"
+      "arquivoOriginal": "297 - GOOD GIRL VERY 25 ML.jpg",
+      "resumo": "Inspirado em Very Good Girl de Carolina Herrera — floral frutado feminino.",
+      "notas": {
+        "topo": "lichia e groselha vermelha",
+        "coracao": "rosa",
+        "fundo": "baunilha e vetiver"
+      }
     },
     {
       "nome": "Le Male Elixir 25 ml",
@@ -1226,7 +1679,13 @@ window.CATALOGO = {
       "id": "323-le-male-elixir-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/323-le-male-elixir-25-ml.jpg",
-      "arquivoOriginal": "323 - LÊ MALE ELIXIR 25 ML.jpg"
+      "arquivoOriginal": "323 - LÊ MALE ELIXIR 25 ML.jpg",
+      "resumo": "Inspirado em Le Male Elixir de Jean Paul Gaultier — oriental fougère masculino.",
+      "notas": {
+        "topo": "lavanda e hortelã",
+        "coracao": "baunilha e benjoim",
+        "fundo": "mel, fava tonka e tabaco"
+      }
     },
     {
       "nome": "Very Good Girl Glam 25 ml",
@@ -1240,7 +1699,13 @@ window.CATALOGO = {
       "id": "332-good-girl-glam-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/332-good-girl-glam-25-ml.jpg",
-      "arquivoOriginal": "332 - GOOD GIRL GLAM 25 ML.jpg"
+      "arquivoOriginal": "332 - GOOD GIRL GLAM 25 ML.jpg",
+      "resumo": "Inspirado em Very Good Girl Glam de Carolina Herrera — floral amadeirado.",
+      "notas": {
+        "topo": "cereja amarga e amêndoa amarga",
+        "coracao": "rosa e lírio",
+        "fundo": "baunilha bourbon e vetiver"
+      }
     },
     {
       "nome": "Nomade Chloé 25 ml",
@@ -1254,7 +1719,13 @@ window.CATALOGO = {
       "id": "341-nomade-chloe-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/341-nomade-chloe-25-ml.jpg",
-      "arquivoOriginal": "341 - NÔMADE CHLOÉ 25 ML.jpg"
+      "arquivoOriginal": "341 - NÔMADE CHLOÉ 25 ML.jpg",
+      "resumo": "Inspirado em Nomade de Chloé — chipre floral feminino.",
+      "notas": {
+        "topo": "ameixa mirabelle, bergamota, limão e laranja",
+        "coracao": "frésia, pêssego, jasmim e rosa",
+        "fundo": "musgo de carvalho, patchouli, madeira de âmbar, almíscar branco e sândalo"
+      }
     },
     {
       "nome": "Fame Blooming Pink 25 ml",
@@ -1268,7 +1739,8 @@ window.CATALOGO = {
       "id": "378-fame-feminino-blooming-pink",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/378-fame-feminino-blooming-pink.jpg",
-      "arquivoOriginal": "378 - FAME FEMININO BLOOMING PINK.jpg"
+      "arquivoOriginal": "378 - FAME FEMININO BLOOMING PINK.jpg",
+      "resumo": "Fragrância floral feminina da linha Brand Collection, leve e marcante para o dia a dia."
     },
     {
       "nome": "Baccarat Rouge 540 Extrait 100 ml",
@@ -1282,7 +1754,13 @@ window.CATALOGO = {
       "id": "380-baccarat-rouge-extrait-100ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/380-baccarat-rouge-extrait-100ml.jpg",
-      "arquivoOriginal": "380 - BACCARAT ROUGE EXTRAIT 100ML.jpg"
+      "arquivoOriginal": "380 - BACCARAT ROUGE EXTRAIT 100ML.jpg",
+      "resumo": "Inspirado em Baccarat Rouge 540 Extrait de Maison Francis Kurkdjian — oriental floral compartilhável.",
+      "notas": {
+        "topo": "amêndoa amarga e açafrão",
+        "coracao": "jasmim egípcio e cedro da virgínia",
+        "fundo": "âmbar cinzento, notas amadeiradas, almíscar, ambroxan e cashmeran"
+      }
     },
     {
       "nome": "L'Interdit 25 ml",
@@ -1296,7 +1774,8 @@ window.CATALOGO = {
       "id": "382-linterdit-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/382-linterdit-25-ml.jpg",
-      "arquivoOriginal": "382 - L’INTERDIT 25 ML.jpg"
+      "arquivoOriginal": "382 - L’INTERDIT 25 ML.jpg",
+      "resumo": "Inspirado em L'Interdit de Givenchy — floral branco feminino, sofisticado e envolvente."
     },
     {
       "nome": "Valentino Born In Roma 25 ml",
@@ -1310,7 +1789,12 @@ window.CATALOGO = {
       "id": "391-valentino-born-in-roma",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/391-valentino-born-in-roma.jpg",
-      "arquivoOriginal": "391 - VALENTINO BORN IN ROMA.jpg"
+      "arquivoOriginal": "391 - VALENTINO BORN IN ROMA.jpg",
+      "resumo": "Inspirado em Valentino Donna Born In Roma — oriental floral feminino.",
+      "notas": {
+        "coracao": "jasmim, jasmim sambac e chá de jasmim",
+        "fundo": "baunilha bourbon, cashmeran e madeira guaiac"
+      }
     },
     {
       "nome": "MYSLF 25 ml",
@@ -1324,7 +1808,13 @@ window.CATALOGO = {
       "id": "433-myself-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/433-myself-25-ml.jpg",
-      "arquivoOriginal": "433 - MYSELF 25 ML.jpg"
+      "arquivoOriginal": "433 - MYSELF 25 ML.jpg",
+      "resumo": "Inspirado em MYSLF de Yves Saint Laurent — aromático masculino.",
+      "notas": {
+        "topo": "bergamota da calábria e bergamota",
+        "coracao": "flor de laranjeira tunisiana",
+        "fundo": "ambrofix e patchouli"
+      }
     },
     {
       "nome": "Burberry Goddess 25 ml",
@@ -1338,7 +1828,13 @@ window.CATALOGO = {
       "id": "435-burberry-goodness-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/435-burberry-goodness-25-ml.jpg",
-      "arquivoOriginal": "435 - BURBERRY GOODNESS 25 ML.jpg"
+      "arquivoOriginal": "435 - BURBERRY GOODNESS 25 ML.jpg",
+      "resumo": "Inspirado em Goddess de Burberry — aromático feminino.",
+      "notas": {
+        "topo": "baunilha, lavanda, cacau e gengibre",
+        "coracao": "caviar de baunilha",
+        "fundo": "absoluto de baunilha"
+      }
     },
     {
       "nome": "Bad Boy Elixir 25 ml",
@@ -1352,7 +1848,13 @@ window.CATALOGO = {
       "id": "443-bad-boy-elixir-25-ml",
       "categoria": "brand-nacionais",
       "imagem": "assets/produtos/brand-nacionais/443-bad-boy-elixir-25-ml.jpg",
-      "arquivoOriginal": "443 - BAD BOY ELIXIR 25 ML.jpg"
+      "arquivoOriginal": "443 - BAD BOY ELIXIR 25 ML.jpg",
+      "resumo": "Inspirado em Bad Boy Elixir de Carolina Herrera — oriental amadeirado masculino.",
+      "notas": {
+        "topo": "sálvia e lavanda",
+        "coracao": "couro e íris",
+        "fundo": "cedro e olíbano"
+      }
     },
     {
       "nome": "212 VIP Black 200 ml",
@@ -1366,7 +1868,13 @@ window.CATALOGO = {
       "id": "212-vip-black-200ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/212-vip-black-200ml.jpg",
-      "arquivoOriginal": "212 VIP BLACK 200ML.jpg"
+      "arquivoOriginal": "212 VIP BLACK 200ML.jpg",
+      "resumo": "Aromático fougère masculino.",
+      "notas": {
+        "topo": "absinto, anis e erva-doce",
+        "coracao": "lavanda",
+        "fundo": "casca de baunilha negra e almíscar"
+      }
     },
     {
       "nome": "212 VIP Men 200 ml",
@@ -1380,7 +1888,13 @@ window.CATALOGO = {
       "id": "212-vip-men-200ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/212-vip-men-200ml.jpg",
-      "arquivoOriginal": "212 VIP MEN 200ML.jpg"
+      "arquivoOriginal": "212 VIP MEN 200ML.jpg",
+      "resumo": "Oriental amadeirado masculino.",
+      "notas": {
+        "topo": "maracujá, lima, pimenta, gengibre e limão caviar",
+        "coracao": "vodka, gin, hortelã e especiarias",
+        "fundo": "âmbar, couro e notas amadeiradas"
+      }
     },
     {
       "nome": "Bleu de Chanel 150 ml",
@@ -1394,7 +1908,13 @@ window.CATALOGO = {
       "id": "bleu-de-chanel-150ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/bleu-de-chanel-150ml.jpg",
-      "arquivoOriginal": "BLEU DE CHANEL 150ML.jpg"
+      "arquivoOriginal": "BLEU DE CHANEL 150ML.jpg",
+      "resumo": "Eau de Parfum amadeirado aromático masculino.",
+      "notas": {
+        "topo": "toranja, limão, hortelã, bergamota, pimenta rosa, aldeídos e coentro",
+        "coracao": "gengibre, jasmim, noz-moscada e melão",
+        "fundo": "incenso, âmbar, cedro, sândalo, madeira de âmbar, patchouli e ládano"
+      }
     },
     {
       "nome": "CH Men 200 ml",
@@ -1408,7 +1928,13 @@ window.CATALOGO = {
       "id": "ch-men-200ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/ch-men-200ml.jpg",
-      "arquivoOriginal": "CH MEN 200ML.jpg"
+      "arquivoOriginal": "CH MEN 200ML.jpg",
+      "resumo": "Oriental especiado masculino.",
+      "notas": {
+        "topo": "grama, bergamota e toranja",
+        "coracao": "notas amadeiradas, noz-moscada, violeta, açafrão e jasmim",
+        "fundo": "açúcar, couro, baunilha, camurça, âmbar, madeira de cashmir, sândalo, musgo de carvalho e vetiver"
+      }
     },
     {
       "nome": "Candied Fantasy",
@@ -1422,7 +1948,13 @@ window.CATALOGO = {
       "id": "fantasy-britney-spears",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/fantasy-britney-spears.jpg",
-      "arquivoOriginal": "FANTASY BRITNEY SPEARS.png"
+      "arquivoOriginal": "FANTASY BRITNEY SPEARS.png",
+      "resumo": "Floral frutado gourmand feminino.",
+      "notas": {
+        "topo": "chiclete, morango e laranja",
+        "coracao": "hibisco, jasmim sambac e lírio-do-vale",
+        "fundo": "cupcake, almíscar e sândalo"
+      }
     },
     {
       "nome": "Invictus 200 ml",
@@ -1436,7 +1968,13 @@ window.CATALOGO = {
       "id": "invictus-200ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/invictus-200ml.jpg",
-      "arquivoOriginal": "INVICTUS 200ML.jpg"
+      "arquivoOriginal": "INVICTUS 200ML.jpg",
+      "resumo": "Amadeirado aquático masculino.",
+      "notas": {
+        "topo": "notas oceânicas, toranja e mandarina",
+        "coracao": "folha de louro e jasmim",
+        "fundo": "âmbar cinzento, madeira guaiac, musgo de carvalho e patchouli"
+      }
     },
     {
       "nome": "J'adore 100 ml",
@@ -1450,7 +1988,13 @@ window.CATALOGO = {
       "id": "jadore-100ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/jadore-100ml.jpg",
-      "arquivoOriginal": "JADORE 100ML.jpg"
+      "arquivoOriginal": "JADORE 100ML.jpg",
+      "resumo": "Floral frutado feminino.",
+      "notas": {
+        "topo": "pêra, melão, magnólia, pêssego, mandarina e bergamota",
+        "coracao": "jasmim, lírio-do-vale, tuberosa, frésia, rosa, orquídea, violeta e ameixa",
+        "fundo": "almíscar, baunilha, cedro e amora"
+      }
     },
     {
       "nome": "La Vie Est Belle 100 ml",
@@ -1464,7 +2008,13 @@ window.CATALOGO = {
       "id": "la-vie-est-belle-100ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/la-vie-est-belle-100ml.jpg",
-      "arquivoOriginal": "LA VIE EST BELLE 100ML.jpg"
+      "arquivoOriginal": "LA VIE EST BELLE 100ML.jpg",
+      "resumo": "Floral frutado gourmand feminino.",
+      "notas": {
+        "topo": "groselha preta e pêra",
+        "coracao": "íris, jasmim e flor de laranjeira",
+        "fundo": "pralinê, baunilha, patchouli e fava tonka"
+      }
     },
     {
       "nome": "Invictus Victory 200 ml",
@@ -1478,7 +2028,13 @@ window.CATALOGO = {
       "id": "nvictus-victory-200ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/nvictus-victory-200ml.jpg",
-      "arquivoOriginal": "NVICTUS VICTORY 200ML.jpg"
+      "arquivoOriginal": "NVICTUS VICTORY 200ML.jpg",
+      "resumo": "Oriental âmbar masculino, intenso e sofisticado.",
+      "notas": {
+        "topo": "pimenta rosa e limão",
+        "coracao": "olíbano e lavanda",
+        "fundo": "baunilha, fava tonka e âmbar"
+      }
     },
     {
       "nome": "1 Million Parfum 200 ml",
@@ -1492,7 +2048,8 @@ window.CATALOGO = {
       "id": "one-million-parfum-200ml",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/one-million-parfum-200ml.jpg",
-      "arquivoOriginal": "ONE MILLION PARFUM 200ML.jpg"
+      "arquivoOriginal": "ONE MILLION PARFUM 200ML.jpg",
+      "resumo": "Perfume couro masculino. Contém tuberosa, notas solares, sal, óleo de monoi, âmbar cinzento, couro, cashmeran, ládano e pinheiro."
     },
     {
       "nome": "Silver Scent",
@@ -1506,7 +2063,13 @@ window.CATALOGO = {
       "id": "silver-scent",
       "categoria": "importados",
       "imagem": "assets/produtos/importados/silver-scent.jpg",
-      "arquivoOriginal": "SILVER SCENT.jpg"
+      "arquivoOriginal": "SILVER SCENT.jpg",
+      "resumo": "Oriental amadeirado masculino.",
+      "notas": {
+        "topo": "flor de laranjeira e limão",
+        "coracao": "lavanda, cardamomo, noz-moscada, alecrim, coentro e gerânio",
+        "fundo": "lichia, fava tonka, madeira de teca e vetiver"
+      }
     },
     {
       "nome": "Asad Bourbon — Body Splash + Hidratante",
@@ -1520,7 +2083,8 @@ window.CATALOGO = {
       "id": "asad-bourbon-body-hidrantante",
       "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/isabelle-la-belle/asad-bourbon-body-hidrantante.jpg",
-      "arquivoOriginal": "ASAD BOURBON BODY + HIDRANTANTE.jpg"
+      "arquivoOriginal": "ASAD BOURBON BODY + HIDRANTANTE.jpg",
+      "resumo": "Body splash Asad Bourbon 300 ml: lavanda, ameixa mirabelle e pimenta rosa; cacau, noz-moscada e davana no coração; baunilha bourbon, âmbar e vetiver no fundo. Hidratante 200 g: baunilha, cacau, âmbar e especiarias."
     },
     {
       "nome": "Fakhar Black — Body Splash + Hidratante",
@@ -1534,7 +2098,8 @@ window.CATALOGO = {
       "id": "fakhar-black-body-splash-hidratante",
       "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/isabelle-la-belle/fakhar-black-body-splash-hidratante.jpg",
-      "arquivoOriginal": "FAKHAR BLACK BODY SPLASH + HIDRATANTE.jpg"
+      "arquivoOriginal": "FAKHAR BLACK BODY SPLASH + HIDRATANTE.jpg",
+      "resumo": "Body splash Fakhar Black 300 ml: maçã, bergamota e gengibre no topo; lavanda, gerânio e sálvia no coração; cedro, patchouli e almíscar no fundo. Hidratante 200 g: mesma inspiração olfativa, com toque fresco, amadeirado e envolvente."
     },
     {
       "nome": "Fakhar Rose — Body Splash + Hidratante",
@@ -1548,7 +2113,8 @@ window.CATALOGO = {
       "id": "fakhar-rose-body-splash-hidratante",
       "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/isabelle-la-belle/fakhar-rose-body-splash-hidratante.jpg",
-      "arquivoOriginal": "FAKHAR ROSE BODY SPLASH  + HIDRATANTE.jpg"
+      "arquivoOriginal": "FAKHAR ROSE BODY SPLASH  + HIDRATANTE.jpg",
+      "resumo": "Body splash Fakhar Rose 300 ml: fragrância feminina delicada e sofisticada, com aroma floral levemente adocicado e envolvente. Hidratante Fakhar Rose 200 g: hidratação e maciez com perfume floral suave."
     },
     {
       "nome": "Sabah Al Ward — Body Splash + Hidratante",
@@ -1562,7 +2128,8 @@ window.CATALOGO = {
       "id": "sabah-al-ward-body-splash-hidratante",
       "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/isabelle-la-belle/sabah-al-ward-body-splash-hidratante.jpg",
-      "arquivoOriginal": "SABAH AL WARD BODY SPLASH + HIDRATANTE.jpg"
+      "arquivoOriginal": "SABAH AL WARD BODY SPLASH + HIDRATANTE.jpg",
+      "resumo": "Body splash Sabah Al Ward 300 ml: notas de pimenta rosa, mandarina, flor de laranjeira, jasmim, baunilha, fava tonka e patchouli. Hidratante 200 g: flores brancas, baunilha, fava tonka e patchouli, deixando a pele hidratada, macia e perfumada."
     },
     {
       "nome": "Yara — Body Splash + Hidratante",
@@ -1576,7 +2143,8 @@ window.CATALOGO = {
       "id": "yara-body-splash-hidratante",
       "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/isabelle-la-belle/yara-body-splash-hidratante.jpg",
-      "arquivoOriginal": "YARA BODY SPLASH  + HIDRATANTE.jpg"
+      "arquivoOriginal": "YARA BODY SPLASH  + HIDRATANTE.jpg",
+      "resumo": "Body splash Yara 300 ml: fragrância feminina, doce e delicada, com toque floral, frutado e cremoso. Hidratante Yara 200 g: textura agradável que deixa a pele macia, hidratada e perfumada, complementando o body splash."
     },
     {
       "id": "decante-5ml",
@@ -1587,9 +2155,10 @@ window.CATALOGO = {
       "tipo": "Decante",
       "preco": 25.0,
       "descricao": "Decante de 5 ml da fragrância da sua escolha. Ideal para experimentar um perfume antes de levar o frasco cheio ou para carregar na bolsa.",
-      "imagem": "assets/marca/32.jpg",
+      "imagem": "assets/marca/35.jpg",
       "destaque": true,
-      "categoria": "acessorios"
+      "categoria": "acessorios",
+      "resumo": "Decante de 5 ml da fragrância da sua escolha. Ideal para experimentar um perfume antes de levar o frasco cheio ou para carregar na bolsa."
     },
     {
       "id": "frasco-atomizador-5ml",
@@ -1600,9 +2169,10 @@ window.CATALOGO = {
       "tipo": "Frasco",
       "preco": 15.0,
       "descricao": "Frasco porta-perfume atomizador recarregável em spray, de 5 ml. Prático para transportar sua fragrância no dia a dia e em viagens.",
-      "imagem": "assets/marca/34.jpg",
+      "imagem": "assets/marca/31.jpg",
       "destaque": false,
-      "categoria": "acessorios"
+      "categoria": "acessorios",
+      "resumo": "Frasco porta-perfume atomizador recarregável em spray, de 5 ml. Prático para transportar sua fragrância no dia a dia e em viagens."
     },
     {
       "id": "frasco-vidro-8ml",
@@ -1613,9 +2183,10 @@ window.CATALOGO = {
       "tipo": "Frasco",
       "preco": 9.0,
       "descricao": "Frasco de vidro de 8 ml para armazenar e transportar perfume.",
-      "imagem": "assets/marca/31.jpg",
+      "imagem": "assets/marca/30.jpg",
       "destaque": false,
-      "categoria": "acessorios"
+      "categoria": "acessorios",
+      "resumo": "Frasco de vidro de 8 ml para armazenar e transportar perfume."
     }
   ]
 };

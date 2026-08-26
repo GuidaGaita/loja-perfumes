@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Gera data/catalogo.js a partir do manifesto de imagens + dados dos catalogos PDF.
+"""Gera data/catalogo.js a partir do manifesto de imagens + dados dos produtos.
 
 Fluxo:  python otimizar-imagens.py  ->  python gerar-catalogo.py
 
@@ -16,7 +16,7 @@ RAIZ = os.path.dirname(os.path.abspath(__file__))
 # O WhatsApp deve estar no formato internacional, so numeros: 55 + DDD + numero.
 # ---------------------------------------------------------------------------
 LOJA = {
-    "nome": "Carla Perfumaria",
+    "nome": "CRPARFUM",
     "assinatura": "Árabes originais, importados e nacionais",
     "whatsapp": "5561981131320",
     "instagram": "",
@@ -31,8 +31,11 @@ CATEGORIAS = [
         "chamada": "Lattafa, Maison Alhambra, Al Wataniah e Armaf — 100 ml",
         "descricao": "Fragrâncias árabes originais de 100 ml, com alta fixação e projeção. "
                      "Perfis orientais, amadeirados e gourmand para quem quer marcar presença.",
-        "capa": "assets/marca/18.jpg",
-        "pdf": "assets/catalogos/arabes-originais.pdf",
+        "capa": "assets/marca/23.jpg",
+        "capaPos": "center 78%",
+        "capaCardPos": "center bottom",
+        "capaZoom": 1.4,
+        "capaOrigem": "30% 50%",
     },
     {
         "slug": "miniaturas-arabes",
@@ -40,8 +43,11 @@ CATEGORIAS = [
         "chamada": "As fragrâncias árabes em 25 ml",
         "descricao": "Versões de 25 ml das fragrâncias árabes mais procuradas. Cabem na bolsa, são ideais "
                      "para experimentar antes do tamanho grande e para presentear.",
-        "capa": "assets/marca/31.jpg",
-        "pdf": "assets/catalogos/miniaturas-arabes.pdf",
+        "capa": "assets/marca/13.jpg",
+        "capaPos": "center 35%",
+        "capaCardPos": "center",
+        "capaZoom": 1.6,
+        "capaOrigem": "50% 60%",
     },
     {
         "slug": "brand-nacionais",
@@ -50,7 +56,7 @@ CATEGORIAS = [
         "descricao": "Linha nacional Brand Collection: miniaturas de 25 ml, tamanhos grandes de 80/100 ml e "
                      "hidratantes perfumados que repetem a inspiração olfativa de cada fragrância.",
         "capa": "assets/marca/29.jpg",
-        "pdf": "assets/catalogos/brand-nacionais.pdf",
+        "capaPos": "center",
     },
     {
         "slug": "importados",
@@ -58,8 +64,8 @@ CATEGORIAS = [
         "chamada": "Chanel, Dior, Carolina Herrera, Lancôme e Rabanne",
         "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. "
                      "Os clássicos de perfumaria que todo mundo reconhece.",
-        "capa": "assets/marca/19.jpg",
-        "pdf": "assets/catalogos/importados.pdf",
+        "capa": "assets/marca/9.jpg",
+        "capaPos": "center 18%",
     },
     {
         "slug": "isabelle-la-belle",
@@ -67,8 +73,8 @@ CATEGORIAS = [
         "chamada": "Body splash 300 ml + hidratante 200 g",
         "descricao": "Kits de body splash de 300 ml acompanhados do hidratante de 200 g na mesma fragrância. "
                      "Perfume leve para o dia a dia e pele macia no mesmo ritual.",
-        "capa": "assets/marca/8.jpg",
-        "pdf": "assets/catalogos/isabelle-la-belle.pdf",
+        "capa": "assets/produtos/isabellelabelle.jpeg",
+        "capaPos": "center 58%",
     },
     {
         "slug": "acessorios",
@@ -76,8 +82,8 @@ CATEGORIAS = [
         "chamada": "Decantes e frascos para levar seu perfume",
         "descricao": "Decantes e frascos atomizadores recarregáveis para transportar sua fragrância favorita "
                      "na bolsa, na mochila ou na viagem.",
-        "capa": "assets/marca/32.jpg",
-        "pdf": "assets/catalogos/acessorios.pdf",
+        "capa": "assets/marca/27.jpg",
+        "capaPos": "center 71%",
     },
 ]
 
@@ -88,6 +94,33 @@ def D(nome, marca, volume, genero, tipo, preco, descricao, destaque=False):
         "nome": nome, "marca": marca, "volume": volume, "genero": genero,
         "tipo": tipo, "preco": preco, "descricao": descricao, "destaque": destaque,
     }
+
+
+# Rotulos usados nas descricoes para separar a piramide olfativa.
+ROTULOS_NOTAS = (("topo", "Topo:"), ("coracao", "Coração:"), ("fundo", "Fundo:"))
+
+
+def separar_notas(descricao):
+    """Divide "resumo. Topo: ... Coração: ... Fundo: ..." em resumo + notas.
+
+    Escreva a descricao em DADOS na linha unica de sempre - a separacao e automatica.
+    Produtos sem os rotulos (kits, acessorios) ficam so com o resumo.
+    """
+    marcas = []
+    for chave, rotulo in ROTULOS_NOTAS:
+        i = descricao.find(rotulo)
+        if i != -1:
+            marcas.append((i, chave, len(rotulo)))
+    if not marcas:
+        return descricao.strip(), None
+
+    marcas.sort()
+    resumo = descricao[:marcas[0][0]].strip()
+    notas = {}
+    for n, (i, chave, tam) in enumerate(marcas):
+        fim = marcas[n + 1][0] if n + 1 < len(marcas) else len(descricao)
+        notas[chave] = descricao[i + tam:fim].strip().rstrip(".").strip()
+    return resumo, notas
 
 
 DADOS = {}
@@ -499,7 +532,7 @@ ACESSORIOS = [
         "preco": 25.00,
         "descricao": "Decante de 5 ml da fragrância da sua escolha. Ideal para experimentar um perfume antes de "
                      "levar o frasco cheio ou para carregar na bolsa.",
-        "imagem": "assets/marca/32.jpg",
+        "imagem": "assets/marca/35.jpg",
         "destaque": True,
     },
     {
@@ -512,7 +545,7 @@ ACESSORIOS = [
         "preco": 15.00,
         "descricao": "Frasco porta-perfume atomizador recarregável em spray, de 5 ml. Prático para transportar sua "
                      "fragrância no dia a dia e em viagens.",
-        "imagem": "assets/marca/34.jpg",
+        "imagem": "assets/marca/31.jpg",
         "destaque": False,
     },
     {
@@ -524,7 +557,7 @@ ACESSORIOS = [
         "tipo": "Frasco",
         "preco": 9.00,
         "descricao": "Frasco de vidro de 8 ml para armazenar e transportar perfume.",
-        "imagem": "assets/marca/31.jpg",
+        "imagem": "assets/marca/30.jpg",
         "destaque": False,
     },
 ]
@@ -558,6 +591,12 @@ def main():
             p["imagem"] = item["imagem"]
             p["arquivoOriginal"] = item["arquivo"]
             produtos.append(p)
+
+    # piramide olfativa separada por topico para a pagina do produto
+    for p in produtos:
+        p["resumo"], notas = separar_notas(p.get("descricao") or "")
+        if notas:
+            p["notas"] = notas
 
     # contagem por categoria
     for categoria in CATEGORIAS:
