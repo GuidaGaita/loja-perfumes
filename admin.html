@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>CRPARFUM · Administração</title>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%99%EF%B8%8F%3C/text%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+
+      @theme {
+        --default-font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+        /* mesmo dourado champanhe do index.html */
+        --color-acento-200: #f2e4c0;
+        --color-acento-300: #e6d09a;
+        --color-acento-400: #d9bb72;
+        --color-acento-500: #c9a44e;
+        --color-acento-600: #a8843a;
+        --color-acento-700: #8a6a2c;
+      }
+    </style>
+
+    <style>
+      [x-cloak] { display: none !important; }
+      .campo {
+        width: 100%;
+        border-radius: 0.5rem;
+        border: 1px solid rgb(214 211 209);
+        background: #fff;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        color: rgb(28 25 23);
+      }
+      .campo:focus { outline: 2px solid var(--color-acento-500); outline-offset: -1px; }
+      .dark .campo {
+        border-color: rgb(68 64 60);
+        background: rgb(28 25 23);
+        color: rgb(231 229 228);
+      }
+      .rotulo {
+        display: block;
+        margin-bottom: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgb(120 113 108);
+      }
+      .dark .rotulo { color: rgb(168 162 158); }
+    </style>
+
+    <!-- Módulos do painel. Ordem importa: o Alpine entra por último. -->
+    <script defer src="admin/cofre.js"></script>
+    <script defer src="admin/github.js"></script>
+    <script defer src="admin/catalogo.js"></script>
+    <script defer src="admin/imagem.js"></script>
+    <script defer src="admin/app.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body class="bg-stone-100 antialiased dark:bg-stone-950">
+    <div x-data="admin()" class="min-h-screen text-stone-900 dark:text-stone-100">
+      <!-- ============================================================ aviso -->
+      <div
+        x-show="aviso"
+        x-cloak
+        x-transition
+        class="fixed inset-x-0 top-4 z-50 mx-auto w-fit max-w-[92vw] rounded-full px-5 py-2.5 text-sm font-medium shadow-lg"
+        :class="{
+          'bg-stone-900 text-white dark:bg-white dark:text-stone-900': avisoTipo === 'ok',
+          'bg-red-600 text-white': avisoTipo === 'erro',
+          'bg-amber-500 text-stone-900': avisoTipo === 'aviso'
+        }"
+        x-text="aviso"
+      ></div>
+
+      <!-- ======================================================= carregando -->
+      <div x-show="tela === 'carregando'" class="grid min-h-screen place-items-center">
+        <p class="font-display text-2xl text-stone-400">CRPARFUM</p>
+      </div>
+
+      <!-- =================================================== primeiro acesso -->
+      <div x-show="tela === 'primeiroAcesso'" x-cloak class="grid min-h-screen place-items-center px-4 py-10">
+        <div class="w-full max-w-lg">
+          <header class="mb-6 text-center">
+            <p class="font-display text-4xl tracking-wide">CRPARFUM</p>
+            <p class="mt-1 text-sm text-stone-500 dark:text-stone-400">Primeiro acesso neste aparelho</p>
+          </header>
+
+          <div class="rounded-2xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900">
+            <details class="mb-5 rounded-xl bg-stone-50 p-4 text-sm dark:bg-stone-950/60">
+              <summary class="cursor-pointer font-semibold text-acento-700 dark:text-acento-300">
+                Como criar o token do GitHub (uma vez só)
+              </summary>
+              <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-stone-600 dark:text-stone-300">
+                <li>
+                  Abra
+                  <a
+                    class="underline"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://github.com/settings/personal-access-tokens/new"
+                    >github.com/settings/personal-access-tokens/new</a
+                  >
+                </li>
+                <li>Em <strong>Repository access</strong>, escolha <em>Only select repositories</em> e marque <strong>loja-perfumes</strong>.</li>
+                <li>Em <strong>Permissions → Repository permissions</strong>, coloque <strong>Contents</strong> em <em>Read and write</em>.</li>
+                <li>Em <strong>Expiration</strong>, escolha a validade (o painel avisa quando estiver perto de vencer).</li>
+                <li>Clique em <strong>Generate token</strong> e cole o código abaixo.</li>
+              </ol>
+            </details>
+
+            <form @submit.prevent="primeiroAcesso()" class="space-y-4">
+              <div>
+                <label class="rotulo" for="token">Token do GitHub</label>
+                <input
+                  id="token" type="password" class="campo font-mono" autocomplete="off"
+                  placeholder="github_pat_..." x-model="formulario.token"
+                />
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="rotulo" for="senha">Crie uma senha</label>
+                  <input id="senha" type="password" class="campo" autocomplete="new-password" x-model="formulario.senha" />
+                </div>
+                <div>
+                  <label class="rotulo" for="senha2">Repita a senha</label>
+                  <input id="senha2" type="password" class="campo" autocomplete="new-password" x-model="formulario.senha2" />
+                </div>
+              </div>
+
+              <p class="text-xs leading-relaxed text-stone-500 dark:text-stone-400">
+                O token é guardado <strong>cifrado</strong> só neste navegador, e a senha é o que o
+                destranca. Quem não tem o token não consegue alterar o site, mesmo abrindo esta
+                página. Em outro aparelho será preciso cadastrar de novo.
+              </p>
+
+              <button
+                type="submit" :disabled="ocupado"
+                class="w-full rounded-full bg-stone-900 px-5 py-3 text-sm font-semibold text-white disabled:opacity-50 dark:bg-acento-500 dark:text-stone-900"
+                x-text="ocupado ? 'Conferindo...' : 'Salvar e entrar'"
+              ></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- =============================================================== login -->
+      <div x-show="tela === 'login'" x-cloak class="grid min-h-screen place-items-center px-4">
+        <div class="w-full max-w-sm">
+          <header class="mb-6 text-center">
+            <p class="font-display text-4xl tracking-wide">CRPARFUM</p>
+            <p class="mt-1 text-sm text-stone-500 dark:text-stone-400">Administração</p>
+          </header>
+
+          <form
+            @submit.prevent="entrar()"
+            class="space-y-4 rounded-2xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900"
+          >
+            <div>
+              <label class="rotulo" for="senhaLogin">Senha</label>
+              <input
+                id="senhaLogin" type="password" class="campo" autocomplete="current-password"
+                x-model="senha" x-init="$nextTick(() => $el.focus())"
+              />
+            </div>
+            <button
+              type="submit" :disabled="ocupado || !senha"
+              class="w-full rounded-full bg-stone-900 px-5 py-3 text-sm font-semibold text-white disabled:opacity-50 dark:bg-acento-500 dark:text-stone-900"
+              x-text="ocupado ? (progresso || 'Entrando...') : 'Entrar'"
+            ></button>
+            <button
+              type="button" @click="esquecerDispositivo()"
+              class="w-full text-xs text-stone-500 underline hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200"
+            >
+              Esqueci a senha / usar outro token
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============================================================== painel -->
+      <template x-if="tela === 'painel' && dados">
+        <div>
+          <!-- cabeçalho -->
+          <header class="sticky top-0 z-30 border-b border-stone-200 bg-white/90 backdrop-blur dark:border-stone-800 dark:bg-stone-900/90">
+            <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
+              <p class="font-display text-2xl leading-none">CRPARFUM</p>
+              <span class="hidden text-xs text-stone-400 sm:inline">administração</span>
+
+              <div class="ml-auto flex items-center gap-2">
+                <span
+                  x-show="temAlteracoes" x-cloak
+                  class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+                  >rascunho não publicado</span
+                >
+                <button
+                  @click="previsualizar()"
+                  class="rounded-full border border-stone-300 px-3 py-1.5 text-xs font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800"
+                >
+                  Pré-visualizar
+                </button>
+                <button
+                  @click="prepararPublicacao()" :disabled="!temAlteracoes"
+                  class="rounded-full bg-acento-600 px-4 py-1.5 text-xs font-semibold text-white disabled:opacity-40 dark:bg-acento-500 dark:text-stone-900"
+                >
+                  Publicar
+                </button>
+                <button
+                  @click="alternarTema()" title="Alternar tema"
+                  class="rounded-full border border-stone-300 p-1.5 dark:border-stone-700"
+                >
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                  </svg>
+                </button>
+                <button @click="bloquear()" class="text-xs text-stone-500 underline hover:text-stone-800 dark:hover:text-stone-200">
+                  Sair
+                </button>
+              </div>
+            </div>
+
+            <!-- abas -->
+            <nav class="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-2 pb-1">
+              <template x-for="item in [
+                  ['produtos','Produtos'],['categorias','Categorias'],
+                  ['home','Home'],['loja','Loja'],['publicar','Publicar']
+                ]" :key="item[0]">
+                <button
+                  @click="aba = item[0]; if (item[0] === 'publicar') prepararPublicacao()"
+                  class="whitespace-nowrap rounded-t-lg border-b-2 px-4 py-2 text-sm font-medium transition"
+                  :class="aba === item[0]
+                    ? 'border-acento-600 text-acento-700 dark:border-acento-400 dark:text-acento-300'
+                    : 'border-transparent text-stone-500 hover:text-stone-800 dark:hover:text-stone-200'"
+                  x-text="item[1]"
+                ></button>
+              </template>
+            </nav>
+          </header>
+
+          <!-- barra de avisos persistentes -->
+          <div class="mx-auto max-w-7xl px-4">
+            <p
+              x-show="tokenPertoDeExpirar" x-cloak
+              class="mt-3 rounded-lg bg-amber-100 px-4 py-2 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+            >
+              O token do GitHub vence em <strong x-text="diasParaExpirar"></strong> dia(s).
+              Gere um novo e atualize na aba <button class="underline" @click="aba = 'loja'">Loja</button>.
+            </p>
+            <p
+              x-show="rascunhoGrande" x-cloak
+              class="mt-3 rounded-lg bg-amber-100 px-4 py-2 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+            >
+              As fotos novas não couberam no rascunho salvo. Se fechar esta aba antes de publicar,
+              será preciso enviá-las de novo.
+            </p>
+          </div>
+
+          <main class="mx-auto max-w-7xl px-4 py-6">
+            <!-- ================================================== PRODUTOS -->
+            <section x-show="aba === 'produtos'">
+              <div class="mb-4 flex flex-wrap items-center gap-2">
+                <input
+                  type="search" class="campo max-w-xs" placeholder="Buscar por nome, marca, tipo..."
+                  x-model="busca"
+                />
+                <select class="campo max-w-[14rem]" x-model="filtroCategoria">
+                  <option value="todas">Todas as categorias</option>
+                  <template x-for="c in categorias" :key="c.slug">
+                    <option :value="c.slug" x-text="c.nome + ' (' + totalDaCategoria(c.slug) + ')'"></option>
+                  </template>
+                </select>
+                <span class="text-sm text-stone-500" x-text="produtosFiltrados.length + ' produto(s)'"></span>
+                <button
+                  @click="novoProduto()"
+                  class="ml-auto rounded-full bg-stone-900 px-4 py-2 text-sm font-semibold text-white dark:bg-acento-500 dark:text-stone-900"
+                >
+                  + Novo produto
+                </button>
+              </div>
+
+              <div class="overflow-hidden rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+                <template x-for="(p, i) in produtosFiltrados" :key="p.id">
+                  <div class="flex items-center gap-3 border-b border-stone-100 px-3 py-2.5 last:border-0 dark:border-stone-800">
+                    <img
+                      :src="urlFoto(p.imagem)" :alt="p.nome" loading="lazy"
+                      class="h-14 w-14 shrink-0 rounded-lg bg-stone-100 object-cover dark:bg-stone-800"
+                    />
+                    <div class="min-w-0 flex-1">
+                      <p class="truncate text-sm font-semibold" x-text="p.nome"></p>
+                      <p class="truncate text-xs text-stone-500">
+                        <span x-text="p.marca"></span>
+                        <span x-show="p.volume"> · <span x-text="p.volume"></span></span>
+                        · <span x-text="p.tipo"></span>
+                        · <span x-text="nomeCategoria(p.categoria)"></span>
+                      </p>
+                    </div>
+                    <span
+                      x-show="p.destaque" title="Aparece nos destaques da home"
+                      class="hidden rounded-full bg-acento-200 px-2 py-0.5 text-[11px] font-semibold text-acento-700 sm:inline dark:bg-acento-700/20 dark:text-acento-300"
+                      >destaque</span
+                    >
+                    <span
+                      class="w-24 shrink-0 text-right text-sm tabular-nums"
+                      :class="p.preco === null ? 'text-stone-400 italic' : ''"
+                      x-text="moeda(p.preco)"
+                    ></span>
+                    <div class="flex shrink-0 items-center gap-1">
+                      <button
+                        @click="moverProduto(p, -1)" :disabled="i === 0" title="Subir"
+                        class="rounded p-1 text-stone-400 hover:bg-stone-100 disabled:opacity-25 dark:hover:bg-stone-800"
+                      >▲</button>
+                      <button
+                        @click="moverProduto(p, 1)" :disabled="i === produtosFiltrados.length - 1" title="Descer"
+                        class="rounded p-1 text-stone-400 hover:bg-stone-100 disabled:opacity-25 dark:hover:bg-stone-800"
+                      >▼</button>
+                      <button
+                        @click="editarProduto(p)"
+                        class="rounded-full border border-stone-300 px-3 py-1 text-xs font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800"
+                      >Editar</button>
+                      <button @click="duplicarProduto(p)" title="Duplicar" class="rounded p-1.5 text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-8.25A2.25 2.25 0 0 1 7.5 18v-1.5"/></svg>
+                      </button>
+                      <button @click="excluirProduto(p)" title="Excluir" class="rounded p-1.5 text-red-400 hover:bg-red-50 dark:hover:bg-red-950">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397M4.772 5.79c-.34.059-.68.114-1.022.165m1.022-.165L5.5 4.5A2.25 2.25 0 0 1 7.74 2.25h8.52A2.25 2.25 0 0 1 18.5 4.5l.728 1.29"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </template>
+                <p x-show="!produtosFiltrados.length" class="px-4 py-10 text-center text-sm text-stone-500">
+                  Nenhum produto encontrado.
+                </p>
+              </div>
+            </section>
+
+            <!-- ================================================ CATEGORIAS -->
+            <section x-show="aba === 'categorias'">
+              <div class="mb-4 flex items-center">
+                <p class="text-sm text-stone-500">A ordem aqui é a ordem que aparece na loja.</p>
+                <button
+                  @click="novaCategoria()"
+                  class="ml-auto rounded-full bg-stone-900 px-4 py-2 text-sm font-semibold text-white dark:bg-acento-500 dark:text-stone-900"
+                >
+                  + Nova categoria
+                </button>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <template x-for="(c, i) in categorias" :key="c.slug">
+                  <div class="overflow-hidden rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+                    <div class="relative h-32 overflow-hidden bg-stone-200 dark:bg-stone-800">
+                      <img
+                        :src="urlFoto(c.capa)" :alt="c.nome" loading="lazy"
+                        class="h-full w-full object-cover"
+                        :style="'object-position:' + (c.capaPos || 'center') + ';scale:' + (c.capaZoom || 1) + ';transform-origin:' + (c.capaOrigem || '50% 50%')"
+                      />
+                    </div>
+                    <div class="p-3">
+                      <p class="font-display text-xl leading-tight" x-text="c.nome"></p>
+                      <p class="mt-0.5 truncate text-xs text-stone-500" x-text="c.chamada"></p>
+                      <p class="mt-2 text-xs text-stone-400">
+                        <span x-text="totalDaCategoria(c.slug)"></span> produto(s) ·
+                        <code x-text="c.slug"></code>
+                      </p>
+                      <div class="mt-3 flex items-center gap-1">
+                        <button
+                          @click="editarCategoria(c)"
+                          class="rounded-full border border-stone-300 px-3 py-1 text-xs font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800"
+                        >Editar</button>
+                        <button @click="moverCategoria(c, -1)" :disabled="i === 0" class="rounded p-1 text-stone-400 disabled:opacity-25">◀</button>
+                        <button @click="moverCategoria(c, 1)" :disabled="i === categorias.length - 1" class="rounded p-1 text-stone-400 disabled:opacity-25">▶</button>
+                        <button @click="excluirCategoria(c)" class="ml-auto text-xs text-red-500 underline">Excluir</button>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </section>
+
+            <!-- ====================================================== HOME -->
+            <section x-show="aba === 'home'" class="max-w-3xl">
+              <h2 class="font-display text-2xl">Carrossel da página inicial</h2>
+              <p class="mt-1 text-sm text-stone-500">
+                Este é o carrossel que está no ar agora. Ajuste as fotos abaixo — não
+                precisa montar um novo.
+              </p>
+
+              <!-- Como o carrossel aparece na loja: gira sozinho, igual ao site. -->
+              <div class="mt-5 flex flex-col gap-4 sm:flex-row sm:items-start">
+                <div
+                  x-data="{ i: 0, timer: null }"
+                  x-init="timer = setInterval(() => i++, 3000)"
+                  class="relative h-56 w-full shrink-0 overflow-hidden rounded-xl bg-stone-200 sm:w-80 dark:bg-stone-800"
+                >
+                  <template x-for="(foto, n) in banner" :key="foto.src + n">
+                    <img
+                      :src="urlFoto(foto.src)" :alt="foto.alt"
+                      class="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+                      :style="'object-position:' + (foto.pos || 'center')"
+                      :class="n === i % Math.max(banner.length, 1) ? 'opacity-100' : 'opacity-0'"
+                    />
+                  </template>
+                  <div class="absolute inset-x-0 bottom-2 flex justify-center gap-1.5">
+                    <template x-for="(foto, n) in banner" :key="'ponto' + n">
+                      <span
+                        class="h-1.5 rounded-full bg-white transition-all"
+                        :class="n === i % Math.max(banner.length, 1) ? 'w-5 opacity-90' : 'w-1.5 opacity-50'"
+                      ></span>
+                    </template>
+                  </div>
+                  <p
+                    x-show="!banner.length" x-cloak
+                    class="absolute inset-0 grid place-items-center px-6 text-center text-xs text-stone-500"
+                  >
+                    Sem fotos no carrossel. Escolha uma abaixo.
+                  </p>
+                </div>
+
+                <p class="text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+                  No site as fotos trocam a cada 5 segundos, param quando o visitante passa o
+                  mouse por cima e aceitam arrastar no celular.
+                  <br /><br />
+                  O <strong>enquadramento</strong> decide que parte da foto fica visível dentro do
+                  recorte — <code>center 33%</code> mostra o terço de cima,
+                  <code>left center</code> puxa para a esquerda. Vá mudando e olhando a prévia
+                  aqui do lado.
+                </p>
+              </div>
+
+              <p class="mt-7 rotulo">
+                Fotos do carrossel (<span x-text="banner.length"></span>) — na ordem em que aparecem
+              </p>
+              <div class="mt-2 space-y-3">
+                <template x-for="(foto, i) in banner" :key="foto.src + i">
+                  <div class="flex gap-3 rounded-xl border border-stone-200 bg-white p-3 dark:border-stone-800 dark:bg-stone-900">
+                    <div class="h-28 w-40 shrink-0 overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+                      <img :src="urlFoto(foto.src)" :alt="foto.alt" class="h-full w-full object-cover" :style="'object-position:' + (foto.pos || 'center')" />
+                    </div>
+                    <div class="flex-1 space-y-2">
+                      <div>
+                        <label class="rotulo">Enquadramento</label>
+                        <input class="campo" x-model="foto.pos" @change="salvarRascunho()" placeholder="center 33%" />
+                      </div>
+                      <div>
+                        <label class="rotulo">Descrição da foto (acessibilidade)</label>
+                        <input class="campo" x-model="foto.alt" @change="salvarRascunho()" />
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <button @click="moverNoBanner(i, -1)" :disabled="i === 0" class="rounded p-1 text-stone-400 disabled:opacity-25">▲</button>
+                      <button @click="moverNoBanner(i, 1)" :disabled="i === banner.length - 1" class="rounded p-1 text-stone-400 disabled:opacity-25">▼</button>
+                      <button @click="removerDoBanner(i)" class="mt-auto text-xs text-red-500 underline">Tirar</button>
+                    </div>
+                  </div>
+                </template>
+              </div>
+
+              <div class="mt-6">
+                <p class="rotulo">Adicionar uma foto ao carrossel</p>
+                <div class="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-8">
+                  <template x-for="foto in fotosMarca" :key="foto.caminho">
+                    <button
+                      @click="adicionarAoBanner(foto.caminho)"
+                      class="aspect-square overflow-hidden rounded-lg border-2 border-transparent hover:border-acento-500"
+                      :title="foto.nome"
+                    >
+                      <img :src="urlFoto(foto.caminho)" :alt="foto.nome" loading="lazy" class="h-full w-full object-cover" />
+                    </button>
+                  </template>
+                </div>
+                <label class="mt-3 inline-block cursor-pointer rounded-full border border-stone-300 px-4 py-2 text-sm font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800">
+                  Enviar uma foto nova
+                  <input type="file" accept="image/*" class="hidden" @change="enviarFotoMarca($event, (c) => adicionarAoBanner(c))" />
+                </label>
+              </div>
+            </section>
+
+            <!-- ====================================================== LOJA -->
+            <section x-show="aba === 'loja'" class="max-w-2xl space-y-8">
+              <div>
+                <h2 class="font-display text-2xl">Dados da loja</h2>
+                <div class="mt-4 space-y-4 rounded-xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+                  <div>
+                    <label class="rotulo">Nome</label>
+                    <input class="campo" x-model="dados.loja.nome" @change="salvarRascunho()" />
+                  </div>
+                  <div>
+                    <label class="rotulo">Assinatura (aparece embaixo do nome)</label>
+                    <input class="campo" x-model="dados.loja.assinatura" @change="salvarRascunho()" />
+                  </div>
+                  <div>
+                    <label class="rotulo">WhatsApp (só números: 55 + DDD + número)</label>
+                    <input class="campo" x-model="dados.loja.whatsapp" @change="salvarRascunho()" inputmode="numeric" />
+                    <p x-show="!whatsappOk" x-cloak class="mt-1 text-xs text-red-600">
+                      Número incompleto — os botões de pedido não vão funcionar.
+                    </p>
+                  </div>
+                  <div>
+                    <label class="rotulo">Instagram (opcional)</label>
+                    <input class="campo" x-model="dados.loja.instagram" @change="salvarRascunho()" placeholder="crparfum" />
+                  </div>
+                  <div>
+                    <label class="rotulo">Texto de entrega</label>
+                    <input class="campo" x-model="dados.loja.entrega" @change="salvarRascunho()" />
+                  </div>
+                  <div>
+                    <label class="rotulo">Formas de pagamento</label>
+                    <input class="campo" x-model="dados.loja.pagamento" @change="salvarRascunho()" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h2 class="font-display text-2xl">Acesso</h2>
+                <div class="mt-4 space-y-6 rounded-xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+                  <form @submit.prevent="trocarSenha()" class="space-y-3">
+                    <p class="text-sm font-semibold">Trocar a senha</p>
+                    <input type="password" class="campo" placeholder="Senha atual" autocomplete="current-password" x-model="formSenha.senhaAtual" />
+                    <input type="password" class="campo" placeholder="Senha nova" autocomplete="new-password" x-model="formSenha.senhaNova" />
+                    <input type="password" class="campo" placeholder="Repita a senha nova" autocomplete="new-password" x-model="formSenha.senhaNova2" />
+                    <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium dark:border-stone-700" :disabled="ocupado">
+                      Trocar senha
+                    </button>
+                  </form>
+
+                  <form @submit.prevent="trocarToken()" class="space-y-3 border-t border-stone-200 pt-5 dark:border-stone-800">
+                    <p class="text-sm font-semibold">Atualizar o token do GitHub</p>
+                    <p class="text-xs text-stone-500">
+                      Use quando o token vencer.
+                      <span x-show="diasParaExpirar !== null">
+                        O atual vence em <strong x-text="diasParaExpirar"></strong> dia(s).
+                      </span>
+                    </p>
+                    <input type="password" class="campo font-mono" placeholder="github_pat_..." autocomplete="off" x-model="formToken.tokenNovo" />
+                    <input type="password" class="campo" placeholder="Sua senha" autocomplete="current-password" x-model="formToken.senhaAtual" />
+                    <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-medium dark:border-stone-700" :disabled="ocupado">
+                      Salvar token
+                    </button>
+                  </form>
+
+                  <div class="border-t border-stone-200 pt-5 dark:border-stone-800">
+                    <button @click="esquecerDispositivo()" class="text-sm text-red-600 underline">
+                      Esquecer este aparelho (apaga o token daqui)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ================================================== PUBLICAR -->
+            <section x-show="aba === 'publicar'" class="max-w-2xl">
+              <h2 class="font-display text-2xl">Publicar no site</h2>
+
+              <div x-show="!temAlteracoes" x-cloak class="mt-4 rounded-xl border border-stone-200 bg-white p-8 text-center dark:border-stone-800 dark:bg-stone-900">
+                <p class="text-sm text-stone-500">Tudo que está no painel já está no ar.</p>
+                <template x-if="ultimoCommit">
+                  <p class="mt-2 text-xs text-stone-400">
+                    Última publicação:
+                    <a class="underline" :href="ultimoCommit.url" target="_blank" rel="noopener" x-text="ultimoCommit.sha.slice(0, 7)"></a>
+                    · o site atualiza cerca de 1 minuto depois.
+                  </p>
+                </template>
+              </div>
+
+              <div x-show="temAlteracoes" x-cloak class="mt-4 space-y-4">
+                <div class="rounded-xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+                  <p class="rotulo">O que vai mudar</p>
+                  <ul class="mt-2 space-y-1 text-sm">
+                    <template x-for="m in mudancas" :key="m.tipo + m.rotulo + m.acao">
+                      <li class="flex items-center gap-2">
+                        <span
+                          class="rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase"
+                          :class="{
+                            'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200': m.acao === 'novo' || m.acao === 'nova',
+                            'bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200': m.acao === 'alterado' || m.acao === 'alterada' || m.acao === 'reordenado',
+                            'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200': m.acao === 'removido' || m.acao === 'removida'
+                          }"
+                          x-text="m.acao"
+                        ></span>
+                        <span x-text="m.rotulo"></span>
+                      </li>
+                    </template>
+                    <li x-show="quantidadeFotos" class="flex items-center gap-2">
+                      <span class="rounded bg-emerald-100 px-1.5 py-0.5 text-[11px] font-semibold uppercase text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200">fotos</span>
+                      <span><span x-text="quantidadeFotos"></span> foto(s) novas · <span x-text="pesoDasFotos"></span></span>
+                    </li>
+                    <li x-show="fotosRemover.length" class="flex items-center gap-2">
+                      <span class="rounded bg-red-100 px-1.5 py-0.5 text-[11px] font-semibold uppercase text-red-800 dark:bg-red-950 dark:text-red-200">fotos</span>
+                      <span><span x-text="fotosRemover.length"></span> foto(s) serão apagadas</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <label class="rotulo">Descrição desta alteração</label>
+                  <input class="campo" x-model="mensagemCommit" />
+                  <p class="mt-1 text-xs text-stone-500">Fica registrado no histórico do repositório.</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                  <button
+                    @click="publicar()" :disabled="ocupado"
+                    class="rounded-full bg-acento-600 px-6 py-3 text-sm font-semibold text-white disabled:opacity-50 dark:bg-acento-500 dark:text-stone-900"
+                    x-text="ocupado ? (progresso || 'Publicando...') : 'Publicar agora'"
+                  ></button>
+                  <button
+                    @click="previsualizar()"
+                    class="rounded-full border border-stone-300 px-5 py-3 text-sm font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800"
+                  >
+                    Pré-visualizar antes
+                  </button>
+                  <button @click="descartarAlteracoes()" class="ml-auto text-sm text-red-600 underline">
+                    Descartar alterações
+                  </button>
+                </div>
+
+                <p class="text-xs leading-relaxed text-stone-500">
+                  Tudo é enviado em um commit só. O site leva cerca de 1 minuto para atualizar
+                  depois disso — se não aparecer na hora, atualize a página com Ctrl+F5.
+                </p>
+              </div>
+            </section>
+          </main>
+
+          <!-- ============================================ formulário produto -->
+          <div
+            x-show="editando" x-cloak
+            class="fixed inset-0 z-40 overflow-y-auto bg-stone-900/50 p-4 backdrop-blur-sm"
+            @click.self="cancelarEdicao()"
+          >
+            <div class="mx-auto my-4 max-w-3xl rounded-2xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900">
+              <template x-if="editando">
+                <form @submit.prevent="salvarProduto()" class="space-y-5">
+                  <div class="flex items-start">
+                    <h3 class="font-display text-2xl" x-text="editandoId ? 'Editar produto' : 'Novo produto'"></h3>
+                    <button type="button" @click="cancelarEdicao()" class="ml-auto text-2xl leading-none text-stone-400">&times;</button>
+                  </div>
+
+                  <ul x-show="erros.length" x-cloak class="rounded-lg bg-red-50 p-3 text-sm text-red-800 dark:bg-red-950/60 dark:text-red-200">
+                    <template x-for="e in erros" :key="e"><li x-text="'• ' + e"></li></template>
+                  </ul>
+
+                  <div class="grid gap-5 sm:grid-cols-[10rem_1fr]">
+                    <!-- foto -->
+                    <div>
+                      <label class="rotulo">Foto</label>
+                      <div class="aspect-square overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-800">
+                        <img x-show="editando.imagem" :src="urlFoto(editando.imagem)" alt="" class="h-full w-full object-cover" />
+                        <div x-show="!editando.imagem" class="grid h-full place-items-center text-xs text-stone-400">sem foto</div>
+                      </div>
+                      <label class="mt-2 block cursor-pointer rounded-full border border-stone-300 px-3 py-1.5 text-center text-xs font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800">
+                        <span x-text="editando.imagem ? 'Trocar foto' : 'Enviar foto'"></span>
+                        <input type="file" accept="image/*" class="hidden" @change="enviarFotoProduto($event)" />
+                      </label>
+                      <p class="mt-1 text-[11px] leading-tight text-stone-400">
+                        A foto é reduzida para 900 px automaticamente.
+                      </p>
+                    </div>
+
+                    <div class="space-y-4">
+                      <div>
+                        <label class="rotulo">Nome</label>
+                        <input class="campo" x-model="editando.nome" @input="aoDigitarNome()" />
+                      </div>
+
+                      <div class="grid gap-4 sm:grid-cols-3">
+                        <div>
+                          <label class="rotulo">Marca</label>
+                          <!-- :selected por opção, não :value no select: o x-for
+                               cria as opções depois, e um :value no select se
+                               perderia antes de existir opção correspondente. -->
+                          <select class="campo" @change="escolherMarca($event.target.value)">
+                            <option value="" :selected="modoMarca === 'lista' && !editando.marca">
+                              — escolha —
+                            </option>
+                            <template x-for="m in marcasConhecidas" :key="m">
+                              <option
+                                :value="m" x-text="m"
+                                :selected="modoMarca === 'lista' && editando.marca === m"
+                              ></option>
+                            </template>
+                            <option value="__nova__" :selected="modoMarca === 'nova'">
+                              + nova marca…
+                            </option>
+                          </select>
+                          <div x-show="modoMarca === 'nova'" x-cloak class="mt-2">
+                            <input class="campo" x-model="editando.marca" placeholder="Nome da marca nova" />
+                            <p x-show="marcaParecida" x-cloak class="mt-1 text-xs text-amber-600 dark:text-amber-400">
+                              Já existe <strong x-text="marcaParecida"></strong>.
+                              <button
+                                type="button" class="underline"
+                                @click="usarExistente('marca', marcaParecida)"
+                              >
+                                usar essa
+                              </button>
+                            </p>
+                            <button
+                              type="button" class="mt-1 text-xs text-stone-500 underline"
+                              @click="voltarParaLista('marca')"
+                            >
+                              voltar para a lista
+                            </button>
+                          </div>
+                        </div>
+                        <div>
+                          <label class="rotulo">Volume</label>
+                          <input class="campo" x-model="editando.volume" placeholder="100 ml" />
+                        </div>
+                        <div>
+                          <label class="rotulo">Preço (R$)</label>
+                          <input class="campo" x-model="editando.precoTexto" inputmode="decimal" placeholder="em branco = sob consulta" />
+                        </div>
+                      </div>
+
+                      <div class="grid gap-4 sm:grid-cols-3">
+                        <div>
+                          <label class="rotulo">Categoria</label>
+                          <select class="campo" x-model="editando.categoria">
+                            <template x-for="c in categorias" :key="c.slug">
+                              <option :value="c.slug" x-text="c.nome"></option>
+                            </template>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="rotulo">Gênero</label>
+                          <select class="campo" x-model="editando.genero">
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="unissex">Unissex</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="rotulo">Tipo</label>
+                          <select class="campo" @change="escolherTipo($event.target.value)">
+                            <option value="" :selected="modoTipo === 'lista' && !editando.tipo">
+                              — escolha —
+                            </option>
+                            <template x-for="t in tiposConhecidos" :key="t">
+                              <option
+                                :value="t" x-text="t"
+                                :selected="modoTipo === 'lista' && editando.tipo === t"
+                              ></option>
+                            </template>
+                            <option value="__novo__" :selected="modoTipo === 'nova'">
+                              + novo tipo…
+                            </option>
+                          </select>
+                          <div x-show="modoTipo === 'nova'" x-cloak class="mt-2">
+                            <input class="campo" x-model="editando.tipo" placeholder="Nome do tipo novo" />
+                            <p x-show="tipoParecido" x-cloak class="mt-1 text-xs text-amber-600 dark:text-amber-400">
+                              Já existe <strong x-text="tipoParecido"></strong>.
+                              <button
+                                type="button" class="underline"
+                                @click="usarExistente('tipo', tipoParecido)"
+                              >
+                                usar esse
+                              </button>
+                            </p>
+                            <p class="mt-1 text-[11px] leading-tight text-stone-400">
+                              O tipo vira uma opção no filtro que o cliente usa na loja.
+                            </p>
+                            <button
+                              type="button" class="mt-1 text-xs text-stone-500 underline"
+                              @click="voltarParaLista('tipo')"
+                            >
+                              voltar para a lista
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label class="rotulo">Descrição</label>
+                        <textarea class="campo" rows="4" x-model="editando.descricao"></textarea>
+                        <p class="mt-1 text-[11px] leading-relaxed text-stone-500">
+                          Escreva em linha única. Para a pirâmide olfativa aparecer separada na
+                          página do produto, use os rótulos
+                          <code>Topo:</code>, <code>Coração:</code> e <code>Fundo:</code>.
+                        </p>
+                      </div>
+
+                      <!-- prévia da separação automática das notas -->
+                      <div
+                        x-show="previaNotas && previaNotas.notas" x-cloak
+                        class="rounded-lg bg-stone-50 p-3 text-xs dark:bg-stone-950/60"
+                      >
+                        <p class="font-semibold text-stone-500">Como vai ficar na página do produto:</p>
+                        <template x-if="previaNotas">
+                          <div class="mt-1 space-y-0.5 text-stone-600 dark:text-stone-300">
+                            <p x-text="previaNotas.resumo"></p>
+                            <template x-if="previaNotas.notas">
+                              <div class="pt-1">
+                                <p x-show="previaNotas.notas.topo"><strong>Topo:</strong> <span x-text="previaNotas.notas.topo"></span></p>
+                                <p x-show="previaNotas.notas.coracao"><strong>Coração:</strong> <span x-text="previaNotas.notas.coracao"></span></p>
+                                <p x-show="previaNotas.notas.fundo"><strong>Fundo:</strong> <span x-text="previaNotas.notas.fundo"></span></p>
+                              </div>
+                            </template>
+                          </div>
+                        </template>
+                      </div>
+
+                      <div class="flex flex-wrap items-center gap-4">
+                        <label class="flex items-center gap-2 text-sm">
+                          <input type="checkbox" class="h-4 w-4 accent-acento-600" x-model="editando.destaque" />
+                          Mostrar nos destaques da página inicial
+                        </label>
+                      </div>
+
+                      <div>
+                        <label class="rotulo">Identificador (usado no link do produto)</label>
+                        <input class="campo font-mono text-xs" x-model="editando.id" />
+                        <p x-show="idMudou" x-cloak class="mt-1 text-xs font-medium text-red-600">
+                          Mudar isso quebra os links já compartilhados e some com o produto dos
+                          carrinhos de quem já tinha adicionado.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3 border-t border-stone-200 pt-4 dark:border-stone-800">
+                    <button
+                      type="submit" :disabled="ocupado"
+                      class="rounded-full bg-stone-900 px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50 dark:bg-acento-500 dark:text-stone-900"
+                    >
+                      Salvar
+                    </button>
+                    <button type="button" @click="cancelarEdicao()" class="rounded-full border border-stone-300 px-5 py-2.5 text-sm font-medium dark:border-stone-700">
+                      Cancelar
+                    </button>
+                    <span class="ml-auto self-center text-xs text-stone-400">
+                      Salvar guarda no rascunho; o site só muda ao publicar.
+                    </span>
+                  </div>
+                </form>
+              </template>
+            </div>
+          </div>
+
+          <!-- ========================================== formulário categoria -->
+          <div
+            x-show="editandoCat" x-cloak
+            class="fixed inset-0 z-40 overflow-y-auto bg-stone-900/50 p-4 backdrop-blur-sm"
+            @click.self="editandoCat = null"
+          >
+            <div class="mx-auto my-4 max-w-2xl rounded-2xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900">
+              <template x-if="editandoCat">
+                <form @submit.prevent="salvarCategoria()" class="space-y-5">
+                  <div class="flex items-start">
+                    <h3 class="font-display text-2xl" x-text="editandoCatSlug ? 'Editar categoria' : 'Nova categoria'"></h3>
+                    <button type="button" @click="editandoCat = null" class="ml-auto text-2xl leading-none text-stone-400">&times;</button>
+                  </div>
+
+                  <ul x-show="errosCat.length" x-cloak class="rounded-lg bg-red-50 p-3 text-sm text-red-800 dark:bg-red-950/60 dark:text-red-200">
+                    <template x-for="e in errosCat" :key="e"><li x-text="'• ' + e"></li></template>
+                  </ul>
+
+                  <div>
+                    <label class="rotulo">Nome</label>
+                    <input class="campo" x-model="editandoCat.nome" @input="aoDigitarNomeCategoria()" />
+                  </div>
+                  <div>
+                    <label class="rotulo">Chamada (uma linha, aparece no card)</label>
+                    <input class="campo" x-model="editandoCat.chamada" />
+                  </div>
+                  <div>
+                    <label class="rotulo">Descrição (aparece no topo da categoria)</label>
+                    <textarea class="campo" rows="3" x-model="editandoCat.descricao"></textarea>
+                  </div>
+                  <div>
+                    <label class="rotulo">Identificador (usado no link da categoria)</label>
+                    <input class="campo font-mono text-xs" x-model="editandoCat.slug" />
+                  </div>
+
+                  <!-- capa com prévia ao vivo -->
+                  <div>
+                    <label class="rotulo">Capa</label>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <p class="mb-1 text-xs text-stone-500">Como fica no topo da categoria</p>
+                        <div class="h-32 overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+                          <img
+                            :src="urlFoto(editandoCat.capa)" alt="" class="h-full w-full object-cover"
+                            :style="'object-position:' + (editandoCat.capaPos || 'center')"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <p class="mb-1 text-xs text-stone-500">Como fica no card da home</p>
+                        <div class="h-32 overflow-hidden rounded-lg bg-stone-200 dark:bg-stone-800">
+                          <img
+                            :src="urlFoto(editandoCat.capa)" alt="" class="h-full w-full object-cover"
+                            :style="'object-position:' + (editandoCat.capaCardPos || 'center') + ';scale:' + (editandoCat.capaZoom || 1) + ';transform-origin:' + (editandoCat.capaOrigem || '50% 50%')"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                      <div>
+                        <label class="rotulo">Enquadramento no topo</label>
+                        <input class="campo" x-model="editandoCat.capaPos" placeholder="center 78%" />
+                      </div>
+                      <div>
+                        <label class="rotulo">Enquadramento no card</label>
+                        <input class="campo" x-model="editandoCat.capaCardPos" placeholder="center bottom" />
+                      </div>
+                      <div>
+                        <label class="rotulo">Zoom no card (<span x-text="Number(editandoCat.capaZoom || 1).toFixed(2)"></span>)</label>
+                        <input type="range" min="1" max="2" step="0.05" class="w-full accent-acento-600" x-model="editandoCat.capaZoom" />
+                      </div>
+                      <div>
+                        <label class="rotulo">Ponto de origem do zoom</label>
+                        <input class="campo" x-model="editandoCat.capaOrigem" placeholder="50% 50%" />
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <p class="rotulo">Escolher outra foto</p>
+                      <div class="mt-1 grid max-h-40 grid-cols-6 gap-2 overflow-y-auto sm:grid-cols-10">
+                        <template x-for="foto in fotosMarca" :key="foto.caminho">
+                          <button
+                            type="button" @click="editandoCat.capa = foto.caminho" :title="foto.nome"
+                            class="aspect-square overflow-hidden rounded border-2"
+                            :class="editandoCat.capa === foto.caminho ? 'border-acento-500' : 'border-transparent hover:border-stone-300'"
+                          >
+                            <img :src="urlFoto(foto.caminho)" :alt="foto.nome" loading="lazy" class="h-full w-full object-cover" />
+                          </button>
+                        </template>
+                      </div>
+                      <label class="mt-2 inline-block cursor-pointer rounded-full border border-stone-300 px-3 py-1.5 text-xs font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800">
+                        Enviar foto nova
+                        <input type="file" accept="image/*" class="hidden" @change="enviarFotoMarca($event, (c) => (editandoCat.capa = c))" />
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-3 border-t border-stone-200 pt-4 dark:border-stone-800">
+                    <button
+                      type="submit" :disabled="ocupado"
+                      class="rounded-full bg-stone-900 px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50 dark:bg-acento-500 dark:text-stone-900"
+                    >
+                      Salvar
+                    </button>
+                    <button type="button" @click="editandoCat = null" class="rounded-full border border-stone-300 px-5 py-2.5 text-sm font-medium dark:border-stone-700">
+                      Cancelar
+                    </button>
+                  </div>
+                </form>
+              </template>
+            </div>
+          </div>
+
+          <!-- ================================================ tela de espera -->
+          <div
+            x-show="ocupado && progresso" x-cloak
+            class="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white px-4 py-3 text-center text-sm dark:border-stone-800 dark:bg-stone-900"
+          >
+            <span class="text-stone-600 dark:text-stone-300" x-text="progresso"></span>
+          </div>
+        </div>
+      </template>
+    </div>
+  </body>
+</html>

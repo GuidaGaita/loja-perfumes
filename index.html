@@ -64,7 +64,7 @@
       .sem-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 
-    <!-- Catálogo: gerado por gerar-catalogo.py -->
+    <!-- Catálogo: gerado pelo painel de administração (admin.html) -->
     <script src="data/catalogo.js"></script>
 
     <script>
@@ -84,9 +84,11 @@
           escuro: false,
           aviso: "",
           avisoTimer: null,
+          previa: false,
 
           /* ------------------------------------------------------------ init */
           init() {
+            this.aplicarPrevia();
             this.montarIndice();
             this.carrinho = this.lerArmazenado("crparfum:carrinho", []);
             this.escuro = this.lerArmazenado("crparfum:escuro", false);
@@ -101,6 +103,18 @@
               this.gravar("crparfum:escuro", v);
               this.aplicarTema();
             });
+          },
+
+          /* Pré-visualização vinda do painel: admin.html grava o rascunho no
+             sessionStorage e abre esta página numa aba nova. Nada disso vaza
+             para quem entra na loja normalmente — sessionStorage é por aba. */
+          aplicarPrevia() {
+            try {
+              const bruto = sessionStorage.getItem("crparfum:preview");
+              if (!bruto) return;
+              this.dados = JSON.parse(bruto);
+              this.previa = true;
+            } catch (e) {}
           },
 
           lerArmazenado(chave, padrao) {
@@ -360,6 +374,21 @@
       x-init="init()"
       class="min-h-dvh min-w-80 bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200"
     >
+      <!-- Tarja da pré-visualização do painel; não aparece para o público. -->
+      <div
+        x-show="previa"
+        x-cloak
+        class="sticky top-0 z-50 bg-amber-400 px-4 py-1.5 text-center text-xs font-semibold text-stone-900"
+      >
+        Pré-visualização do rascunho — estas alterações ainda não estão no ar.
+        <button
+          class="ml-2 underline"
+          x-on:click="sessionStorage.removeItem('crparfum:preview'); location.reload()"
+        >
+          ver o site publicado
+        </button>
+      </div>
+
       <!-- ================================================== CABEÇALHO ===== -->
       <header
         class="sticky top-0 z-40 border-b border-stone-200/80 bg-stone-50/90 backdrop-blur-md dark:border-stone-800 dark:bg-stone-950/90"
@@ -491,14 +520,20 @@
           <!-- Hero -->
           <div class="grid grid-cols-1 gap-6 py-8 md:grid-cols-12 md:py-12">
             <div class="md:col-span-7">
-              <!-- Carrossel do topo: troca sozinho a cada 5s, para no hover e aceita swipe -->
+              <!-- Carrossel do topo: troca sozinho a cada 5s, para no hover e aceita swipe.
+                   As fotos vêm de home.banner no catálogo, editável pelo admin.html.
+                   A lista de reserva abaixo é o carrossel de fábrica, e precisa ser
+                   igual a BANNER_PADRAO em admin/catalogo.js — é ela que o painel
+                   mostra para editar quando o catálogo ainda não tem a chave home. -->
               <div
                 x-data="{
-                  fotos: [
-                    { src: 'assets/marca/11.jpg', pos: 'center 33%', alt: 'Kit de miniaturas Lattafa Yara Collection nas mãos' },
-                    { src: 'assets/marca/22.jpg', pos: 'center 20%', alt: 'Frasco de perfume em formato de salto apresentado na palma da mão' },
-                    { src: 'assets/marca/28.jpg', pos: 'left center', alt: 'Perfumes, body splash e caixas espalhados lado a lado' },
-                  ],
+                  fotos: (dados.home && dados.home.banner && dados.home.banner.length)
+                    ? dados.home.banner
+                    : [
+                        { src: 'assets/marca/11.jpg', pos: 'center 33%', alt: 'Kit de miniaturas Lattafa Yara Collection nas mãos' },
+                        { src: 'assets/marca/22.jpg', pos: 'center 20%', alt: 'Frasco de perfume em formato de salto apresentado na palma da mão' },
+                        { src: 'assets/marca/28.jpg', pos: 'left center', alt: 'Perfumes, body splash e caixas espalhados lado a lado' },
+                      ],
                   atual: 0,
                   timer: null,
                   toqueX: null,

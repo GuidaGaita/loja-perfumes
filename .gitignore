@@ -1,0 +1,13 @@
+# Fotos originais — ficam só na máquina da loja (222 MB).
+# O site usa as versões reduzidas em assets/.
+PERFUMES ARABES ORIGINAIS/
+MINIATURAS ARABES/
+BRAND - PERFUMES E HIDRATANTES NACIONAIS/
+IMPORTADOS ORIGINAIS/
+ISABELLE LA BELLE LINHA ARABES/
+FOTOS DA CARLA PARA O CATALOGO/
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
