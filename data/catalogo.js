@@ -103,7 +103,7 @@ window.CATALOGO = {
       "capa": "assets/marca/a07be91d-a8c1-4b6a-a17c-7afae100b24a.jpg",
       "capaPos": "center",
       "capaCardPos": "center",
-      "capaZoom": 1.45,
+      "capaZoom": 1.1,
       "capaOrigem": "50% 50%",
       "total": 8
     }
