@@ -101,13 +101,13 @@ window.CATALOGO = {
       "slug": "infantis",
       "nome": "Infantis",
       "chamada": "Lattafa - 75 ml e Brand Collection 25 ML",
-      "descricao": "A linha infantil da Lattafa é uma coleção de perfumes pensada para crianças, com fragrâncias mais suaves, doces e divertidas, além de embalagens coloridas e personagens que chamam a atenção dos pequenos.",
+      "descricao": "A linha infantil  é uma coleção de perfumes pensada para crianças, com fragrâncias mais suaves, doces e divertidas, além de embalagens coloridas e personagens que chamam a atenção dos pequenos.",
       "capa": "assets/marca/a07be91d-a8c1-4b6a-a17c-7afae100b24a.jpg",
       "capaPos": "center",
       "capaCardPos": "center",
       "capaZoom": 1.45,
       "capaOrigem": "50% 50%",
-      "total": 1
+      "total": 8
     }
   ],
   "produtos": [
@@ -2234,12 +2234,150 @@ window.CATALOGO = {
       "genero": "unissex",
       "tipo": "Perfume",
       "preco": 150,
-      "descricao": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.\nA nota de topo é: Tuberosa.\nAs notas de coração são: Jasmim e Patchouli.\nAs notas de fundo são: Almíscar, Cedro e Baunilha.\n",
+      "descricao": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável. Topo: Tuberosa. Coração: Jasmim e Patchouli. Fundo: Almíscar, Cedro e Baunilha.",
       "destaque": false,
       "id": "sing",
       "categoria": "infantis",
       "imagem": "assets/produtos/arabes-originais/sing .jpg",
-      "resumo": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.\nA nota de topo é: Tuberosa.\nAs notas de coração são: Jasmim e Patchouli.\nAs notas de fundo são: Almíscar, Cedro e Baunilha."
+      "resumo": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.",
+      "notas": {
+        "topo": "Tuberosa",
+        "coracao": "Jasmim e Patchouli",
+        "fundo": "Almíscar, Cedro e Baunilha"
+      }
+    },
+    {
+      "nome": "Play",
+      "marca": "Lattafa",
+      "volume": "75 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 150,
+      "descricao": "Play de Lattafa Perfumes é um perfume Floral Frutado Compartilhável. Topo: Gengibre, Limão e Mandarina. Coração: Ruibarbo, Jasmim, Ameixa e Violeta. Fundo: Madeiras Preciosas, Âmbar e Almíscar.",
+      "destaque": false,
+      "id": "play",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/Play.jpg",
+      "resumo": "Play de Lattafa Perfumes é um perfume Floral Frutado Compartilhável.",
+      "notas": {
+        "topo": "Gengibre, Limão e Mandarina",
+        "coracao": "Ruibarbo, Jasmim, Ameixa e Violeta",
+        "fundo": "Madeiras Preciosas, Âmbar e Almíscar"
+      }
+    },
+    {
+      "nome": "Happy Time",
+      "marca": "Lattafa",
+      "volume": "75 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 150,
+      "descricao": "Happy Time de Lattafa Perfumes é um perfume Floral Frutado. Topo: Mandarina. Coração: Jasmim-Manga, Gardênia e Jasmim. Fundo: Coco, Almíscar e Patchouli.",
+      "destaque": false,
+      "id": "happy-time",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/happy-time.jpg",
+      "resumo": "Happy Time de Lattafa Perfumes é um perfume Floral Frutado.",
+      "notas": {
+        "topo": "Mandarina",
+        "coracao": "Jasmim-Manga, Gardênia e Jasmim",
+        "fundo": "Coco, Almíscar e Patchouli"
+      }
+    },
+    {
+      "nome": "Stop Wait Go",
+      "marca": "Lattafa",
+      "volume": "75 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 150,
+      "descricao": "Stop Wait Go de Lattafa Perfumes é um perfume Floral Frutado Gourmand. Topo: Pêssego, Pera e Lavanda. Coração: Orquídea, Pralinê e Coco. Fundo: Âmbar, Almíscar e Sândalo.",
+      "destaque": true,
+      "id": "stop-wait-go",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/stop-wait-go.jpg",
+      "resumo": "Stop Wait Go de Lattafa Perfumes é um perfume Floral Frutado Gourmand.",
+      "notas": {
+        "topo": "Pêssego, Pera e Lavanda",
+        "coracao": "Orquídea, Pralinê e Coco",
+        "fundo": "Âmbar, Almíscar e Sândalo"
+      }
+    },
+    {
+      "nome": "Riders",
+      "marca": "Lattafa",
+      "volume": "75 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 150,
+      "descricao": "Riders de Lattafa Perfumes é um perfume Cítrico Aromático. Topo: Gálbano, Limão e Bergamota. Coração: Laranja. Fundo: Almíscar.",
+      "destaque": false,
+      "id": "riders",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/riders.jpg",
+      "resumo": "Riders de Lattafa Perfumes é um perfume Cítrico Aromático.",
+      "notas": {
+        "topo": "Gálbano, Limão e Bergamota",
+        "coracao": "Laranja",
+        "fundo": "Almíscar"
+      }
+    },
+    {
+      "nome": "Happy Brush",
+      "marca": "Lattafa",
+      "volume": "75 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 150,
+      "descricao": "Happy Brush de Lattafa Perfumes é um perfume Floral Frutado Gourmand. Topo: Abacaxi, Framboesa e Pêssego. Coração: Framboesa. Fundo: Baunilha e Caramelo.",
+      "destaque": false,
+      "id": "happy-brush",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/happy-brush.jpg",
+      "resumo": "Happy Brush de Lattafa Perfumes é um perfume Floral Frutado Gourmand.",
+      "notas": {
+        "topo": "Abacaxi, Framboesa e Pêssego",
+        "coracao": "Framboesa",
+        "fundo": "Baunilha e Caramelo"
+      }
+    },
+    {
+      "nome": "Petits et Mamans Bvlgari ",
+      "marca": "Brand Collection 234",
+      "volume": "25 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 75,
+      "descricao": "Petits et Mamans de Bvlgari é um perfume Floral Amadeirado Almiscarado. Topo: Pau-Rosa, Laranja Siciliana e Bergamota. Coração: Camomila, Girassol e Rosa. Fundo: Notas Atalcadas, Baunilha, Íris e Pêssego Branco.",
+      "destaque": false,
+      "id": "petits-et-mamans-bvlgari",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/petits-et-mamans-bvlgari.jpg",
+      "resumo": "Petits et Mamans de Bvlgari é um perfume Floral Amadeirado Almiscarado.",
+      "notas": {
+        "topo": "Pau-Rosa, Laranja Siciliana e Bergamota",
+        "coracao": "Camomila, Girassol e Rosa",
+        "fundo": "Notas Atalcadas, Baunilha, Íris e Pêssego Branco"
+      }
+    },
+    {
+      "nome": "Bonne Étoile Baby Dior ",
+      "marca": " Brand Collection 420",
+      "volume": "25 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 75,
+      "descricao": "Bonne Étoile Baby Dior de Dior é um perfume Floral Frutado. Topo: Pera Verde. Coração: Rosa Silvestre. Fundo: Almíscar Branco.",
+      "destaque": false,
+      "id": "bonne-etoile-baby-dior",
+      "categoria": "infantis",
+      "imagem": "assets/produtos/infantis/bonne-etoile-baby-dior.jpg",
+      "resumo": "Bonne Étoile Baby Dior de Dior é um perfume Floral Frutado.",
+      "notas": {
+        "topo": "Pera Verde",
+        "coracao": "Rosa Silvestre",
+        "fundo": "Almíscar Branco"
+      }
     }
   ]
 };
