@@ -44,7 +44,7 @@ window.CATALOGO = {
       "capaCardPos": "center bottom",
       "capaZoom": 1.4,
       "capaOrigem": "30% 50%",
-      "total": 33
+      "total": 32
     },
     {
       "slug": "miniaturas-arabes",
@@ -107,7 +107,7 @@ window.CATALOGO = {
       "capaCardPos": "center",
       "capaZoom": 1.45,
       "capaOrigem": "50% 50%",
-      "total": 0
+      "total": 1
     }
   ],
   "produtos": [
@@ -2237,7 +2237,7 @@ window.CATALOGO = {
       "descricao": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.\nA nota de topo é: Tuberosa.\nAs notas de coração são: Jasmim e Patchouli.\nAs notas de fundo são: Almíscar, Cedro e Baunilha.\n",
       "destaque": false,
       "id": "sing",
-      "categoria": "arabes-originais",
+      "categoria": "infantis",
       "imagem": "assets/produtos/arabes-originais/sing .jpg",
       "resumo": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.\nA nota de topo é: Tuberosa.\nAs notas de coração são: Jasmim e Patchouli.\nAs notas de fundo são: Almíscar, Cedro e Baunilha."
     }
