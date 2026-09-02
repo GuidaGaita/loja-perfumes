@@ -62,7 +62,7 @@ window.CATALOGO = {
       "chamada": "Perfumes e hidratantes nacionais",
       "descricao": "Linha nacional Brand Collection: miniaturas de 25 ml, tamanhos grandes de 80/100 ml e hidratantes perfumados que repetem a inspiração olfativa de cada fragrância.",
       "capa": "assets/marca/29.jpg",
-      "capaPos": "center 15%",
+      "capaPos": "center 35%",
       "capaCardPos": "center",
       "total": 50
     },
