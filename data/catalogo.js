@@ -30,6 +30,11 @@ window.CATALOGO = {
         "src": "assets/marca/28.jpg",
         "pos": "50% ",
         "alt": "Perfumes, body splash e caixas espalhados lado a lado"
+      },
+      {
+        "src": "assets/marca/6.jpg",
+        "pos": "center",
+        "alt": ""
       }
     ]
   },
