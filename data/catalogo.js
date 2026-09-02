@@ -44,7 +44,7 @@ window.CATALOGO = {
       "capaCardPos": "center bottom",
       "capaZoom": 1.4,
       "capaOrigem": "30% 50%",
-      "total": 32
+      "total": 33
     },
     {
       "slug": "miniaturas-arabes",
@@ -52,9 +52,9 @@ window.CATALOGO = {
       "chamada": "As fragrâncias árabes em 25 ml",
       "descricao": "Versões de 25 ml das fragrâncias árabes mais procuradas. Cabem na bolsa, são ideais para experimentar antes do tamanho grande e para presentear.",
       "capa": "assets/marca/13.jpg",
-      "capaPos": "center 60%",
+      "capaPos": "center 40%",
       "capaCardPos": "center",
-      "capaZoom": 1.6,
+      "capaZoom": 1.55,
       "capaOrigem": "50% 60%",
       "total": 10
     },
@@ -82,7 +82,10 @@ window.CATALOGO = {
       "chamada": "Body splash 300 ml + hidratante 200 g",
       "descricao": "Kits de body splash de 300 ml acompanhados do hidratante de 200 g na mesma fragrância. Perfume leve para o dia a dia e pele macia no mesmo ritual.",
       "capa": "assets/produtos/isabellelabelle.jpeg",
-      "capaPos": "center 58%",
+      "capaPos": "center 18%",
+      "capaCardPos": "center",
+      "capaZoom": 1.35,
+      "capaOrigem": "50% 50%",
       "total": 5
     },
     {
@@ -93,6 +96,18 @@ window.CATALOGO = {
       "capa": "assets/marca/27.jpg",
       "capaPos": "center 71%",
       "total": 3
+    },
+    {
+      "slug": "infantis",
+      "nome": "Infantis",
+      "chamada": "Lattafa - 75 ml e Brand Collection 25 ML",
+      "descricao": "A linha infantil da Lattafa é uma coleção de perfumes pensada para crianças, com fragrâncias mais suaves, doces e divertidas, além de embalagens coloridas e personagens que chamam a atenção dos pequenos.",
+      "capa": "assets/marca/a07be91d-a8c1-4b6a-a17c-7afae100b24a.jpg",
+      "capaPos": "center",
+      "capaCardPos": "center",
+      "capaZoom": 1.45,
+      "capaOrigem": "50% 50%",
+      "total": 0
     }
   ],
   "produtos": [
@@ -2211,6 +2226,20 @@ window.CATALOGO = {
       "categoria": "acessorios",
       "imagem": "assets/marca/30.jpg",
       "resumo": "Frasco de vidro de 8 ml para armazenar e transportar perfume."
+    },
+    {
+      "nome": "Sing ",
+      "marca": "Lattafa",
+      "volume": "75 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 150,
+      "descricao": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.\nA nota de topo é: Tuberosa.\nAs notas de coração são: Jasmim e Patchouli.\nAs notas de fundo são: Almíscar, Cedro e Baunilha.\n",
+      "destaque": false,
+      "id": "sing",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/sing .jpg",
+      "resumo": "Sing de Lattafa Perfumes é um perfume Oriental Floral Compartilhável.\nA nota de topo é: Tuberosa.\nAs notas de coração são: Jasmim e Patchouli.\nAs notas de fundo são: Almíscar, Cedro e Baunilha."
     }
   ]
 };
