@@ -5,7 +5,7 @@ window.CATALOGO = {
     "nome": "CRPARFUM",
     "assinatura": "Árabes originais, importados e nacionais",
     "whatsapp": "5561981131320",
-    "instagram": "",
+    "instagram": "crpar.fum",
     "entrega": "Enviamos para todo o Brasil — combine a entrega pelo WhatsApp",
     "pagamento": "Pix, cartão e dinheiro"
   },
