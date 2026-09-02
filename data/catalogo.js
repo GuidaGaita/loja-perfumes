@@ -12,24 +12,24 @@ window.CATALOGO = {
   "home": {
     "banner": [
       {
-        "src": "assets/marca/11.jpg",
-        "pos": "center 33%",
-        "alt": "Kit de miniaturas Lattafa Yara Collection nas mãos"
-      },
-      {
         "src": "assets/marca/22.jpg",
         "pos": "center 20%",
         "alt": "Frasco de perfume em formato de salto apresentado na palma da mão"
       },
       {
-        "src": "assets/marca/28.jpg",
-        "pos": "left center",
-        "alt": "Perfumes, body splash e caixas espalhados lado a lado"
+        "src": "assets/marca/11.jpg",
+        "pos": "center 36%",
+        "alt": "Kit de miniaturas Lattafa Yara Collection nas mãos"
       },
       {
         "src": "assets/marca/4.jpg",
         "pos": "center",
         "alt": ""
+      },
+      {
+        "src": "assets/marca/28.jpg",
+        "pos": "50% ",
+        "alt": "Perfumes, body splash e caixas espalhados lado a lado"
       }
     ]
   },
@@ -42,8 +42,6 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "capaZoom": 1.4,
-      "capaOrigem": "30% 50%",
       "total": 32
     },
     {
@@ -53,8 +51,8 @@ window.CATALOGO = {
       "descricao": "Versões de 25 ml das fragrâncias árabes mais procuradas. Cabem na bolsa, são ideais para experimentar antes do tamanho grande e para presentear.",
       "capa": "assets/marca/13.jpg",
       "capaPos": "center 40%",
-      "capaCardPos": "center",
-      "capaZoom": 1.55,
+      "capaCardPos": "center 50%",
+      "capaZoom": 2,
       "capaOrigem": "50% 60%",
       "total": 10
     },
@@ -64,7 +62,8 @@ window.CATALOGO = {
       "chamada": "Perfumes e hidratantes nacionais",
       "descricao": "Linha nacional Brand Collection: miniaturas de 25 ml, tamanhos grandes de 80/100 ml e hidratantes perfumados que repetem a inspiração olfativa de cada fragrância.",
       "capa": "assets/marca/29.jpg",
-      "capaPos": "center",
+      "capaPos": "center 15%",
+      "capaCardPos": "center",
       "total": 50
     },
     {
@@ -81,11 +80,9 @@ window.CATALOGO = {
       "nome": "Isabelle La Belle",
       "chamada": "Body splash 300 ml + hidratante 200 g",
       "descricao": "Kits de body splash de 300 ml acompanhados do hidratante de 200 g na mesma fragrância. Perfume leve para o dia a dia e pele macia no mesmo ritual.",
-      "capa": "assets/produtos/isabellelabelle.jpeg",
-      "capaPos": "center 18%",
+      "capa": "assets/marca/8f1e7732-9ce8-4a5b-bd4d-269ca36fdea6.jpg",
+      "capaPos": "center  40%",
       "capaCardPos": "center",
-      "capaZoom": 1.35,
-      "capaOrigem": "50% 50%",
       "total": 5
     },
     {
@@ -93,8 +90,9 @@ window.CATALOGO = {
       "nome": "Acessórios",
       "chamada": "Decantes e frascos para levar seu perfume",
       "descricao": "Decantes e frascos atomizadores recarregáveis para transportar sua fragrância favorita na bolsa, na mochila ou na viagem.",
-      "capa": "assets/marca/27.jpg",
-      "capaPos": "center 71%",
+      "capa": "assets/marca/ddabe9d0-0e46-43c8-93b8-93b83fdccc31.jpg",
+      "capaPos": "center",
+      "capaCardPos": "center",
       "total": 3
     },
     {
@@ -2192,12 +2190,12 @@ window.CATALOGO = {
       "genero": "unissex",
       "tipo": "Decante",
       "preco": 25,
-      "descricao": "Decante de 5 ml da fragrância da sua escolha. Ideal para experimentar um perfume antes de levar o frasco cheio ou para carregar na bolsa.",
+      "descricao": "Decante de 5 ml da fragrância da sua escolha (qualquer frangancia, até aquelas que não estão aqui no site) . Ideal para experimentar um perfume antes de levar o frasco cheio ou para carregar na bolsa.",
       "destaque": true,
       "id": "decante-5ml",
       "categoria": "acessorios",
       "imagem": "assets/marca/35.jpg",
-      "resumo": "Decante de 5 ml da fragrância da sua escolha. Ideal para experimentar um perfume antes de levar o frasco cheio ou para carregar na bolsa."
+      "resumo": "Decante de 5 ml da fragrância da sua escolha (qualquer frangancia, até aquelas que não estão aqui no site) . Ideal para experimentar um perfume antes de levar o frasco cheio ou para carregar na bolsa."
     },
     {
       "nome": "Frasco atomizador recarregável 5 ml",
