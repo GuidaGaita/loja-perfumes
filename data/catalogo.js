@@ -25,6 +25,11 @@ window.CATALOGO = {
         "src": "assets/marca/28.jpg",
         "pos": "left center",
         "alt": "Perfumes, body splash e caixas espalhados lado a lado"
+      },
+      {
+        "src": "assets/marca/4.jpg",
+        "pos": "center",
+        "alt": ""
       }
     ]
   },
@@ -47,7 +52,7 @@ window.CATALOGO = {
       "chamada": "As fragrâncias árabes em 25 ml",
       "descricao": "Versões de 25 ml das fragrâncias árabes mais procuradas. Cabem na bolsa, são ideais para experimentar antes do tamanho grande e para presentear.",
       "capa": "assets/marca/13.jpg",
-      "capaPos": "center 35%",
+      "capaPos": "center 60%",
       "capaCardPos": "center",
       "capaZoom": 1.6,
       "capaOrigem": "50% 60%",
