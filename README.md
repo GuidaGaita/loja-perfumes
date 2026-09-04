@@ -17,9 +17,10 @@ Abra **`/admin.html`** no endereço do site (`seusite.com.br/admin.html`), entre
 senha, altere o que precisar e clique em **Publicar**. O site atualiza sozinho em
 cerca de 1 minuto. Funciona no celular.
 
-O painel edita produtos, categorias, o carrossel da home e os dados da loja
-(WhatsApp, textos de entrega e pagamento). As fotos são enviadas direto por ele e
-reduzidas automaticamente — não precisa mexer em nada no computador.
+O painel edita produtos, categorias, o carrossel da home, o bloco "Sobre" da home
+(aba **Sobre**: etiqueta, título, texto, foto e o botão do WhatsApp) e os dados da
+loja (WhatsApp, textos de entrega e pagamento). As fotos são enviadas direto por ele
+e reduzidas automaticamente — não precisa mexer em nada no computador.
 
 ### Primeiro acesso em um aparelho novo
 
@@ -117,11 +118,12 @@ mudar valor ou trocar a ordem dos produtos. Rode depois de mexer em
   `index.html`) — um "Perfumes" digitado no lugar de "Perfume" viraria uma opção extra
   no filtro, dividindo os produtos em silêncio. Ao digitar um valor novo, o painel
   ainda avisa se ele só difere por acento ou caixa de um já existente.
-- **O carrossel da home tem uma lista de fábrica** em dois lugares que precisam ficar
-  iguais: a reserva no `index.html` e `BANNER_PADRAO` em `admin/catalogo.js`. É o que a
-  loja mostra quando o catálogo não tem a chave `home`, e é o que o painel abre para
-  editar nesse caso — para a administradora ajustar o carrossel que está no ar em vez
-  de montar um novo.
+- **O carrossel e o bloco "Sobre" da home têm conteúdo de fábrica** em dois lugares
+  que precisam ficar iguais: a reserva no `index.html` (o `x-data` do carrossel e o
+  método `sobre()`) e `BANNER_PADRAO` / `SOBRE_PADRAO` em `admin/catalogo.js`. É o que
+  a loja mostra quando o catálogo não tem `home.banner` / `home.sobre`, e é o que o
+  painel abre para editar nesse caso — para a administradora ajustar o que está no ar
+  em vez de escrever tudo de novo.
 
 ---
 
