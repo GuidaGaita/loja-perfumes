@@ -241,7 +241,7 @@
             <nav class="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-2 pb-1">
               <template x-for="item in [
                   ['produtos','Produtos'],['categorias','Categorias'],
-                  ['home','Home'],['loja','Loja'],['publicar','Publicar']
+                  ['home','Home'],['sobre','Sobre'],['loja','Loja'],['publicar','Publicar']
                 ]" :key="item[0]">
                 <button
                   @click="aba = item[0]; if (item[0] === 'publicar') prepararPublicacao()"
@@ -489,6 +489,102 @@
                   Enviar uma foto nova
                   <input type="file" accept="image/*" class="hidden" @change="enviarFotoMarca($event, (c) => adicionarAoBanner(c))" />
                 </label>
+              </div>
+            </section>
+
+            <!-- ===================================================== SOBRE -->
+            <section x-show="aba === 'sobre'" class="max-w-3xl">
+              <div class="flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <h2 class="font-display text-2xl">Bloco "Sobre" da página inicial</h2>
+                  <p class="mt-1 text-sm text-stone-500">
+                    A faixa com foto e texto que fica no fim da home, logo abaixo dos
+                    mais pedidos.
+                  </p>
+                </div>
+                <button @click="restaurarSobre()" class="text-sm text-stone-500 underline">
+                  Voltar ao texto original
+                </button>
+              </div>
+
+              <!-- Como o bloco aparece na loja, com o mesmo recorte do site. -->
+              <div class="mt-5 grid grid-cols-1 gap-0 overflow-hidden rounded-xl border border-stone-200 bg-white sm:grid-cols-2 dark:border-stone-800 dark:bg-stone-900">
+                <div class="h-56 bg-stone-200 sm:h-full sm:min-h-[16rem] dark:bg-stone-800">
+                  <img
+                    x-show="sobre.foto" :src="urlFoto(sobre.foto)" :alt="sobre.fotoAlt"
+                    class="h-full w-full object-cover"
+                    :style="'object-position:' + (sobre.fotoPos || 'center')"
+                  />
+                </div>
+                <div class="flex flex-col justify-center p-6">
+                  <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300" x-text="sobre.etiqueta"></p>
+                  <h3 class="font-display mt-3 text-2xl" x-text="sobre.titulo"></h3>
+                  <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400" x-text="sobre.texto"></p>
+                  <span class="mt-5 inline-flex w-fit rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white" x-text="sobre.botao"></span>
+                </div>
+              </div>
+
+              <div class="mt-6 space-y-4 rounded-xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+                <div>
+                  <label class="rotulo">Etiqueta (a palavra pequena em cima do título)</label>
+                  <input class="campo" x-model="sobre.etiqueta" @change="salvarRascunho()" placeholder="Sobre" />
+                </div>
+                <div>
+                  <label class="rotulo">Título</label>
+                  <input class="campo" x-model="sobre.titulo" @change="salvarRascunho()" />
+                </div>
+                <div>
+                  <label class="rotulo">Texto</label>
+                  <textarea class="campo min-h-[9rem]" x-model="sobre.texto" @change="salvarRascunho()"></textarea>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label class="rotulo">Texto do botão</label>
+                    <input class="campo" x-model="sobre.botao" @change="salvarRascunho()" placeholder="Falar no WhatsApp" />
+                  </div>
+                  <div>
+                    <label class="rotulo">Mensagem que o botão abre no WhatsApp</label>
+                    <input class="campo" x-model="sobre.mensagem" @change="salvarRascunho()" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 space-y-4 rounded-xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+                <p class="text-sm font-semibold">Foto do bloco</p>
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label class="rotulo">Enquadramento</label>
+                    <input class="campo" x-model="sobre.fotoPos" @change="salvarRascunho()" placeholder="center" />
+                    <p class="mt-1 text-xs text-stone-500">
+                      Decide que parte da foto fica visível — <code>center 30%</code> puxa
+                      para cima, <code>left center</code> para a esquerda.
+                    </p>
+                  </div>
+                  <div>
+                    <label class="rotulo">Descrição da foto (acessibilidade)</label>
+                    <input class="campo" x-model="sobre.fotoAlt" @change="salvarRascunho()" />
+                  </div>
+                </div>
+
+                <div>
+                  <p class="rotulo">Trocar a foto</p>
+                  <div class="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-8">
+                    <template x-for="foto in fotosMarca" :key="foto.caminho">
+                      <button
+                        @click="definirFotoSobre(foto.caminho)"
+                        class="aspect-square overflow-hidden rounded-lg border-2"
+                        :class="sobre.foto === foto.caminho ? 'border-acento-500' : 'border-transparent hover:border-acento-500'"
+                        :title="foto.nome"
+                      >
+                        <img :src="urlFoto(foto.caminho)" :alt="foto.nome" loading="lazy" class="h-full w-full object-cover" />
+                      </button>
+                    </template>
+                  </div>
+                  <label class="mt-3 inline-block cursor-pointer rounded-full border border-stone-300 px-4 py-2 text-sm font-medium hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800">
+                    Enviar uma foto nova
+                    <input type="file" accept="image/*" class="hidden" @change="enviarFotoMarca($event, (c) => definirFotoSobre(c))" />
+                  </label>
+                </div>
               </div>
             </section>
 

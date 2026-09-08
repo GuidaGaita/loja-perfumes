@@ -21,6 +21,9 @@ window.Catalogo = (function () {
     "nome", "marca", "volume", "genero", "tipo", "preco", "descricao", "destaque",
     "id", "categoria", "imagem", "arquivoOriginal", "resumo", "notas",
   ];
+  const ORDEM_SOBRE = [
+    "etiqueta", "titulo", "texto", "foto", "fotoPos", "fotoAlt", "botao", "mensagem",
+  ];
   const OPCIONAIS = new Set([
     "capaCardPos", "capaZoom", "capaOrigem", "arquivoOriginal", "notas",
   ]);
@@ -37,6 +40,24 @@ window.Catalogo = (function () {
     { src: "assets/marca/22.jpg", pos: "center 20%", alt: "Frasco de perfume em formato de salto apresentado na palma da mão" },
     { src: "assets/marca/28.jpg", pos: "left center", alt: "Perfumes, body splash e caixas espalhados lado a lado" },
   ];
+
+  /* Bloco "Sobre" de fábrica da home. Mesma regra do BANNER_PADRAO: precisa
+     ser igual à reserva no index.html, para o painel abrir editando o texto
+     que está no ar quando o catálogo ainda não tem a chave "sobre". */
+  const SOBRE_PADRAO = {
+    etiqueta: "Sobre",
+    titulo: "Atendimento humanizado, escolha personalizada",
+    texto:
+      "Nosso atendimento é humanizado e pensado para ajudar você a encontrar a essência ideal " +
+      "para tornar sua fragrância uma verdadeira marca registrada. Em cada descrição, você " +
+      "encontra as notas olfativas de topo, coração e fundo, para conhecer melhor cada perfume. " +
+      "E, se ainda ficar em dúvida, estarei aqui para te auxiliar durante sua escolha.",
+    foto: "assets/marca/20.jpg",
+    fotoPos: "center",
+    fotoAlt: "Atendimento personalizado da perfumaria",
+    botao: "Falar no WhatsApp",
+    mensagem: "Olá! Vim pelo site e gostaria de uma recomendação de perfume.",
+  };
 
   /* Rótulos que separam a pirâmide olfativa dentro da descrição. */
   const ROTULOS_NOTAS = [
@@ -131,7 +152,12 @@ window.Catalogo = (function () {
     dados.loja = ordenar(Object.assign({}, dados.loja), ORDEM_LOJA);
 
     const saida = { loja: dados.loja };
-    if (dados.home) saida.home = dados.home;
+    if (dados.home) {
+      const home = {};
+      if (dados.home.banner) home.banner = dados.home.banner;
+      if (dados.home.sobre) home.sobre = ordenar(Object.assign({}, dados.home.sobre), ORDEM_SOBRE);
+      saida.home = home;
+    }
     saida.categorias = dados.categorias;
     saida.produtos = dados.produtos;
     return saida;
@@ -244,8 +270,13 @@ window.Catalogo = (function () {
     if (!igual(original.loja, atual.loja)) {
       mudancas.push({ tipo: "loja", acao: "alterada", rotulo: "Dados da loja" });
     }
-    if (!igual(original.home || null, atual.home || null)) {
+    const homeAntes = original.home || {};
+    const homeDepois = atual.home || {};
+    if (!igual(homeAntes.banner || null, homeDepois.banner || null)) {
       mudancas.push({ tipo: "home", acao: "alterada", rotulo: "Carrossel da home" });
+    }
+    if (!igual(homeAntes.sobre || null, homeDepois.sobre || null)) {
+      mudancas.push({ tipo: "sobre", acao: "alterada", rotulo: "Bloco Sobre da home" });
     }
 
     /* a ordem dos produtos importa: é a ordem exibida no site */
@@ -275,12 +306,14 @@ window.Catalogo = (function () {
       if (m.tipo === "categoria") return "Categoria " + m.rotulo + ": " + m.acao;
       if (m.tipo === "loja") return "Atualiza os dados da loja";
       if (m.tipo === "home") return "Atualiza o carrossel da home";
+      if (m.tipo === "sobre") return "Atualiza o bloco Sobre da home";
     }
 
     if (contar("produto")) pedacos.push(plural(contar("produto"), "produto", "produtos"));
     if (contar("categoria")) pedacos.push(plural(contar("categoria"), "categoria", "categorias"));
     if (contar("loja")) pedacos.push("dados da loja");
     if (contar("home")) pedacos.push("carrossel da home");
+    if (contar("sobre")) pedacos.push("bloco Sobre");
     if (fotos) pedacos.push(plural(fotos, "foto", "fotos"));
 
     return "Atualiza " + pedacos.join(", ");
@@ -290,6 +323,7 @@ window.Catalogo = (function () {
     CABECALHO,
     GENEROS,
     BANNER_PADRAO,
+    SOBRE_PADRAO,
     slugify,
     separarNotas,
     normalizar,

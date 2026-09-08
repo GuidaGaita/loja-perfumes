@@ -16,7 +16,7 @@ function admin() {
 
     /* ---------------------------------------------------------------- estado */
     tela: "carregando", // carregando | primeiroAcesso | login | painel
-    aba: "produtos", // produtos | categorias | home | loja | publicar
+    aba: "produtos", // produtos | categorias | home | sobre | loja | publicar
 
     gh: null,
     publicado: null, // catálogo como está no ar (base do diff)
@@ -217,20 +217,18 @@ function admin() {
 
         this.publicado = this.extrairCatalogo(arquivo.texto);
 
-        /* Catálogo antigo, sem a chave "home": a loja está mostrando o
-           carrossel de fábrica. Trazemos ele para o painel como se já
-           estivesse publicado — assim a aba Home abre com as fotos que estão
-           no ar, prontas para editar, e não em branco pedindo para montar um
-           carrossel novo. Entra nos dois lados (publicado e rascunho) de
-           propósito: é o estado atual do site, não uma alteração pendente. */
-        if (!this.publicado.home || !(this.publicado.home.banner || []).length) {
-          this.publicado.home = { banner: Catalogo.clonar(Catalogo.BANNER_PADRAO) };
-        }
+        /* Catálogo antigo, sem "home": a loja está mostrando o carrossel e o
+           texto de fábrica. Trazemos os dois para o painel como se já
+           estivessem publicados — assim as abas Home e Sobre abrem com o que
+           está no ar, prontas para editar, e não em branco. */
+        this.completarHome(this.publicado);
 
         this.baseSha = await this.gh.shaDaBranch();
         this.dados = Catalogo.clonar(this.publicado);
 
         this.recuperarRascunho();
+        /* rascunho salvo antes do bloco Sobre existir */
+        this.completarHome(this.dados);
         this.carregarFotosMarca();
 
         this.tela = "painel";
@@ -241,6 +239,19 @@ function admin() {
       } finally {
         this.ocupado = false;
         this.progresso = "";
+      }
+    },
+
+    /* Preenche home.banner e home.sobre com o conteúdo de fábrica quando o
+       catálogo ainda não os tem. Ver o comentário acima: é o estado atual do
+       site, não uma alteração pendente, por isso entra nos dois lados. */
+    completarHome(catalogo) {
+      if (!catalogo.home) catalogo.home = {};
+      if (!(catalogo.home.banner || []).length) {
+        catalogo.home.banner = Catalogo.clonar(Catalogo.BANNER_PADRAO);
+      }
+      if (!catalogo.home.sobre) {
+        catalogo.home.sobre = Catalogo.clonar(Catalogo.SOBRE_PADRAO);
       }
     },
 
@@ -790,6 +801,28 @@ function admin() {
       this.salvarRascunho();
     },
 
+    /* -------------------------------------------------------------- sobre */
+
+    /* Igual ao banner: getter puro, porque a aba renderiza mesmo escondida. */
+    get sobre() {
+      return (this.dados.home && this.dados.home.sobre) || {};
+    },
+
+    definirFotoSobre(caminho) {
+      if (!this.dados.home) this.dados.home = {};
+      if (!this.dados.home.sobre) this.dados.home.sobre = Catalogo.clonar(Catalogo.SOBRE_PADRAO);
+      this.dados.home.sobre.foto = caminho;
+      this.salvarRascunho();
+    },
+
+    restaurarSobre() {
+      if (!confirm("Voltar o bloco Sobre para o texto original?")) return;
+      if (!this.dados.home) this.dados.home = {};
+      this.dados.home.sobre = Catalogo.clonar(Catalogo.SOBRE_PADRAO);
+      this.salvarRascunho();
+      this.notificar("Texto original restaurado.");
+    },
+
     /* --------------------------------------------------------------- loja */
 
     get whatsappOk() {
@@ -833,10 +866,14 @@ function admin() {
         if (nova) c.capa = nova.previa;
       });
       if (previa.home) {
-        previa.home.banner.forEach((f) => {
+        (previa.home.banner || []).forEach((f) => {
           const nova = this.fotosNovas[f.src];
           if (nova) f.src = nova.previa;
         });
+        if (previa.home.sobre) {
+          const nova = this.fotosNovas[previa.home.sobre.foto];
+          if (nova) previa.home.sobre.foto = nova.previa;
+        }
       }
 
       try {

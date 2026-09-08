@@ -303,6 +303,32 @@
             const n = this.dados.loja.whatsapp || "";
             return n.length >= 12 && !/^5500000/.test(n);
           },
+          /* Bloco "Sobre" da home: vem de home.sobre no catálogo, editável
+             pela aba Sobre do admin.html. Os valores de reserva são o texto de
+             fábrica e precisam ser iguais a SOBRE_PADRAO em admin/catalogo.js —
+             é o que o painel abre para editar enquanto o catálogo não tem a
+             chave, para ela ajustar o que está no ar em vez de escrever tudo
+             de novo. */
+          sobre() {
+            return Object.assign(
+              {
+                etiqueta: "Sobre",
+                titulo: "Atendimento humanizado, escolha personalizada",
+                texto:
+                  "Nosso atendimento é humanizado e pensado para ajudar você a encontrar a essência ideal " +
+                  "para tornar sua fragrância uma verdadeira marca registrada. Em cada descrição, você " +
+                  "encontra as notas olfativas de topo, coração e fundo, para conhecer melhor cada perfume. " +
+                  "E, se ainda ficar em dúvida, estarei aqui para te auxiliar durante sua escolha.",
+                foto: "assets/marca/20.jpg",
+                fotoPos: "center",
+                fotoAlt: "Atendimento personalizado da perfumaria",
+                botao: "Falar no WhatsApp",
+                mensagem: "Olá! Vim pelo site e gostaria de uma recomendação de perfume.",
+              },
+              (this.dados.home && this.dados.home.sobre) || {}
+            );
+          },
+
           linkWhatsapp(texto) {
             return "https://wa.me/" + this.dados.loja.whatsapp + "?text=" + encodeURIComponent(texto);
           },
@@ -729,39 +755,37 @@
             </div>
           </div>
 
-          <!-- Sobre -->
-          <div class="mt-20 grid grid-cols-1 gap-8 overflow-hidden rounded-2xl bg-white md:grid-cols-2 dark:bg-stone-900">
-            <img
-              src="assets/marca/20.jpg"
-              alt="Atendimento personalizado da perfumaria"
-              loading="lazy"
-              class="h-full max-h-[28rem] w-full object-cover"
-            />
-            <div class="flex flex-col justify-center p-8 lg:p-12">
-              <p class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300">
-                Sobre
-              </p>
-              <h2 class="font-display mt-4 text-4xl font-medium text-stone-900 dark:text-white">
-                Atendimento humanizado, escolha personalizada
-              </h2>
-              <p class="mt-5 leading-relaxed text-stone-600 dark:text-stone-400">
-                Nosso atendimento é humanizado e pensado para ajudar você a encontrar a essência ideal
-                para tornar sua fragrância uma verdadeira marca registrada. Em cada descrição, você
-                encontra as notas olfativas de topo, coração e fundo, para conhecer melhor cada perfume.
-                E, se ainda ficar em dúvida, estarei aqui para te auxiliar durante sua escolha.
-              </p>
-              <div class="mt-8">
-                <a
-                  :href="linkWhatsapp('Olá! Vim pelo site e gostaria de uma recomendação de perfume.')"
-                  target="_blank"
-                  rel="noopener"
-                  class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-emerald-700"
-                >
-                  Falar no WhatsApp
-                </a>
+          <!-- Sobre: texto, foto e botão vêm de home.sobre — ver sobre() acima. -->
+          <template x-for="s in [sobre()]" :key="'sobre'">
+            <div class="mt-20 grid grid-cols-1 gap-8 overflow-hidden rounded-2xl bg-white md:grid-cols-2 dark:bg-stone-900">
+              <img
+                x-show="s.foto"
+                :src="s.foto"
+                :alt="s.fotoAlt"
+                :style="'object-position: ' + (s.fotoPos || 'center')"
+                loading="lazy"
+                class="h-full max-h-[28rem] w-full object-cover"
+              />
+              <div class="flex flex-col justify-center p-8 lg:p-12">
+                <p
+                  x-show="s.etiqueta"
+                  class="text-xs font-semibold tracking-[0.3em] text-acento-700 uppercase dark:text-acento-300"
+                  x-text="s.etiqueta"
+                ></p>
+                <h2 class="font-display mt-4 text-4xl font-medium text-stone-900 dark:text-white" x-text="s.titulo"></h2>
+                <p class="mt-5 leading-relaxed whitespace-pre-line text-stone-600 dark:text-stone-400" x-text="s.texto"></p>
+                <div class="mt-8" x-show="s.botao">
+                  <a
+                    :href="linkWhatsapp(s.mensagem)"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-emerald-700"
+                    x-text="s.botao"
+                  ></a>
+                </div>
               </div>
             </div>
-          </div>
+          </template>
         </section>
 
         <!-- ====================================== CATEGORIA / PRODUTOS ==== -->

@@ -378,6 +378,7 @@ async function clicarTexto(pagina, seletor, trecho) {
     for (const [aba, marca] of [
       ["categorias", "Nova categoria"],
       ["home", "Carrossel"],
+      ["sobre", 'Bloco "Sobre"'],
       ["loja", "Dados da loja"],
       ["publicar", "Publicar no site"],
     ]) {
@@ -497,6 +498,66 @@ async function clicarTexto(pagina, seletor, trecho) {
     ok(
       "dá para acrescentar uma quarta foto",
       await limpa.evaluate(() => document.querySelector("[x-data]")._x_dataStack[0].banner.length === 4)
+    );
+
+    /* o bloco Sobre segue a mesma regra do carrossel: abre com o texto que a
+       loja mostra hoje, sem acusar alteração pendente por isso */
+    ok(
+      "a aba Sobre abre com o texto de fábrica, não em branco",
+      recemAberto.home.sobre &&
+        recemAberto.home.sobre.titulo === "Atendimento humanizado, escolha personalizada" &&
+        recemAberto.home.sobre.foto === "assets/marca/20.jpg",
+      JSON.stringify(recemAberto.home.sobre)
+    );
+
+    await limpa.evaluate(() => (document.querySelector("[x-data]")._x_dataStack[0].aba = "sobre"));
+    await new Promise((r) => setTimeout(r, 400));
+    const telaSobre = await limpa.evaluate(() => {
+      const secao = [...document.querySelectorAll("main section")].find(
+        (s) => s.getAttribute("x-show") === "aba === 'sobre'"
+      );
+      return {
+        titulo: secao.querySelector('input[x-model="sobre.titulo"]').value,
+        texto: secao.querySelector('textarea[x-model="sobre.texto"]').value.slice(0, 20),
+        botao: secao.querySelector('input[x-model="sobre.botao"]').value,
+      };
+    });
+    ok(
+      "os campos da aba Sobre vêm preenchidos com o que está no ar",
+      telaSobre.titulo === "Atendimento humanizado, escolha personalizada" &&
+        telaSobre.texto.startsWith("Nosso atendimento") &&
+        telaSobre.botao === "Falar no WhatsApp",
+      JSON.stringify(telaSobre)
+    );
+
+    await limpa.evaluate(() => {
+      const raiz = document.querySelector("[x-data]")._x_dataStack[0];
+      raiz.dados.home.sobre.titulo = "Outro título";
+      raiz.definirFotoSobre("assets/marca/23.jpg");
+    });
+    await new Promise((r) => setTimeout(r, 300));
+    const sobreEditado = await limpa.evaluate(() => {
+      const raiz = document.querySelector("[x-data]")._x_dataStack[0];
+      return JSON.parse(
+        JSON.stringify({
+          mudancas: raiz.mudancas,
+          publicado: Catalogo.normalizar(raiz.dados).home.sobre,
+        })
+      );
+    });
+    ok(
+      "editar o Sobre entra no diff separado do carrossel",
+      sobreEditado.mudancas.some((m) => m.tipo === "sobre") &&
+        sobreEditado.mudancas.filter((m) => m.tipo === "sobre").length === 1,
+      JSON.stringify(sobreEditado.mudancas)
+    );
+    ok(
+      "o Sobre editado vai inteiro para o catálogo publicado",
+      sobreEditado.publicado.titulo === "Outro título" &&
+        sobreEditado.publicado.foto === "assets/marca/23.jpg" &&
+        sobreEditado.publicado.mensagem ===
+          "Olá! Vim pelo site e gostaria de uma recomendação de perfume.",
+      JSON.stringify(sobreEditado.publicado)
     );
     errosLimpa.forEach((e) => erros.push("admin limpo: " + e));
     await limpa.close();
