@@ -36,7 +36,17 @@ window.CATALOGO = {
         "pos": "center",
         "alt": ""
       }
-    ]
+    ],
+    "sobre": {
+      "etiqueta": "Sobre",
+      "titulo": "Atendimento humanizado, escolha personalizada",
+      "texto": "Nosso atendimento é humanizado e pensado para ajudar você a encontrar a essência ideal para tornar sua fragrância uma verdadeira marca registrada. Em cada descrição, você encontra as notas olfativas de topo, coração e fundo, para conhecer melhor cada perfume. E, se ainda ficar em dúvida, estarei aqui para te auxiliar durante sua escolha.",
+      "foto": "assets/marca/20.jpg",
+      "fotoPos": "center",
+      "fotoAlt": "Atendimento personalizado da perfumaria",
+      "botao": "Falar no WhatsApp",
+      "mensagem": "Olá! Vim pelo site e gostaria de uma recomendação de perfume."
+    }
   },
   "categorias": [
     {
@@ -47,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 32
+      "total": 33
     },
     {
       "slug": "miniaturas-arabes",
@@ -2381,6 +2391,20 @@ window.CATALOGO = {
         "coracao": "Rosa Silvestre",
         "fundo": "Almíscar Branco"
       }
+    },
+    {
+      "nome": "HER CONFESSION ",
+      "marca": "Lattafa",
+      "volume": "",
+      "genero": "feminino",
+      "tipo": "Kit",
+      "preco": 420,
+      "descricao": "HER CONFESSION 100ML + 12ML + HAIR\nUma fragrância feminina marcante, sofisticada e envolvente, com um toque adocicado e elegante. O kit acompanha o perfume, uma versão de 12ml e Hair Mist para deixar o cabelo perfumado por mais tempo.",
+      "destaque": false,
+      "id": "her-confession",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/her-confession.jpg",
+      "resumo": "HER CONFESSION 100ML + 12ML + HAIR\nUma fragrância feminina marcante, sofisticada e envolvente, com um toque adocicado e elegante. O kit acompanha o perfume, uma versão de 12ml e Hair Mist para deixar o cabelo perfumado por mais tempo."
     }
   ]
 };
