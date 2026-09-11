@@ -45,7 +45,7 @@ window.CATALOGO = {
       "fotoPos": "center",
       "fotoAlt": "Atendimento personalizado da perfumaria",
       "botao": "Falar no WhatsApp",
-      "mensagem": "Olá! Vim pelo site e gostaria de uma recomendação de perfume."
+      "mensagem": "Olá! Vi seu site e gostaria de falar com você para tirar algumas dúvidas e receber sua ajuda para escolher a melhor fragrância para mim."
     }
   },
   "categorias": [
