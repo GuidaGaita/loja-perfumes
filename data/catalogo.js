@@ -57,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 36
+      "total": 69
     },
     {
       "slug": "miniaturas-arabes",
@@ -2447,6 +2447,633 @@ window.CATALOGO = {
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/club-de-nuit-precieux-i.jpg",
       "resumo": "Club de Nuit Precieux I de Armaf é um perfume Oriental Amadeirado\nCompartilhável.\nAs notas de topo são: Abacaxi, Limão, Bergamota, Caramelo, Pimenta Rosa,\nPimenta Preta e Pêra.\nAs notas de coração são: Musgo de Carvalho, Madeira Branca, Jasmim,\nLírio-do-Vale e Anis.\nAs notas de fundo são: Ambroxan, Almíscar Branco, Cedro, Couro, Patchouli,\nÂmbar e Baunilha."
+    },
+    {
+      "nome": " AL NOBLE AMEER",
+      "marca": "Lattafa",
+      "volume": "100 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 199,
+      "descricao": "Ameer de Lattafa Perfumes é uma fragrância compartilhável. Topo: Pimenta Rosa, Maçã e Alecrim. Coração: Cravo-da-Índia e Notas Florais. Fundo: Agarwood (Oud), Ládano, Patchouli, Vetiver e Cipreste.",
+      "destaque": false,
+      "id": "al-noble-ameer",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/al-noble-ameer.jpg",
+      "resumo": "Ameer de Lattafa Perfumes é uma fragrância compartilhável.",
+      "notas": {
+        "topo": "Pimenta Rosa, Maçã e Alecrim",
+        "coracao": "Cravo-da-Índia e Notas Florais",
+        "fundo": "Agarwood (Oud), Ládano, Patchouli, Vetiver e Cipreste"
+      }
+    },
+    {
+      "nome": "FAKHAR PLATIN",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 184,
+      "descricao": "Fakhar Platin de Lattafa Perfumes é uma fragrância Aromática Fougère compartilhável. Topo: Bergamota, Pimenta Rosa e Cardamomo. Coração: Goiaba, Lavanda e Gengibre. Fundo: Incenso, Palo Santo e Sândalo.",
+      "destaque": false,
+      "id": "fakhar-platin",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/fakhar-platin.jpg",
+      "resumo": "Fakhar Platin de Lattafa Perfumes é uma fragrância Aromática Fougère compartilhável.",
+      "notas": {
+        "topo": "Bergamota, Pimenta Rosa e Cardamomo",
+        "coracao": "Goiaba, Lavanda e Gengibre",
+        "fundo": "Incenso, Palo Santo e Sândalo"
+      }
+    },
+    {
+      "nome": "KHAMRAH",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 285,
+      "descricao": "Khamrah de Lattafa Perfumes é uma fragrância Oriental Especiada compartilhável. Topo: Canela, Noz-moscada e Bergamota. Coração:Tâmaras, Pralinê, Tuberosa e Mahonial®. Fundo: Baunilha, Fava Tonka, Madeira de Âmbar, Mirra, Benjoim e Akigalawood.",
+      "destaque": false,
+      "id": "khamrah",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/khamrah.jpg",
+      "resumo": "Khamrah de Lattafa Perfumes é uma fragrância Oriental Especiada compartilhável.",
+      "notas": {
+        "topo": "Canela, Noz-moscada e Bergamota",
+        "coracao": "Tâmaras, Pralinê, Tuberosa e Mahonial®",
+        "fundo": "Baunilha, Fava Tonka, Madeira de Âmbar, Mirra, Benjoim e Akigalawood"
+      }
+    },
+    {
+      "nome": "ODYSSEY HOMME",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 199.9,
+      "descricao": "Odyssey Homme de Armaf é uma fragrância Oriental Masculina. Topo: Cardamomo, Mandarina e Néroli. Coração: Flor de Laranjeira e Rosa. Fundo: Baunilha, Âmbar, Notas Amadeiradas e Sândalo.",
+      "destaque": false,
+      "id": "odyssey-homme",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/odyssey-homme.jpg",
+      "resumo": "Odyssey Homme de Armaf é uma fragrância Oriental Masculina.",
+      "notas": {
+        "topo": "Cardamomo, Mandarina e Néroli",
+        "coracao": "Flor de Laranjeira e Rosa",
+        "fundo": "Baunilha, Âmbar, Notas Amadeiradas e Sândalo"
+      }
+    },
+    {
+      "nome": " SALVO EPD",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 185,
+      "descricao": "Salvo de Maison Alhambra é uma fragrância Oriental Fougère Masculina. Topo: Bergamota. Coração: Lavanda, Pimenta de Szechuan, Anis Estrelado e Noz-moscada. Fundo: Ambroxan e Baunilha.",
+      "destaque": false,
+      "id": "salvo-epd",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/salvo-epd.jpg",
+      "resumo": "Salvo de Maison Alhambra é uma fragrância Oriental Fougère Masculina.",
+      "notas": {
+        "topo": "Bergamota",
+        "coracao": "Lavanda, Pimenta de Szechuan, Anis Estrelado e Noz-moscada",
+        "fundo": "Ambroxan e Baunilha"
+      }
+    },
+    {
+      "nome": "SALVO INTENSE",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 265,
+      "descricao": "Salvo Intense de Maison Alhambra é uma fragrância Aromática Masculina. Topo: Bergamota. Coração:Lavanda, Pimenta de Szechuan, Anis Estrelado e Noz-moscada. Fundo:Ambroxan e Baunilha.",
+      "destaque": false,
+      "id": "salvo-intense",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/salvo-intense.jpg",
+      "resumo": "Salvo Intense de Maison Alhambra é uma fragrância Aromática Masculina.",
+      "notas": {
+        "topo": "Bergamota",
+        "coracao": "Lavanda, Pimenta de Szechuan, Anis Estrelado e Noz-moscada",
+        "fundo": "Ambroxan e Baunilha"
+      }
+    },
+    {
+      "nome": "PHILOS PURA",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 185,
+      "descricao": "Philos Pura de Maison Alhambra é uma fragrância Aromática Frutada compartilhável. Topo:Laranja, Bergamota e Limão. Coração: Frutas. Fundo: Baunilha de Madagascar, Almíscar Branco e Âmbar.",
+      "destaque": false,
+      "id": "philos-pura",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/philos-pura.jpg",
+      "resumo": "Philos Pura de Maison Alhambra é uma fragrância Aromática Frutada compartilhável.",
+      "notas": {
+        "topo": "Laranja, Bergamota e Limão",
+        "coracao": "Frutas",
+        "fundo": "Baunilha de Madagascar, Almíscar Branco e Âmbar"
+      }
+    },
+    {
+      "nome": " JEAN LOWE IMMORTAL",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 194,
+      "descricao": "Jean Lowe Immortal de Maison Alhambra é uma fragrância Oriental Masculina. Topo: Gengibre, Toranja e Bergamota. Coração:Alecrim, Notas Aquáticas, Sálvia e Gerânio. Fundo: Ambroxan, Âmbar e Ládano.",
+      "destaque": false,
+      "id": "jean-lowe-immortal",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/jean-lowe-immortal.jpg",
+      "resumo": "Jean Lowe Immortal de Maison Alhambra é uma fragrância Oriental Masculina.",
+      "notas": {
+        "topo": "Gengibre, Toranja e Bergamota",
+        "coracao": "Alecrim, Notas Aquáticas, Sálvia e Gerânio",
+        "fundo": "Ambroxan, Âmbar e Ládano"
+      }
+    },
+    {
+      "nome": "HAYAATI PRETO",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 205,
+      "descricao": "Hayaati de Lattafa Perfumes é uma fragrância Amadeirada Aromática compartilhável. Topo:Maçã e Bergamota. Coração:Canela e Notas Amadeiradas. Fundo: Almíscar e Baunilha.",
+      "destaque": false,
+      "id": "hayaati-preto",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/hayaati-preto.jpg",
+      "resumo": "Hayaati de Lattafa Perfumes é uma fragrância Amadeirada Aromática compartilhável.",
+      "notas": {
+        "topo": "Maçã e Bergamota",
+        "coracao": "Canela e Notas Amadeiradas",
+        "fundo": "Almíscar e Baunilha"
+      }
+    },
+    {
+      "nome": "PERSEUS TRADICIONAL",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 180,
+      "descricao": "Perseus de Maison Alhambra é uma fragrância Aromática Masculina. Topo: Heliotrópio, Cominho e Bergamota. Coração:Amêndoa, Lavanda e Jasmim. Fundo:Baunilha, Âmbar e Sândalo.",
+      "destaque": false,
+      "id": "perseus-tradicional",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/perseus-tradicional.jpg",
+      "resumo": "Perseus de Maison Alhambra é uma fragrância Aromática Masculina.",
+      "notas": {
+        "topo": "Heliotrópio, Cominho e Bergamota",
+        "coracao": "Amêndoa, Lavanda e Jasmim",
+        "fundo": "Baunilha, Âmbar e Sândalo"
+      }
+    },
+    {
+      "nome": "TURATHI BLUE",
+      "marca": "Afnan ",
+      "volume": "90 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 287,
+      "descricao": "Turathi Blue de Afnan é uma fragrância Aromática Aquática Masculina. Topo: Cítricos. Coração:Notas Amadeiradas e Âmbar. Fundo: Almíscar, Especiarias e Patchouli.",
+      "destaque": false,
+      "id": "turathi-blue",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/turathi-blue.jpg",
+      "resumo": "Turathi Blue de Afnan é uma fragrância Aromática Aquática Masculina.",
+      "notas": {
+        "topo": "Cítricos",
+        "coracao": "Notas Amadeiradas e Âmbar",
+        "fundo": "Almíscar, Especiarias e Patchouli"
+      }
+    },
+    {
+      "nome": "ATTAR GOLD",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 264,
+      "descricao": "Attar Al Wesal Gold de Al Wataniah é uma fragrância Oriental Especiada compartilhável. Topo: Toranja, Hortelã, Bergamota, Pêra e Lavanda. Coração: Canela e Cominho. Fundo: Baunilha, Patchouli, Cedro e Âmbar.",
+      "destaque": false,
+      "id": "attar-gold",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/attar-gold.jpg",
+      "resumo": "Attar Al Wesal Gold de Al Wataniah é uma fragrância Oriental Especiada compartilhável.",
+      "notas": {
+        "topo": "Toranja, Hortelã, Bergamota, Pêra e Lavanda",
+        "coracao": "Canela e Cominho",
+        "fundo": "Baunilha, Patchouli, Cedro e Âmbar"
+      }
+    },
+    {
+      "nome": "ATTAR AL WESAL",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 205,
+      "descricao": "Attar Al Wesal de Al Wataniah é uma fragrância Oriental Especiada compartilhável. Topo: Lavanda, Pera, Hortelã, Bergamota e Limão. Coração:Canela, Sálvia, Esclareia e Cominho. Fundo:Casca de Baunilha Negra, Âmbar, Cedro e Patchouli.",
+      "destaque": false,
+      "id": "attar-al-wesal",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/attar-al-wesal.jpg",
+      "resumo": "Attar Al Wesal de Al Wataniah é uma fragrância Oriental Especiada compartilhável.",
+      "notas": {
+        "topo": "Lavanda, Pera, Hortelã, Bergamota e Limão",
+        "coracao": "Canela, Sálvia, Esclareia e Cominho",
+        "fundo": "Casca de Baunilha Negra, Âmbar, Cedro e Patchouli"
+      }
+    },
+    {
+      "nome": "RAYHAAN LION",
+      "marca": "Rayhaan",
+      "volume": "100 ml",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 263,
+      "descricao": "Lion de Rayhaan é uma fragrância Aromática Especiada Masculina. Topo: Lavanda, Pera, Hortelã e Bergamota. Coração: Canela, Sálvia, Esclaréia e Cominho. Fundo: Baunilha, Âmbar, Cedro e Patchouli.",
+      "destaque": false,
+      "id": "rayhaan-lion",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/rayhaan-lion.jpg",
+      "resumo": "Lion de Rayhaan é uma fragrância Aromática Especiada Masculina.",
+      "notas": {
+        "topo": "Lavanda, Pera, Hortelã e Bergamota",
+        "coracao": "Canela, Sálvia, Esclaréia e Cominho",
+        "fundo": "Baunilha, Âmbar, Cedro e Patchouli"
+      }
+    },
+    {
+      "nome": " AFNAN 9PM",
+      "marca": "Afnan ",
+      "volume": "100 ml",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 230,
+      "descricao": "9PM de Afnan é uma fragrância Oriental Baunilha Masculina. Topo:Maçã, Canela, Lavanda Silvestre e Bergamota. Coração: Flor de Laranjeira e Lírio-do-Vale. Fundo: Baunilha, Fava Tonka, Âmbar e Patchouli.",
+      "destaque": false,
+      "id": "afnan-9pm",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/afnan-9pm.jpg",
+      "resumo": "9PM de Afnan é uma fragrância Oriental Baunilha Masculina.",
+      "notas": {
+        "topo": "Maçã, Canela, Lavanda Silvestre e Bergamota",
+        "coracao": "Flor de Laranjeira e Lírio-do-Vale",
+        "fundo": "Baunilha, Fava Tonka, Âmbar e Patchouli"
+      }
+    },
+    {
+      "nome": "QAED PRETO",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 190,
+      "descricao": "Qaed Al Fursan de Lattafa Perfumes é uma fragrância Oriental Amadeirada compartilhável. Topo: Abacaxi e Açafrão. Coração:Bálsamo de Abeto e Jasmim. Fundo:Cedro, Âmbar e Agarwood (Oud).",
+      "destaque": false,
+      "id": "qaed-preto",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/qaed-preto.jpg",
+      "resumo": "Qaed Al Fursan de Lattafa Perfumes é uma fragrância Oriental Amadeirada compartilhável.",
+      "notas": {
+        "topo": "Abacaxi e Açafrão",
+        "coracao": "Bálsamo de Abeto e Jasmim",
+        "fundo": "Cedro, Âmbar e Agarwood (Oud)"
+      }
+    },
+    {
+      "nome": "AETHER EXTRAIT DE PARFUM",
+      "marca": "French Avenue",
+      "volume": "100 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 285,
+      "descricao": "Aether é uma fragrância Aromática Frutada compartilhável. Topo: Maçã Verde, Bergamota e Mandarina. Coração:Cedro, Petitgrain, Cashmeran e Violeta. Fundo: Musgo de Carvalho, Almíscar e Madeira de Âmbar.",
+      "destaque": false,
+      "id": "aether-extrait-de-parfum",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/aether-extrait-de-parfum.jpg",
+      "resumo": "Aether é uma fragrância Aromática Frutada compartilhável.",
+      "notas": {
+        "topo": "Maçã Verde, Bergamota e Mandarina",
+        "coracao": "Cedro, Petitgrain, Cashmeran e Violeta",
+        "fundo": "Musgo de Carvalho, Almíscar e Madeira de Âmbar"
+      }
+    },
+    {
+      "nome": "SPECTRE GHOST FRENCH AVENUE",
+      "marca": "Fragrance World",
+      "volume": "80 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 310,
+      "descricao": "Spectre Ghost de French Avenue é uma fragrância Amadeirada Aromática Masculina. Topo: Gengibre, Cardamomo e Bergamota. Coração: Pimenta Rosa, Groselha Preta e Rosa. Fundo: Baunilha, Cedro e Patchouli.",
+      "destaque": false,
+      "id": "spectre-ghost-french-avenue",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/spectre-ghost-french-avenue.jpg",
+      "resumo": "Spectre Ghost de French Avenue é uma fragrância Amadeirada Aromática Masculina.",
+      "notas": {
+        "topo": "Gengibre, Cardamomo e Bergamota",
+        "coracao": "Pimenta Rosa, Groselha Preta e Rosa",
+        "fundo": "Baunilha, Cedro e Patchouli"
+      }
+    },
+    {
+      "nome": "AL LAYL",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 170,
+      "descricao": "Al Layl de Al Wataniah é uma fragrância Amadeirada Especiada Masculina. Topo: Framboesa, Café, Lavanda e Bergamota. Coração: Jasmim, Pêssego, Rosa e Cashmeran. Fundo: Almíscar, Sândalo e Patchouli.",
+      "destaque": false,
+      "id": "al-layl",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/al-layl.jpg",
+      "resumo": "Al Layl de Al Wataniah é uma fragrância Amadeirada Especiada Masculina.",
+      "notas": {
+        "topo": "Framboesa, Café, Lavanda e Bergamota",
+        "coracao": "Jasmim, Pêssego, Rosa e Cashmeran",
+        "fundo": "Almíscar, Sândalo e Patchouli"
+      }
+    },
+    {
+      "nome": "BIDAYA HABIBI KING",
+      "marca": "Bidaya Parfums",
+      "volume": "100 ml",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 279.9,
+      "descricao": "Habibi King de Bidaya Parfums é uma fragrância Masculina. Topo: Canela, Flor de Laranjeira, Cardamomo e Bergamota. Coração: Baunilha de Bourbon e Elemi. Fundo: Pralinê, Fava Tonka, Madeira Guaiac, Amêndoa Cristalizada, Âmbar e Almíscar.",
+      "destaque": false,
+      "id": "bidaya-habibi-king",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/bidaya-habibi-king.jpg",
+      "resumo": "Habibi King de Bidaya Parfums é uma fragrância Masculina.",
+      "notas": {
+        "topo": "Canela, Flor de Laranjeira, Cardamomo e Bergamota",
+        "coracao": "Baunilha de Bourbon e Elemi",
+        "fundo": "Pralinê, Fava Tonka, Madeira Guaiac, Amêndoa Cristalizada, Âmbar e Almíscar"
+      }
+    },
+    {
+      "nome": "MAAHIR HONOR BRANCO",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 200,
+      "descricao": "Maahir Honor de Lattafa Perfumes é uma fragrância Cítrica Aromática compartilhável. Topo: Hortelã, Limão, Bergamota e Tomilho. Coração: Alecrim, Lavanda, Jasmim e Flor de Moringa. Fundo:Almíscar, Cedro e Âmbar.",
+      "destaque": false,
+      "id": "maahir-honor-branco",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/maahir-honor-branco.jpg",
+      "resumo": "Maahir Honor de Lattafa Perfumes é uma fragrância Cítrica Aromática compartilhável.",
+      "notas": {
+        "topo": "Hortelã, Limão, Bergamota e Tomilho",
+        "coracao": "Alecrim, Lavanda, Jasmim e Flor de Moringa",
+        "fundo": "Almíscar, Cedro e Âmbar"
+      }
+    },
+    {
+      "nome": "MAAHIR GOLD",
+      "marca": "Lattafa",
+      "volume": "100 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 165,
+      "descricao": "Maahir de Lattafa Perfumes é uma fragrância Oriental Floral compartilhável. Topo: Bagas Vermelhas, Pêssego e Bergamota. Coração: Jasmim, Peônia e Lírio Vermelho. Fundo: Sândalo, Flor de Baunilha e Almíscar.",
+      "destaque": false,
+      "id": "maahir-gold",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/maahir-gold.jpg",
+      "resumo": "Maahir de Lattafa Perfumes é uma fragrância Oriental Floral compartilhável.",
+      "notas": {
+        "topo": "Bagas Vermelhas, Pêssego e Bergamota",
+        "coracao": "Jasmim, Peônia e Lírio Vermelho",
+        "fundo": "Sândalo, Flor de Baunilha e Almíscar"
+      }
+    },
+    {
+      "nome": "VULCAN FEU",
+      "marca": "French Avenue",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 385,
+      "descricao": "Vulcan Feu de French Avenue é uma fragrância Floral compartilhável. Topo: Manga, Limão, Gengibre e Ruibarbo. Coração: Pimenta Rosa, Jasmim, Violeta e Pralinê. Fundo: Fava Tonka, Cedro, Âmbar Cinzento e Musgo.",
+      "destaque": false,
+      "id": "vulcan-feu",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/vulcan-feu.jpg",
+      "resumo": "Vulcan Feu de French Avenue é uma fragrância Floral compartilhável.",
+      "notas": {
+        "topo": "Manga, Limão, Gengibre e Ruibarbo",
+        "coracao": "Pimenta Rosa, Jasmim, Violeta e Pralinê",
+        "fundo": "Fava Tonka, Cedro, Âmbar Cinzento e Musgo"
+      }
+    },
+    {
+      "nome": "OUD MYSTERY",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 180,
+      "descricao": "Oud Mystery Intense de Al Wataniah é uma fragrância Amadeirada Especiada compartilhável. Topo: Noz-moscada, Açafrão e Lavanda. Coração: Agarwood (Oud). Fundo: Almíscar e Patchouli.",
+      "destaque": false,
+      "id": "oud-mystery",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/oud-mystery.jpg",
+      "resumo": "Oud Mystery Intense de Al Wataniah é uma fragrância Amadeirada Especiada compartilhável.",
+      "notas": {
+        "topo": "Noz-moscada, Açafrão e Lavanda",
+        "coracao": "Agarwood (Oud)",
+        "fundo": "Almíscar e Patchouli"
+      }
+    },
+    {
+      "nome": "MAISON MINDSET",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 260,
+      "descricao": "Mindset de Maison Alhambra é uma fragrância Floral Amadeirada Almiscarada Masculina. Topo: Bergamota da Calábria e Bergamota. Coração: Flor de Laranjeira. Fundo: Ambrofix™ e Patchouli.",
+      "destaque": false,
+      "id": "maison-mindset",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/maison-mindset.jpg",
+      "resumo": "Mindset de Maison Alhambra é uma fragrância Floral Amadeirada Almiscarada Masculina.",
+      "notas": {
+        "topo": "Bergamota da Calábria e Bergamota",
+        "coracao": "Flor de Laranjeira",
+        "fundo": "Ambrofix™ e Patchouli"
+      }
+    },
+    {
+      "nome": "YARA TOUS",
+      "marca": "Lattafa",
+      "volume": "100 ml",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 170,
+      "descricao": "Yara Tous de Lattafa Perfumes é uma fragrância Feminina. Topo:Manga, Coco e Maracujá. Coração: Jasmim, Flor de Laranjeira e Heliotrópio. Fundo: Baunilha, Almíscar e Cashmeran.",
+      "destaque": false,
+      "id": "yara-tous",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/yara-tous.jpg",
+      "resumo": "Yara Tous de Lattafa Perfumes é uma fragrância Feminina.",
+      "notas": {
+        "topo": "Manga, Coco e Maracujá",
+        "coracao": "Jasmim, Flor de Laranjeira e Heliotrópio",
+        "fundo": "Baunilha, Almíscar e Cashmeran"
+      }
+    },
+    {
+      "nome": "YARA ELIXIR",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 258,
+      "descricao": "Yara Elixir de Lattafa Perfumes é uma fragrância Oriental Baunilha Feminina. Topo: S’mores de Morango e Groselha Preta. Coração: Jasmim e Flor de Laranjeira. Fundo: Baunilha, Caramelo, Âmbar e Almíscar.",
+      "destaque": false,
+      "id": "yara-elixir",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/yara-elixir.jpg",
+      "resumo": "Yara Elixir de Lattafa Perfumes é uma fragrância Oriental Baunilha Feminina.",
+      "notas": {
+        "topo": "S’mores de Morango e Groselha Preta",
+        "coracao": "Jasmim e Flor de Laranjeira",
+        "fundo": "Baunilha, Caramelo, Âmbar e Almíscar"
+      }
+    },
+    {
+      "nome": "SABAH GARDEN OF EDEN",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 280,
+      "descricao": "Sabah Al Ward Garden of Eden de Al Wataniah é uma fragrância Floral Aquática Feminina.Topo:Lótus Azul, Notas Aquáticas, Bergamota, Notas Frutadas e Mandarina. Coração: Lírio, Íris, Jasmim-Manga e Jasmim. Fundo: Baunilha, Sândalo, Âmbar e Almíscar.",
+      "destaque": false,
+      "id": "sabah-garden-of-eden",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/sabah-garden-of-eden.jpg",
+      "resumo": "Sabah Al Ward Garden of Eden de Al Wataniah é uma fragrância Floral Aquática Feminina.",
+      "notas": {
+        "topo": "Lótus Azul, Notas Aquáticas, Bergamota, Notas Frutadas e Mandarina",
+        "coracao": "Lírio, Íris, Jasmim-Manga e Jasmim",
+        "fundo": "Baunilha, Sândalo, Âmbar e Almíscar"
+      }
+    },
+    {
+      "nome": "SABAH DELILAH ",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 289.99,
+      "descricao": "Sabah Al Ward Delilah de Al Wataniah é uma fragrância Floral Frutada Gourmand Feminina. Topo:Frutas Vermelhas, Fruta Cristalizada, Morango, Framboesa, Lichia e Mandarina. Coração: Marshmallow, Jasmim, Rosa, Peônia e Flores Brancas.Fundo: Baunilha, Almíscar, Notas Amadeiradas e Âmbar.",
+      "destaque": false,
+      "id": "sabah-delilah",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/sabah-delilah.jpg",
+      "resumo": "Sabah Al Ward Delilah de Al Wataniah é uma fragrância Floral Frutada Gourmand Feminina.",
+      "notas": {
+        "topo": "Frutas Vermelhas, Fruta Cristalizada, Morango, Framboesa, Lichia e Mandarina",
+        "coracao": "Marshmallow, Jasmim, Rosa, Peônia e Flores Brancas",
+        "fundo": "Baunilha, Almíscar, Notas Amadeiradas e Âmbar"
+      }
+    },
+    {
+      "nome": "SABAH AL WARD",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 195,
+      "descricao": "Sabah Al Ward de Al Wataniah é uma fragrância Oriental Floral Feminina. Topo: Pimenta Rosa e Mandarina. Coração: Flor de Laranjeira, Vagem de Cacau e Jasmim Sambac. Fundo: Baunilha, Fava Tonka e Patchouli.",
+      "destaque": false,
+      "id": "sabah-al-ward",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/sabah-al-ward.jpg",
+      "resumo": "Sabah Al Ward de Al Wataniah é uma fragrância Oriental Floral Feminina.",
+      "notas": {
+        "topo": "Pimenta Rosa e Mandarina",
+        "coracao": "Flor de Laranjeira, Vagem de Cacau e Jasmim Sambac",
+        "fundo": "Baunilha, Fava Tonka e Patchouli"
+      }
+    },
+    {
+      "nome": " CLUB DE NUIT WOMAN",
+      "marca": "Armaf",
+      "volume": "105 ml",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 305,
+      "descricao": "Club de Nuit Woman de Armaf é uma fragrância Floral Frutada Feminina. Topo: Laranja, Bergamota, Toranja e Pêssego. Coração: Rosa, Jasmim, Gerânio e Lichia. Fundo: Patchouli, Almíscar, Baunilha e Vetiver.",
+      "destaque": false,
+      "id": "club-de-nuit-woman",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/club-de-nuit-woman.jpg",
+      "resumo": "Club de Nuit Woman de Armaf é uma fragrância Floral Frutada Feminina.",
+      "notas": {
+        "topo": "Laranja, Bergamota, Toranja e Pêssego",
+        "coracao": "Rosa, Jasmim, Gerânio e Lichia",
+        "fundo": "Patchouli, Almíscar, Baunilha e Vetiver"
+      }
+    },
+    {
+      "nome": "CLUB DE NUIT MALEKA",
+      "marca": "Armaf",
+      "volume": "105 ml",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 299.99,
+      "descricao": "Club de Nuit Maleka de Armaf é uma fragrância Floral Frutada Feminina. Topo:Lichia, Bergamota e Pimenta Rosa. Coração: Raiz de Orris. Fundo: Pralinê, Sândalo e Ambroxan.",
+      "destaque": false,
+      "id": "club-de-nuit-maleka",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/club-de-nuit-maleka.jpg",
+      "resumo": "Club de Nuit Maleka de Armaf é uma fragrância Floral Frutada Feminina.",
+      "notas": {
+        "topo": "Lichia, Bergamota e Pimenta Rosa",
+        "coracao": "Raiz de Orris",
+        "fundo": "Pralinê, Sândalo e Ambroxan"
+      }
+    },
+    {
+      "nome": "MILKY WAY",
+      "marca": "Maison Asrar",
+      "volume": "100 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 365,
+      "descricao": "Milky Way de Maison Asrar é uma fragrância Oriental Baunilha compartilhável. Topo: Leite, Caramelo e Ameixa. Coração:Madeira de Cashmere, Raiz de Orris, Jasmim e Ylang Ylang. Fundo: Sândalo, Baunilha e Fava Tonka.",
+      "destaque": false,
+      "id": "milky-way",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/milky-way.jpg",
+      "resumo": "Milky Way de Maison Asrar é uma fragrância Oriental Baunilha compartilhável.",
+      "notas": {
+        "topo": "Leite, Caramelo e Ameixa",
+        "coracao": "Madeira de Cashmere, Raiz de Orris, Jasmim e Ylang Ylang",
+        "fundo": "Sândalo, Baunilha e Fava Tonka"
+      }
     }
   ]
 };
