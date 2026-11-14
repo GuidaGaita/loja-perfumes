@@ -57,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 75
+      "total": 94
     },
     {
       "slug": "miniaturas-arabes",
@@ -3187,6 +3187,367 @@ window.CATALOGO = {
         "topo": "Banana e Doce de Leite",
         "coracao": "Baunilha e Chantilly",
         "fundo": "Biscoito, Pralinê e Almíscar"
+      }
+    },
+    {
+      "nome": "LEONIE EAU DE PARFUM ",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 260,
+      "descricao": "Léonie Intense de Maison Alhambra é uma fragrância Feminina. Topo: Lavanda, Tangerina, Groselha Preta e Petitgrain. Coração:Lavanda, Jasmim e Flor de Laranjeira. Fundo: Baunilha de Madagascar, Âmbar, Cedro e Almíscar.",
+      "destaque": false,
+      "id": "leonie-eau-de-parfum",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/leonie-eau-de-parfum.jpg",
+      "resumo": "Léonie Intense de Maison Alhambra é uma fragrância Feminina.",
+      "notas": {
+        "topo": "Lavanda, Tangerina, Groselha Preta e Petitgrain",
+        "coracao": "Lavanda, Jasmim e Flor de Laranjeira",
+        "fundo": "Baunilha de Madagascar, Âmbar, Cedro e Almíscar"
+      }
+    },
+    {
+      "nome": "VULCAN BAIE",
+      "marca": "French Avenue",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 269,
+      "descricao": "Vulcan Baie de French Avenue é uma fragrância Floral Frutada compartilhável. Topo:Amora, Groselha Preta, Bergamota e Alecrim. Coração: Framboesa, Vodka, Manjericão e Lírio-do-Vale. Fundo: Morango, Pêssego, Almíscar, Âmbar, Patchouli, Sândalo e Incenso.",
+      "destaque": false,
+      "id": "vulcan-baie",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/vulcan-baie.jpg",
+      "resumo": "Vulcan Baie de French Avenue é uma fragrância Floral Frutada compartilhável.",
+      "notas": {
+        "topo": "Amora, Groselha Preta, Bergamota e Alecrim",
+        "coracao": "Framboesa, Vodka, Manjericão e Lírio-do-Vale",
+        "fundo": "Morango, Pêssego, Almíscar, Âmbar, Patchouli, Sândalo e Incenso"
+      }
+    },
+    {
+      "nome": "ROYAL AMBER",
+      "marca": "ORIENTICA",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 369,
+      "descricao": "Royal Amber de Orientica Premium é uma fragrância Oriental Baunilha compartilhável. Topo: Bergamota e Notas Verdes. Coração: Notas Doces, Melão, Abacaxi e Âmbar. Fundo:Almíscar, Notas Amadeiradas e Baunilha.",
+      "destaque": false,
+      "id": "royal-amber",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/royal-amber.jpg",
+      "resumo": "Royal Amber de Orientica Premium é uma fragrância Oriental Baunilha compartilhável.",
+      "notas": {
+        "topo": "Bergamota e Notas Verdes",
+        "coracao": "Notas Doces, Melão, Abacaxi e Âmbar",
+        "fundo": "Almíscar, Notas Amadeiradas e Baunilha"
+      }
+    },
+    {
+      "nome": "CHOCO OVERDOSE",
+      "marca": "Lattafa",
+      "volume": "100 ml",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 280,
+      "descricao": "Choco Overdose de Lattafa Perfumes é uma fragrância Oriental Baunilha Feminina. Topo: Fudge de Chocolate. Coração:Cacau e Cupcake. Fundo:Baunilha, Caramelo e Benjoim.",
+      "destaque": false,
+      "id": "choco-overdose",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/choco-overdose.jpg",
+      "resumo": "Choco Overdose de Lattafa Perfumes é uma fragrância Oriental Baunilha Feminina.",
+      "notas": {
+        "topo": "Fudge de Chocolate",
+        "coracao": "Cacau e Cupcake",
+        "fundo": "Baunilha, Caramelo e Benjoim"
+      }
+    },
+    {
+      "nome": "HAYA",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 265,
+      "descricao": "Haya de Lattafa Perfumes é uma fragrância Feminina. Topo: Champanhe, Morango, Tangerina, Laranja Sanguínea e Rosa. Coração: Gardênia, Jasmim e Orquídea Baunilha. Fundo: Âmbar, Sândalo e Castanha.",
+      "destaque": false,
+      "id": "haya",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/haya.jpg",
+      "resumo": "Haya de Lattafa Perfumes é uma fragrância Feminina.",
+      "notas": {
+        "topo": "Champanhe, Morango, Tangerina, Laranja Sanguínea e Rosa",
+        "coracao": "Gardênia, Jasmim e Orquídea Baunilha",
+        "fundo": "Âmbar, Sândalo e Castanha"
+      }
+    },
+    {
+      "nome": "SAKEENA",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 185.72,
+      "descricao": "Sakeena de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand Feminina. Topo: Maracujá, Notas Ozônicas e Mandarina. Coração: Framboesa, Rosa, Flor de Laranjeira e Sal Marinho. Fundo: Toffee, Pralinê, Baunilha e Almíscar.",
+      "destaque": false,
+      "id": "sakeena",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/sakeena.jpg",
+      "resumo": "Sakeena de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand Feminina.",
+      "notas": {
+        "topo": "Maracujá, Notas Ozônicas e Mandarina",
+        "coracao": "Framboesa, Rosa, Flor de Laranjeira e Sal Marinho",
+        "fundo": "Toffee, Pralinê, Baunilha e Almíscar"
+      }
+    },
+    {
+      "nome": "BADEE AL OUD HONOR ",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 215,
+      "descricao": "Bade'e Al Oud Honor & Glory de Lattafa Perfumes é uma fragrância compartilhável. Topo: Abacaxi e Crème Brûlée. Coração:Canela, Cúrcuma, Pimenta Preta e Benjoim. Fundo: Baunilha, Sândalo, Cashmeran e Musgo.",
+      "destaque": false,
+      "id": "badee-al-oud-honor",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/badee-al-oud-honor.jpg",
+      "resumo": "Bade'e Al Oud Honor & Glory de Lattafa Perfumes é uma fragrância compartilhável.",
+      "notas": {
+        "topo": "Abacaxi e Crème Brûlée",
+        "coracao": "Canela, Cúrcuma, Pimenta Preta e Benjoim",
+        "fundo": "Baunilha, Sândalo, Cashmeran e Musgo"
+      }
+    },
+    {
+      "nome": "SUBLIME",
+      "marca": "Lattafa",
+      "volume": "100 ml",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 230,
+      "descricao": "Bade'e Al Oud Sublime de Lattafa Perfumes é uma fragrância Amadeirada Aromática compartilhável. Topo: Maçã, Lichia e Rosa. Coração: Ameixa e Jasmim. Fundo: Musgo, Baunilha e Patchouli.",
+      "destaque": false,
+      "id": "sublime",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/sublime.jpg",
+      "resumo": "Bade'e Al Oud Sublime de Lattafa Perfumes é uma fragrância Amadeirada Aromática compartilhável.",
+      "notas": {
+        "topo": "Maçã, Lichia e Rosa",
+        "coracao": "Ameixa e Jasmim",
+        "fundo": "Musgo, Baunilha e Patchouli"
+      }
+    },
+    {
+      "nome": "IRIDA EXTRAIT DE PARFUM",
+      "marca": "French Avenue",
+      "volume": "100 ml",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 305,
+      "descricao": "A Irida de French Avenue é uma fragrância compartilhável. Topo: Cereja e Gengibre. Coração: Jasmim. Fundo:Almíscar, Pimenta Rosa e Âmbar.",
+      "destaque": false,
+      "id": "irida-extrait-de-parfum",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/irida-extrait-de-parfum.jpg",
+      "resumo": "A Irida de French Avenue é uma fragrância compartilhável.",
+      "notas": {
+        "topo": "Cereja e Gengibre",
+        "coracao": "Jasmim",
+        "fundo": "Almíscar, Pimenta Rosa e Âmbar"
+      }
+    },
+    {
+      "nome": "LATTAFA PETRA",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 195,
+      "descricao": "Petra de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand compartilhável. Topo: Rum e Ameixa. Coração:Tuberosa e Coco. Fundo:Baunilha, Almíscar e Pralinê.",
+      "destaque": false,
+      "id": "lattafa-petra",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/lattafa-petra.jpg",
+      "resumo": "Petra de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand compartilhável.",
+      "notas": {
+        "topo": "Rum e Ameixa",
+        "coracao": "Tuberosa e Coco",
+        "fundo": "Baunilha, Almíscar e Pralinê"
+      }
+    },
+    {
+      "nome": "SHAGAF",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Miniatura",
+      "preco": 159.9,
+      "descricao": "Shagaf Al Ward de Al Wataniah é uma fragrância Oriental Floral Feminina. Topo: Rosa de Maio, Jasmim e Osmanthus. Coração:Narciso e Tuberosa Indiana. Fundo: Âmbar e Cedro.",
+      "destaque": false,
+      "id": "shagaf",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/shagaf.jpg",
+      "resumo": "Shagaf Al Ward de Al Wataniah é uma fragrância Oriental Floral Feminina.",
+      "notas": {
+        "topo": "Rosa de Maio, Jasmim e Osmanthus",
+        "coracao": "Narciso e Tuberosa Indiana",
+        "fundo": "Âmbar e Cedro"
+      }
+    },
+    {
+      "nome": "OPERA ROUGE",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 160,
+      "descricao": "Opera Rouge de Maison Alhambra é uma fragrância Oriental Floral compartilhável. Topo: Cereja e Mandarina. Coração: Chá de Jasmim e Flor de Laranjeira. Fundo: Baunilha, Café e Patchouli.",
+      "destaque": false,
+      "id": "opera-rouge",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/opera-rouge.jpg",
+      "resumo": "Opera Rouge de Maison Alhambra é uma fragrância Oriental Floral compartilhável.",
+      "notas": {
+        "topo": "Cereja e Mandarina",
+        "coracao": "Chá de Jasmim e Flor de Laranjeira",
+        "fundo": "Baunilha, Café e Patchouli"
+      }
+    },
+    {
+      "nome": "INTRUDE ",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 130,
+      "descricao": "L'Intrude de Maison Alhambra é uma fragrância Floral Feminina. Topo: Pera e Bergamota. Coração: Tuberosa, Flor de Laranjeira e Jasmim Sambac. Fundo: Patchouli, Ambroxan, Baunilha e Vetiver.",
+      "destaque": false,
+      "id": "intrude",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/intrude.jpg",
+      "resumo": "L'Intrude de Maison Alhambra é uma fragrância Floral Feminina.",
+      "notas": {
+        "topo": "Pera e Bergamota",
+        "coracao": "Tuberosa, Flor de Laranjeira e Jasmim Sambac",
+        "fundo": "Patchouli, Ambroxan, Baunilha e Vetiver"
+      }
+    },
+    {
+      "nome": "THARWAH GOLD",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 395,
+      "descricao": "Tharwah Gold de Lattafa Perfumes é uma fragrância Oriental Floral Feminina. Topo: Lavanda e Bergamota. Coração: Flor de Laranjeira e Jasmim Egípcio. Fundo: Baunilha, Âmbar e Vetiver.",
+      "destaque": false,
+      "id": "tharwah-gold",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/tharwah-gold.jpg",
+      "resumo": "Tharwah Gold de Lattafa Perfumes é uma fragrância Oriental Floral Feminina.",
+      "notas": {
+        "topo": "Lavanda e Bergamota",
+        "coracao": "Flor de Laranjeira e Jasmim Egípcio",
+        "fundo": "Baunilha, Âmbar e Vetiver"
+      }
+    },
+    {
+      "nome": " LAYAAN",
+      "marca": "Lattafa",
+      "volume": "75 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 342,
+      "descricao": "Layaan de Lattafa Perfumes é uma fragrância Floral Frutada Feminina. Topo:Pêra Verde e Mandarina. Coração: Jasmim, Lírio-do-Vale e Gardênia. Fundo: Almíscar e Cedro.",
+      "destaque": false,
+      "id": "layaan",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/layaan.jpg",
+      "resumo": "Layaan de Lattafa Perfumes é uma fragrância Floral Frutada Feminina.",
+      "notas": {
+        "topo": "Pêra Verde e Mandarina",
+        "coracao": "Jasmim, Lírio-do-Vale e Gardênia",
+        "fundo": "Almíscar e Cedro"
+      }
+    },
+    {
+      "nome": "DALAL",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 395,
+      "descricao": "Dalal de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand Feminina. Topo: Maçã e Mandarina. Coração:Jasmim, Ylang Ylang e Laranja. Fundo: Baunilha, Almíscar e Musgo de Carvalho.",
+      "destaque": false,
+      "id": "dalal",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/dalal.jpg",
+      "resumo": "Dalal de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand Feminina.",
+      "notas": {
+        "topo": "Maçã e Mandarina",
+        "coracao": "Jasmim, Ylang Ylang e Laranja",
+        "fundo": "Baunilha, Almíscar e Musgo de Carvalho"
+      }
+    },
+    {
+      "nome": " ATHEERI",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 386,
+      "descricao": "Atheeri de Lattafa Perfumes é uma fragrância Oriental Floral Feminina. Topo: Flor de Maracujá e Gota de Orvalho. Coração:Orquídea e Jasmim. Fundo: Baunilha e Madeira de Âmbar.",
+      "destaque": false,
+      "id": "atheeri",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/atheeri.jpg",
+      "resumo": "Atheeri de Lattafa Perfumes é uma fragrância Oriental Floral Feminina.",
+      "notas": {
+        "topo": "Flor de Maracujá e Gota de Orvalho",
+        "coracao": "Orquídea e Jasmim",
+        "fundo": "Baunilha e Madeira de Âmbar"
+      }
+    },
+    {
+      "nome": "COCO MORADO",
+      "marca": "French Avenue",
+      "volume": "100 ml ",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 199.9,
+      "descricao": "Cocoa Morado de French Avenue é uma fragrância Oriental Amadeirada compartilhável. Topo: Canela, Açafrão, Noz-moscada, Cardamomo, Pimenta Rosa e Gengibre. Coração:Agarwood (Oud), Tâmaras, Mirra, Incenso, Cana-de-Açúcar, Caramelo, Madeira de Âmbar e Davana. Fundo: Couro, Manteiga de Cacau, Baunilha de Madagascar, Fava Tonka, Benjoim, Ládano, Patchouli, Almíscar e Mate.",
+      "destaque": false,
+      "id": "coco-morado",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/coco-morado.jpg",
+      "resumo": "Cocoa Morado de French Avenue é uma fragrância Oriental Amadeirada compartilhável.",
+      "notas": {
+        "topo": "Canela, Açafrão, Noz-moscada, Cardamomo, Pimenta Rosa e Gengibre",
+        "coracao": "Agarwood (Oud), Tâmaras, Mirra, Incenso, Cana-de-Açúcar, Caramelo, Madeira de Âmbar e Davana",
+        "fundo": "Couro, Manteiga de Cacau, Baunilha de Madagascar, Fava Tonka, Benjoim, Ládano, Patchouli, Almíscar e Mate"
+      }
+    },
+    {
+      "nome": "SHAGAF GARDENIA ",
+      "marca": "Al Wataniah",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 235.9,
+      "descricao": "Shagaf Gardênia é uma fragrância Feminina. Topo: Pêra, Bergamota e Groselha-Preta. Coração: Gardênia, Rosa, Lírio-do-Vale e Flores Brancas. Fundo: Cedro, Âmbar, Musgo e Almíscar.",
+      "destaque": false,
+      "id": "shagaf-gardenia",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/shagaf-gardenia.jpg",
+      "resumo": "Shagaf Gardênia é uma fragrância Feminina.",
+      "notas": {
+        "topo": "Pêra, Bergamota e Groselha-Preta",
+        "coracao": "Gardênia, Rosa, Lírio-do-Vale e Flores Brancas",
+        "fundo": "Cedro, Âmbar, Musgo e Almíscar"
       }
     }
   ]
