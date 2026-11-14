@@ -2414,7 +2414,7 @@ window.CATALOGO = {
       "tipo": "Perfume",
       "preco": 262,
       "descricao": "O Club de Nuit Urban Man de Armaf é um perfume Amadeirado Especiado\nMasculino.\nAs notas de topo são: Bergamota, Hortelã, Toranja e Cardamomo.\nAs notas de coração são: Gengibre, Lavanda, Cedro e Noz-moscada.\nAs notas de fundo são: Patchouli, Vetiver, Sândalo e Musgo de Carvalho.\n",
-      "destaque": false,
+      "destaque": true,
       "id": "club-de-nuit-urban-men",
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/club-de-nuit-urban-men.jpg",
