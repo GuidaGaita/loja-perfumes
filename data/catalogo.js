@@ -57,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 33
+      "total": 36
     },
     {
       "slug": "miniaturas-arabes",
@@ -2405,6 +2405,48 @@ window.CATALOGO = {
       "categoria": "arabes-originais",
       "imagem": "assets/produtos/arabes-originais/her-confession.jpg",
       "resumo": "HER CONFESSION 100ML + 12ML + HAIR\nUma fragrância feminina marcante, sofisticada e envolvente, com um toque adocicado e elegante. O kit acompanha o perfume, uma versão de 12ml e Hair Mist para deixar o cabelo perfumado por mais tempo."
+    },
+    {
+      "nome": "CLUB DE NUIT URBAN MEN",
+      "marca": "Armaf",
+      "volume": "105",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 262,
+      "descricao": "O Club de Nuit Urban Man de Armaf é um perfume Amadeirado Especiado\nMasculino.\nAs notas de topo são: Bergamota, Hortelã, Toranja e Cardamomo.\nAs notas de coração são: Gengibre, Lavanda, Cedro e Noz-moscada.\nAs notas de fundo são: Patchouli, Vetiver, Sândalo e Musgo de Carvalho.\n",
+      "destaque": false,
+      "id": "club-de-nuit-urban-men",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/club-de-nuit-urban-men.jpg",
+      "resumo": "O Club de Nuit Urban Man de Armaf é um perfume Amadeirado Especiado\nMasculino.\nAs notas de topo são: Bergamota, Hortelã, Toranja e Cardamomo.\nAs notas de coração são: Gengibre, Lavanda, Cedro e Noz-moscada.\nAs notas de fundo são: Patchouli, Vetiver, Sândalo e Musgo de Carvalho."
+    },
+    {
+      "nome": "CLUB DE NUIT SILLAGE ",
+      "marca": "Armaf",
+      "volume": "105",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 267,
+      "descricao": "O Club de Nuit Sillage de Armaf é um perfume floral Amadeirado Almiscarado\nCompartilhável.\nAs notas de topo são: Bergamota, Limão, Lima, Groselha Preta, Folha de Violeta e\nGengibre.\nAs notas de coração são: Rosa, Íris e Jasmim.\nAs notas de fundo são: Ambroxan, Almíscar, Sândalo e Cedro.\n",
+      "destaque": false,
+      "id": "club-de-nuit-sillage",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/club-de-nuit-sillage.jpg",
+      "resumo": "O Club de Nuit Sillage de Armaf é um perfume floral Amadeirado Almiscarado\nCompartilhável.\nAs notas de topo são: Bergamota, Limão, Lima, Groselha Preta, Folha de Violeta e\nGengibre.\nAs notas de coração são: Rosa, Íris e Jasmim.\nAs notas de fundo são: Ambroxan, Almíscar, Sândalo e Cedro."
+    },
+    {
+      "nome": "CLUB DE NUIT PRÉCIEUX I",
+      "marca": "Armaf",
+      "volume": "55",
+      "genero": "unissex",
+      "tipo": "Perfume",
+      "preco": 396,
+      "descricao": "Club de Nuit Precieux I de Armaf é um perfume Oriental Amadeirado\nCompartilhável.\nAs notas de topo são: Abacaxi, Limão, Bergamota, Caramelo, Pimenta Rosa,\nPimenta Preta e Pêra.\nAs notas de coração são: Musgo de Carvalho, Madeira Branca, Jasmim,\nLírio-do-Vale e Anis.\nAs notas de fundo são: Ambroxan, Almíscar Branco, Cedro, Couro, Patchouli,\nÂmbar e Baunilha.",
+      "destaque": false,
+      "id": "club-de-nuit-precieux-i",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/club-de-nuit-precieux-i.jpg",
+      "resumo": "Club de Nuit Precieux I de Armaf é um perfume Oriental Amadeirado\nCompartilhável.\nAs notas de topo são: Abacaxi, Limão, Bergamota, Caramelo, Pimenta Rosa,\nPimenta Preta e Pêra.\nAs notas de coração são: Musgo de Carvalho, Madeira Branca, Jasmim,\nLírio-do-Vale e Anis.\nAs notas de fundo são: Ambroxan, Almíscar Branco, Cedro, Couro, Patchouli,\nÂmbar e Baunilha."
     }
   ]
 };
