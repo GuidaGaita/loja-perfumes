@@ -88,7 +88,7 @@ window.CATALOGO = {
       "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. Os clássicos de perfumaria que todo mundo reconhece.",
       "capa": "assets/marca/9.jpg",
       "capaPos": "center 18%",
-      "total": 11
+      "total": 12
     },
     {
       "slug": "isabelle-la-belle",
@@ -3548,6 +3548,25 @@ window.CATALOGO = {
         "topo": "Pêra, Bergamota e Groselha-Preta",
         "coracao": "Gardênia, Rosa, Lírio-do-Vale e Flores Brancas",
         "fundo": "Cedro, Âmbar, Musgo e Almíscar"
+      }
+    },
+    {
+      "nome": " FERRARI REDE",
+      "marca": "Ferrari ",
+      "volume": "100 ml ",
+      "genero": "masculino",
+      "tipo": "Perfume",
+      "preco": 179.99,
+      "descricao": "Scuderia Ferrari Racing Red de Ferrari é uma fragrância Amadeirada Masculina. Topo: Lima, Pimenta e Artemísia. Coração: Lavanda, Notas Metálicas e Sálvia Esclaréia. Fundo: Couro, Cedro e Fava Tonka.",
+      "destaque": false,
+      "id": "ferrari-rede",
+      "categoria": "importados",
+      "imagem": "assets/produtos/arabes-originais/ferrari-rede.jpg",
+      "resumo": "Scuderia Ferrari Racing Red de Ferrari é uma fragrância Amadeirada Masculina.",
+      "notas": {
+        "topo": "Lima, Pimenta e Artemísia",
+        "coracao": "Lavanda, Notas Metálicas e Sálvia Esclaréia",
+        "fundo": "Couro, Cedro e Fava Tonka"
       }
     }
   ]
