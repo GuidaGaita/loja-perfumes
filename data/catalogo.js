@@ -57,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 69
+      "total": 75
     },
     {
       "slug": "miniaturas-arabes",
@@ -3073,6 +3073,120 @@ window.CATALOGO = {
         "topo": "Leite, Caramelo e Ameixa",
         "coracao": "Madeira de Cashmere, Raiz de Orris, Jasmim e Ylang Ylang",
         "fundo": "Sândalo, Baunilha e Fava Tonka"
+      }
+    },
+    {
+      "nome": "AMEERATI AL ARAB",
+      "marca": "Asdaaf",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 170,
+      "descricao": "Ameerat Al Arab de Asdaaf é uma fragrância Floral Feminina. Topo: Cítricos e Bergamota. Coração:Almíscar Branco e Babosa. Fundo: Jasmim, Almíscar, Notas Amadeiradas e Agarwood (Oud).",
+      "destaque": false,
+      "id": "ameerati-al-arab",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/ameerati-al-arab.jpg",
+      "resumo": "Ameerat Al Arab de Asdaaf é uma fragrância Floral Feminina.",
+      "notas": {
+        "topo": "Cítricos e Bergamota",
+        "coracao": "Almíscar Branco e Babosa",
+        "fundo": "Jasmim, Almíscar, Notas Amadeiradas e Agarwood (Oud)"
+      }
+    },
+    {
+      "nome": " AMEERATI SUGAR",
+      "marca": "Asdaaf",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 189.9,
+      "descricao": "Ameerat Al Arab Sugar Crown de Asdaaf é uma fragrância Floral Frutada Gourmand Feminina. Topo: Laranja Amarga, Fruta Cristalizada e Limão. Coração: Mirtilo, Chiclete, Pêssego, Flor de Pêssego, Gengibre, Rosa Búlgara e Canela. Fundo: Ambroxan, Almíscar e Cedro.",
+      "destaque": false,
+      "id": "ameerati-sugar",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/ameerati-sugar.jpg",
+      "resumo": "Ameerat Al Arab Sugar Crown de Asdaaf é uma fragrância Floral Frutada Gourmand Feminina.",
+      "notas": {
+        "topo": "Laranja Amarga, Fruta Cristalizada e Limão",
+        "coracao": "Mirtilo, Chiclete, Pêssego, Flor de Pêssego, Gengibre, Rosa Búlgara e Canela",
+        "fundo": "Ambroxan, Almíscar e Cedro"
+      }
+    },
+    {
+      "nome": "AMEERATI DOURADO ",
+      "marca": "Asdaaf",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 155,
+      "descricao": "Ameerati de Al Wataniah é uma fragrância Aromática Especiada compartilhável. Topo: Almíscar, Notas Verdes e Cítricos. Coração: Notas Herbais e Notas Amadeiradas. Fundo: Notas Atalcadas e Notas Especiadas.",
+      "destaque": false,
+      "id": "ameerati-dourado",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/ameerati-dourado.jpg",
+      "resumo": "Ameerati de Al Wataniah é uma fragrância Aromática Especiada compartilhável.",
+      "notas": {
+        "topo": "Almíscar, Notas Verdes e Cítricos",
+        "coracao": "Notas Herbais e Notas Amadeiradas",
+        "fundo": "Notas Atalcadas e Notas Especiadas"
+      }
+    },
+    {
+      "nome": "DELILAH",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 299,
+      "descricao": "Delilah de Maison Alhambra é uma fragrância Floral Frutada Feminina. Topo: Ruibarbo, Lichia e Bergamota. Coração: Rosa Turca, Peônia e Lírio. Fundo: Almíscar Branco, Cashmeran e Baunilha.",
+      "destaque": false,
+      "id": "delilah",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/delilah.jpg",
+      "resumo": "Delilah de Maison Alhambra é uma fragrância Floral Frutada Feminina.",
+      "notas": {
+        "topo": "Ruibarbo, Lichia e Bergamota",
+        "coracao": "Rosa Turca, Peônia e Lírio",
+        "fundo": "Almíscar Branco, Cashmeran e Baunilha"
+      }
+    },
+    {
+      "nome": "DELILAH VIOLA",
+      "marca": "Maison Alhambra",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 399,
+      "descricao": "Delilah Viola de Maison Alhambra é uma fragrância Floral Frutada compartilhável. Topo: Pêra, Mandarina, Bergamota e Pêssego. Coração: Lilás, Violeta, Lírio-do-Vale e Lavanda. Fundo: Almíscar Branco, Creme, Sândalo, Patchouli e Baunilha.",
+      "destaque": false,
+      "id": "delilah-viola",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/delilah-viola.jpg",
+      "resumo": "Delilah Viola de Maison Alhambra é uma fragrância Floral Frutada compartilhável.",
+      "notas": {
+        "topo": "Pêra, Mandarina, Bergamota e Pêssego",
+        "coracao": "Lilás, Violeta, Lírio-do-Vale e Lavanda",
+        "fundo": "Almíscar Branco, Creme, Sândalo, Patchouli e Baunilha"
+      }
+    },
+    {
+      "nome": "ECLAIRE BANOFFI",
+      "marca": "Lattafa",
+      "volume": "100 ml ",
+      "genero": "feminino",
+      "tipo": "Perfume",
+      "preco": 220,
+      "descricao": "Eclaire Banoffi de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand compartilhável. Topo: Banana e Doce de Leite. Coração: Baunilha e Chantilly. Fundo:Biscoito, Pralinê e Almíscar.",
+      "destaque": false,
+      "id": "eclaire-banoffi",
+      "categoria": "arabes-originais",
+      "imagem": "assets/produtos/arabes-originais/eclaire-banoffi.jpg",
+      "resumo": "Eclaire Banoffi de Lattafa Perfumes é uma fragrância Floral Frutada Gourmand compartilhável.",
+      "notas": {
+        "topo": "Banana e Doce de Leite",
+        "coracao": "Baunilha e Chantilly",
+        "fundo": "Biscoito, Pralinê e Almíscar"
       }
     }
   ]
