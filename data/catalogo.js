@@ -3553,10 +3553,10 @@ window.CATALOGO = {
     {
       "nome": " FERRARI REDE",
       "marca": "Ferrari ",
-      "volume": "100 ml ",
+      "volume": "125 ml ",
       "genero": "masculino",
       "tipo": "Perfume",
-      "preco": 179.99,
+      "preco": 185.6,
       "descricao": "Scuderia Ferrari Racing Red de Ferrari é uma fragrância Amadeirada Masculina. Topo: Lima, Pimenta e Artemísia. Coração: Lavanda, Notas Metálicas e Sálvia Esclaréia. Fundo: Couro, Cedro e Fava Tonka.",
       "destaque": false,
       "id": "ferrari-rede",
