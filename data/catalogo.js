@@ -88,7 +88,7 @@ window.CATALOGO = {
       "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. Os clássicos de perfumaria que todo mundo reconhece.",
       "capa": "assets/marca/9.jpg",
       "capaPos": "center 18%",
-      "total": 15
+      "total": 14
     },
     {
       "slug": "isabelle-la-belle",
@@ -98,7 +98,7 @@ window.CATALOGO = {
       "capa": "assets/marca/8f1e7732-9ce8-4a5b-bd4d-269ca36fdea6.jpg",
       "capaPos": "center  40%",
       "capaCardPos": "center",
-      "total": 17
+      "total": 18
     },
     {
       "slug": "acessorios",
@@ -5363,7 +5363,7 @@ window.CATALOGO = {
       "descricao": "Dalal é um perfume Floral Frutado Gourmand Feminino. Topo: Maçã e Mandarina. Coração: Jasmim, Ylang Ylang e Laranja. Fundo: Baunilha, Almíscar e Musgo de Carvalho.",
       "destaque": false,
       "id": "club-de-nuit-2",
-      "categoria": "importados",
+      "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/importados/club-de-nuit-2.jpg",
       "resumo": "Dalal é um perfume Floral Frutado Gourmand Feminino.",
       "notas": {
