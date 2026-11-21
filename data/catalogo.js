@@ -88,7 +88,7 @@ window.CATALOGO = {
       "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. Os clássicos de perfumaria que todo mundo reconhece.",
       "capa": "assets/marca/9.jpg",
       "capaPos": "center 18%",
-      "total": 13
+      "total": 12
     },
     {
       "slug": "isabelle-la-belle",
@@ -98,7 +98,7 @@ window.CATALOGO = {
       "capa": "assets/marca/8f1e7732-9ce8-4a5b-bd4d-269ca36fdea6.jpg",
       "capaPos": "center  40%",
       "capaCardPos": "center",
-      "total": 18
+      "total": 19
     },
     {
       "slug": "acessorios",
@@ -5325,7 +5325,7 @@ window.CATALOGO = {
       "descricao": "Yara Candy é um perfume Floral Frutado Gourmand Feminino. Topo: Groselha Preta e Tangerina Verde. Coração: Bala de Morango Efervescente e Gardênia. Fundo: Baunilha, Almíscar, Âmbar e Sândalo.",
       "destaque": false,
       "id": "yara-candy-3",
-      "categoria": "importados",
+      "categoria": "isabelle-la-belle",
       "imagem": "assets/produtos/importados/yara-candy-3.jpg",
       "resumo": "Yara Candy é um perfume Floral Frutado Gourmand Feminino.",
       "notas": {
