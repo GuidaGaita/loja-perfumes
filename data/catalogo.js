@@ -57,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 103
+      "total": 104
     },
     {
       "slug": "miniaturas-arabes",
@@ -88,7 +88,7 @@ window.CATALOGO = {
       "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. Os clássicos de perfumaria que todo mundo reconhece.",
       "capa": "assets/marca/9.jpg",
       "capaPos": "center 18%",
-      "total": 14
+      "total": 13
     },
     {
       "slug": "isabelle-la-belle",
@@ -5472,7 +5472,7 @@ window.CATALOGO = {
       "descricao": "100 ml + 12 ml + Shower Gel (gel de banho).",
       "destaque": false,
       "id": "kit-asad",
-      "categoria": "importados",
+      "categoria": "arabes-originais",
       "imagem": "assets/produtos/importados/kit-asad.jpg",
       "resumo": "100 ml + 12 ml + Shower Gel (gel de banho)."
     },
