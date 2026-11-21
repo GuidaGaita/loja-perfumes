@@ -57,7 +57,7 @@ window.CATALOGO = {
       "capa": "assets/marca/23.jpg",
       "capaPos": "center 78%",
       "capaCardPos": "center bottom",
-      "total": 102
+      "total": 103
     },
     {
       "slug": "miniaturas-arabes",
@@ -88,7 +88,7 @@ window.CATALOGO = {
       "descricao": "Perfumes importados originais, lacrados e em tamanhos grandes. Os clássicos de perfumaria que todo mundo reconhece.",
       "capa": "assets/marca/9.jpg",
       "capaPos": "center 18%",
-      "total": 16
+      "total": 15
     },
     {
       "slug": "isabelle-la-belle",
@@ -5556,7 +5556,7 @@ window.CATALOGO = {
       "descricao": "100 ml + 12 ml + Hair Mist (perfume para cabelos).",
       "destaque": false,
       "id": "sublime-2",
-      "categoria": "importados",
+      "categoria": "arabes-originais",
       "imagem": "assets/produtos/importados/sublime-2.jpg",
       "resumo": "100 ml + 12 ml + Hair Mist (perfume para cabelos)."
     },
