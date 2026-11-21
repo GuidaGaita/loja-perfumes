@@ -69,7 +69,7 @@ window.CATALOGO = {
       "capaCardPos": "center 50%",
       "capaZoom": 2,
       "capaOrigem": "50% 60%",
-      "total": 24
+      "total": 22
     },
     {
       "slug": "brand-nacionais",
@@ -732,46 +732,6 @@ window.CATALOGO = {
         "topo": "orquídea, heliotrópio e tangerina",
         "coracao": "acorde gourmand e frutas tropicais",
         "fundo": "baunilha, almíscar e sândalo"
-      }
-    },
-    {
-      "nome": "Al Noble Wazeer 25 ml",
-      "marca": "Lattafa",
-      "volume": "25 ml",
-      "genero": "unissex",
-      "tipo": "Miniatura",
-      "preco": 69.99,
-      "descricao": "Compartilhável. Topo: conhaque, açafrão, noz-moscada e maçã. Coração: cedro, sândalo, whiskey e carvalho. Fundo: mirra, ambroxan, baunilha e almíscar.",
-      "destaque": false,
-      "id": "al-noble-wazeer-25-ml",
-      "categoria": "miniaturas-arabes",
-      "imagem": "assets/produtos/miniaturas-arabes/al-noble-wazeer-25-ml.jpg",
-      "arquivoOriginal": "AL NOBLE WAZEER 25 ML.png",
-      "resumo": "Compartilhável.",
-      "notas": {
-        "topo": "conhaque, açafrão, noz-moscada e maçã",
-        "coracao": "cedro, sândalo, whiskey e carvalho",
-        "fundo": "mirra, ambroxan, baunilha e almíscar"
-      }
-    },
-    {
-      "nome": "Amber Rouge 25 ml",
-      "marca": "Orientica Premium",
-      "volume": "25 ml",
-      "genero": "unissex",
-      "tipo": "Miniatura",
-      "preco": 75,
-      "descricao": "Amadeirado especiado compartilhável. Topo: açafrão e jasmim. Coração: madeira de âmbar e âmbar cinzento. Fundo: cedro e resina de abeto.",
-      "destaque": false,
-      "id": "amber-rouge-25-ml",
-      "categoria": "miniaturas-arabes",
-      "imagem": "assets/produtos/miniaturas-arabes/amber-rouge-25-ml.jpg",
-      "arquivoOriginal": "AMBER ROUGE 25 ML.jpg",
-      "resumo": "Amadeirado especiado compartilhável.",
-      "notas": {
-        "topo": "açafrão e jasmim",
-        "coracao": "madeira de âmbar e âmbar cinzento",
-        "fundo": "cedro e resina de abeto"
       }
     },
     {
