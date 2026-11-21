@@ -4502,7 +4502,7 @@ window.CATALOGO = {
       "nome": "325 LÊ MÂLE LE PARFUM",
       "marca": "BRAND COLLECTION",
       "volume": "25 ML ",
-      "genero": "feminino",
+      "genero": "masculino",
       "tipo": "Miniatura",
       "preco": 70,
       "descricao": "Le Male Le Parfum é um perfume Oriental Masculino. Topo: Cardamomo. Coração: Lavanda e Íris. Fundo: Baunilha, Notas Orientais e Notas Amadeiradas.",
