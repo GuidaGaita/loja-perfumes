@@ -3384,7 +3384,7 @@ window.CATALOGO = {
       "marca": "Al Wataniah",
       "volume": "100 ml ",
       "genero": "feminino",
-      "tipo": "Miniatura",
+      "tipo": "Perfume",
       "preco": 159.9,
       "descricao": "Shagaf Al Ward de Al Wataniah é uma fragrância Oriental Floral Feminina. Topo: Rosa de Maio, Jasmim e Osmanthus. Coração:Narciso e Tuberosa Indiana. Fundo: Âmbar e Cedro.",
       "destaque": false,
